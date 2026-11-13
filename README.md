@@ -1,49 +1,34 @@
 # E²LoRA 论文复现
 
-五个人使用同一套模型加载、数据读取和训练代码。各自在自己的目录提交实验脚本和配置。
+文本理解、图像分类和文本生成各有一名执行负责人。Dylan 准备三条路线共用的代码和运行条件，完成交接前需要串行进行的检查。Acheng 继续负责消融和参数预算对照。
 
-## 每个人的代码和结果放哪里
+## Dylan 交付共用的运行条件
 
-| 成员 | 实验规划 | 脚本和配置 | 运行结果 |
+1. 固定模型和数据版本，记录下载来源、文件位置及完整性。按路线交付可读的模型权重、训练与验证数据和样本字段说明。
+2. 准备模型加载、数据读取、梯度采集、分组、秩分配和适配器代码。统一运行配置和结果字段。核对各路线目标层、损失接口、分数口径和参数统计。
+3. 配置运行环境和 GPU 提交方式。每条路线先检查一小批数据能否完成加载、前向、反向、共享参数计数和评分，再把代码、运行命令和检查记录交给对应负责人。
+4. 汇总论文表 7–9 的设置，记录正文和表格不一致之处。交接后只处理共用代码和环境问题，正式实验由各路线负责人运行。
+
+共用代码在 [src/e2lora](src/e2lora/)，准备和检查脚本在 [experiments/dylan](experiments/dylan/)。SST-2 已完成 A40 小规模联调。团队共享文件的位置待确定。Dylan 启动的完整 SST-2 训练作业 53836 已取消。现有小规模结果留在 `outputs/dylan/` 作为交接记录。
+
+## 三条实验路线
+
+| 执行人 | 接收 Dylan 的交付 | 独立负责的工作 | 输出 |
 |---|---|---|---|
-| dylan | 共用算法，梯度热图、训练中代理熵、准备开销。图 1、3、4、6–13，§5 和附录 F | `experiments/dylan/` | `outputs/dylan/` |
-| dylan（承接成员 2 的文本理解工作） | RoBERTa 与 GLUE。表 1 和表 6、10、13 的文本部分 | `experiments/dylan/` | `outputs/dylan/` |
-| kathy | 图像分类、噪声和种子实验。表 3、11、12 和表 6、10、13 的图像部分 | `experiments/kathy/` | `outputs/kathy/` |
-| chloe | 数学、代码、常识推理和扩展模型。表 2、14、15 | `experiments/chloe/` | `outputs/chloe/` |
-| acheng | 只分组、只分秩、换相似度、参数预算和采样对照。表 4、5 和图 5。提供表 10 的动态规划分组代码 | `experiments/acheng/` | `outputs/acheng/` |
+| S · 文本理解 | RoBERTa、GLUE、文本配置和联调记录 | 在 MNLI、SST-2、CoLA、QNLI、QQP 上跑完整基线和 E²LoRA 对照。完成参数预算、组合方法和搜索策略的文本对照 | 表 1，表 6、10、13 的文本行。各数据集分数、均值、参数量和耗时 |
+| Kathy · 图像分类 | CLIP、图像数据路径与划分、图像配置和检查记录 | 按固定划分完成分类基线和 E²LoRA 对照。单独运行噪声和种子实验。完成参数预算、组合方法和搜索策略的图像对照 | 表 3、11、12，表 6、10、13 的图像行。各数据集准确率、参数量、分组和耗时 |
+| Chloe · 文本生成 | 生成模型、数学与代码数据、生成和评估环境 | 分别运行数学、代码、常识推理和扩展模型实验。用固定评估集和评分规则生成结果 | 表 2、14、15。GSM8K 正确率、HumanEval pass@1、常识推理准确率和参数量 |
 
-表 10 的文本和图像部分按实验规划分别填报。
+S、Kathy、Chloe 的正式实验分别放在 `experiments/s/`、`experiments/kathy/`、`experiments/chloe/`。输出按 `outputs/负责人/运行目录/` 保存。S 可从 [现有 GLUE 脚本](experiments/dylan/train_glue.py) 接手，正式脚本和结果归 S。此前小样本中 E²LoRA 的参数量略高于 LoRA，正式对照前须确认总秩分配和论文的参数计数口径。
 
-## 哪些代码供大家共用
+## Acheng 的消融与参数预算
 
-- [model](src/e2lora/model/) 加载预训练模型和对应的输入处理工具。参见[模型和版本清单](src/e2lora/model/LIST.md)。
-- [dataset](src/e2lora/dataset/) 读取数据划分，按种子抽样。参见[数据集和版本清单](src/e2lora/dataset/LIST.md)。
-- [tasks](src/e2lora/tasks/) 计算训练误差和任务分数。
-- [adapters](src/e2lora/adapters/) 将 LoRA 小矩阵接到模型上。分组方案列出每组的层和秩。普通 LoRA 每层一组，联调可以手写共享组。
-- [runner](src/e2lora/runner/) 执行分类训练、评分，并把结果写入独立的运行目录。
+使用 Dylan 的共用算法和 Chloe 确认的数学数据与评分设置。独立运行单机制、相似度替换、相近参数预算、秩和梯度采样步数对照，交表 4、5 和图 5。另交付动态规划分组实现，S 与 Kathy 在各自任务上运行并填写表 10。脚本与结果分别放在 `experiments/acheng/` 和 `outputs/acheng/`。
 
-新模型加载逻辑、数据读取和评分方法放到共用目录。论文表图对应的实验配置留在各成员目录。当前已接通分类流程和手写共享。正式 E²LoRA 的梯度、代理熵、自动分组、秩分配，以及完整的图像与生成实验由对应成员接入。
+正式训练过程中的代理熵图由产生相应运行的路线负责人出图。S 提供 SST-2，Kathy 提供 Cars，Chloe 提供生成侧图和全量微调曲线。Dylan 提供共用采集与记录接口，汇总 §5 和附录 F 的准备开销。
 
-## 怎么跑
+模型及数据的版本和来源见[模型清单](src/e2lora/model/LIST.md)和[数据清单](src/e2lora/dataset/LIST.md)。权重位于 `src/e2lora/model/weights/`，原始数据位于 `src/e2lora/dataset/data/`。这两个目录由 Git 忽略。每次正式运行保存模型和数据版本、划分、种子、分数、适配器参数量、总可训练参数量、时间和显存。
 
-在仓库根目录执行。建议用 Python 3.10 或更新版本。
+## 团队共享文件
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -e .
-python experiments/dylan/smoke.py --method lora
-python experiments/dylan/smoke.py --method manual-sharing
-```
-
-这两条运行命令用 CPU 和小型人工数据，检查训练、组内共享以及参数计数。终端会显示写出的 `result.json` 路径。
-
-模型权重放在 `src/e2lora/model/weights/`，数据缓存和运行结果保存在本地。Dylan 当前负责共用算法和文本理解训练。
-
-## 怎么找结果
-
-运行结果按 `outputs/名字/本次运行/result.json` 保存。正式脚本要记录对应的论文表图、模型和数据版本、划分、种子、方法、可训练参数量、分数和耗时。例如 acheng 的表 4 实验写入 `outputs/acheng/`，用结果里的 GSM8K 正确率和参数量填写 Word 报告。
-
-## 当前文本理解实验
-
-Dylan 在 tc2 上运行 RoBERTa-base 和 GLUE。训练命令和配置见 [Dylan 的实验说明](experiments/dylan/README.md)。训练脚本与提交脚本都在 `experiments/dylan/`，下载回来的结果和日志在 `outputs/dylan/`。
+GitHub 管理代码、配置和来源清单。团队共享权重与数据的位置待确定。成员可从清单所列的原始来源获取固定版本，受限模型由各成员使用自己的账号申请。

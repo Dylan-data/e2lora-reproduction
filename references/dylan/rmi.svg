@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="335" height="294">
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="sans-serif" font-size="11" fill="#122638">
+<text x="12" y="21" font-size="15">Toy model gradient similarity (RMI)</text>
+<text x="10" y="81">0</text>
+<text x="120" y="43">0</text>
+<rect x="115" y="52" width="50" height="50" fill="rgb(105,113,245)"/>
+<text x="121" y="81">1.000</text>
+<rect x="167" y="52" width="50" height="50" fill="rgb(200,208,245)"/>
+<text x="173" y="81">0.972</text>
+<rect x="219" y="52" width="50" height="50" fill="rgb(205,213,245)"/>
+<text x="225" y="81">0.971</text>
+<rect x="271" y="52" width="50" height="50" fill="rgb(163,171,245)"/>
+<text x="277" y="81">0.983</text>
+<text x="10" y="133">2</text>
+<text x="172" y="43">2</text>
+<rect x="115" y="104" width="50" height="50" fill="rgb(200,208,245)"/>
+<text x="121" y="133">0.972</text>
+<rect x="167" y="104" width="50" height="50" fill="rgb(105,113,245)"/>
+<text x="173" y="133">1.000</text>
+<rect x="219" y="104" width="50" height="50" fill="rgb(116,124,245)"/>
+<text x="225" y="133">0.997</text>
+<rect x="271" y="104" width="50" height="50" fill="rgb(233,241,245)"/>
+<text x="277" y="133">0.963</text>
+<text x="10" y="185">4</text>
+<text x="224" y="43">4</text>
+<rect x="115" y="156" width="50" height="50" fill="rgb(205,213,245)"/>
+<text x="121" y="185">0.971</text>
+<rect x="167" y="156" width="50" height="50" fill="rgb(116,124,245)"/>
+<text x="173" y="185">0.997</text>
+<rect x="219" y="156" width="50" height="50" fill="rgb(105,113,245)"/>
+<text x="225" y="185">1.000</text>
+<rect x="271" y="156" width="50" height="50" fill="rgb(245,253,245)"/>
+<text x="277" y="185">0.959</text>
+<text x="10" y="237">6</text>
+<text x="276" y="43">6</text>
+<rect x="115" y="208" width="50" height="50" fill="rgb(163,171,245)"/>
+<text x="121" y="237">0.983</text>
+<rect x="167" y="208" width="50" height="50" fill="rgb(233,241,245)"/>
+<text x="173" y="237">0.963</text>
+<rect x="219" y="208" width="50" height="50" fill="rgb(245,253,245)"/>
+<text x="225" y="237">0.959</text>
+<rect x="271" y="208" width="50" height="50" fill="rgb(105,113,245)"/>
+<text x="277" y="237">1.000</text>
+</g></svg>

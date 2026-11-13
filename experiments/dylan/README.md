@@ -19,17 +19,6 @@
 
 差分熵可以为负。离线验证将组分数平移到正数再分秩，最小秩为 1。可选 `rank_policy="paper"` 直接使用论文公式；遇到零分母或非正秩会报错，避免静默更换口径。整数舍入后记录实际秩总和。按式 (7) 分配时，参数量下降幅度取决于共享方式和实际秩，离线结果不作为论文参数降幅的依据。
 
-## GLUE 文本理解训练
+## 交接参考
 
-`train_glue.py` 读取本地 RoBERTa-base 和 GLUE 文件。它支持 SST-2、MNLI、CoLA、QNLI、QQP，以及普通 LoRA、手写分组共享、ShareLoRA、E²LoRA 和 E²ShareLoRA。每次运行保存训练和验证结果、参数量、耗时和显存峰值。
-
-在 tc2 项目目录用现成的 Python 环境运行。先创建 `outputs/dylan/`，再提交一轮小规模检查。
-
-```bash
-mkdir -p outputs/dylan
-sbatch --time=00:20:00 experiments/dylan/glue_tc2.sh --task sst2 --method lora --pilot
-```
-
-正式训练去掉 `--pilot`，并指定 `--seed`。小规模检查只用 32 条训练样本和 64 条验证样本，准确率用于检查流程。正式配置采用论文表 8 的训练轮数、学习率、线性调度和 6% 预热。正文另写余弦调度，本轮按表 8。E²LoRA 使用已有的代理熵平移规则。结果分别记录适配器参数和包含分类头的总可训练参数。CoLA 使用 Matthews 相关系数，QQP 同时记录准确率和 F1，MNLI 分别记录两套验证集准确率。
-
-SST-2 的五种方法和其余四个任务的 LoRA 已在 tc2 的 A40 上完成小规模检查。普通 LoRA 的适配器有 294,912 个参数，手写共享有 24,576 个。当前 E²LoRA 在 SST-2 小样本上的适配器参数是 296,448 个。当前的秩分配没有复现论文表 1 的参数降幅，正式比较时需要单独核对各组的秩预算。完整 SST-2 LoRA 基线的 Slurm 作业 53836 已取消。GLUE 脚本作为交接参考，文本理解正式实验负责人待确认。
+统一设置与联调记录见 [references/dylan](../../references/dylan/)。

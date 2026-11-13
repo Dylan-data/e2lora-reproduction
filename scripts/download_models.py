@@ -9,7 +9,8 @@ from urllib.parse import quote
 def curl(*args):
     return subprocess.run(
         ["curl", "--fail", "--silent", "--show-error", "--location",
-         "--connect-timeout", "20", "--retry", "3", *args],
+         "--http1.1", "--connect-timeout", "20", "--speed-limit", "1024",
+         "--speed-time", "90", "--retry", "3", *args],
         check=True, stdout=subprocess.PIPE,
     ).stdout
 

@@ -9,3 +9,5 @@ outputs/
 *.pt
 *.pth
 *.ckpt
+
+/src/e2lora/model/weights/

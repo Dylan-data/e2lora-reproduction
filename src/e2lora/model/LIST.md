@@ -2,9 +2,9 @@
 
 | 模型和版本 | 权重来源 | 用途 |
 |---|---|---|
-| RoBERTa-base，基础版 | [FacebookAI/roberta-base](https://huggingface.co/FacebookAI/roberta-base)，团队小样例使用 `e2da8e2f811d1448a5b465c236feacd80ffbac7b` | s 的 GLUE、dylan 的 SST-2 热图 |
-| CLIP ViT-B/16，OpenAI 224×224 版 | [openai/clip-vit-base-patch16](https://huggingface.co/openai/clip-vit-base-patch16)，`57c216476eefef5ab752ec549e440a49ae4ae5f3` | kathy 的图像实验、dylan 的 Cars 热图 |
-| Llama 3.1 8B Base | [meta-llama/Llama-3.1-8B](https://huggingface.co/meta-llama/Llama-3.1-8B)，可用版本 `d04e592bb4f6aa9cfee91e2e20afa771667e1d4b` | chloe 的数学、代码和常识任务，acheng 的消融，dylan 的诊断 |
+| RoBERTa-base，基础版 | [FacebookAI/roberta-base](https://huggingface.co/FacebookAI/roberta-base)，团队小样例使用 `e2da8e2f811d1448a5b465c236feacd80ffbac7b` | GLUE 实验与 SST-2 梯度图 |
+| CLIP ViT-B/16，OpenAI 224×224 版 | [openai/clip-vit-base-patch16](https://huggingface.co/openai/clip-vit-base-patch16)，`57c216476eefef5ab752ec549e440a49ae4ae5f3` | 图像分类实验与 Cars 梯度图 |
+| Llama 3.1 8B Base | [meta-llama/Llama-3.1-8B](https://huggingface.co/meta-llama/Llama-3.1-8B)，可用版本 `d04e592bb4f6aa9cfee91e2e20afa771667e1d4b` | 数学、代码、常识推理、消融与梯度诊断 |
 | Llama 2 13B Base | [meta-llama/Llama-2-13b-hf](https://huggingface.co/meta-llama/Llama-2-13b-hf)，可用版本 `5c31dfb671ce7cfe2d7bb7c04375e44c55e815b1` | 表 15 |
 | Qwen3-8B | [Qwen/Qwen3-8B](https://huggingface.co/Qwen/Qwen3-8B)，可用版本 `b968826d9c46dd6066d109eabc6255188de91218` | 图 7、表 15 |
 | GPT-OSS-20B，MoE | [openai/gpt-oss-20b](https://huggingface.co/openai/gpt-oss-20b)，可用版本 `6cee5e81ee83917806bbde320786a8fb61efebee` | 图 7、表 15 |

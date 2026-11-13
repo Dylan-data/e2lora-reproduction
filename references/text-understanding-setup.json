@@ -1,0 +1,75 @@
+{
+  "member": 2,
+  "paper": "C.3 and Table 8",
+  "model": {
+    "repo": "FacebookAI/roberta-base",
+    "revision": "e2da8e2f811d1448a5b465c236feacd80ffbac7b",
+    "target_layers": [
+      "query",
+      "value"
+    ]
+  },
+  "dataset": {
+    "repo": "nyu-mll/glue",
+    "revision": "bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c"
+  },
+  "training": {
+    "optimizer": "AdamW",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "weight_decay": 0.1,
+    "warmup_ratio": 0.06,
+    "scheduler": "linear",
+    "paper_prose_scheduler": "cosine",
+    "precision": "fp32",
+    "max_length": 512,
+    "base_rank": 8,
+    "lora_alpha": 16,
+    "gradient_sampling_steps": 64
+  },
+  "tasks": {
+    "mnli": {
+      "batch_size": 16,
+      "epochs": 30,
+      "learning_rate": 0.0005,
+      "metrics": [
+        "accuracy"
+      ]
+    },
+    "sst2": {
+      "batch_size": 16,
+      "epochs": 60,
+      "learning_rate": 0.0005,
+      "metrics": [
+        "accuracy"
+      ]
+    },
+    "cola": {
+      "batch_size": 32,
+      "epochs": 80,
+      "learning_rate": 0.0004,
+      "metrics": [
+        "matthews_correlation"
+      ]
+    },
+    "qnli": {
+      "batch_size": 32,
+      "epochs": 25,
+      "learning_rate": 0.0004,
+      "metrics": [
+        "accuracy"
+      ]
+    },
+    "qqp": {
+      "batch_size": 16,
+      "epochs": 25,
+      "learning_rate": 0.0005,
+      "metrics": [
+        "accuracy",
+        "f1"
+      ]
+    }
+  }
+}

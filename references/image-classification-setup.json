@@ -1,0 +1,47 @@
+{
+  "member": 3,
+  "paper": "C.5 and Table 9",
+  "model": {
+    "repo": "openai/clip-vit-base-patch16",
+    "revision": "57c216476eefef5ab752ec549e440a49ae4ae5f3",
+    "target_layers": "visual backbone linear layers"
+  },
+  "datasets": [
+    "Stanford Cars",
+    "DTD",
+    "EuroSAT",
+    "GTSRB",
+    "RESISC45",
+    "SUN397",
+    "SVHN"
+  ],
+  "training": {
+    "optimizer": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "learning_rate": 0.0001,
+    "table_9_lr_decay": 0,
+    "weight_decay": 0,
+    "batch_size": 64,
+    "warmup_ratio": 0.3,
+    "precision": "fp32",
+    "epochs": null
+  },
+  "evaluation": {
+    "metric": "accuracy",
+    "class_prompt": "a photo of a {class}"
+  },
+  "noise_std": [
+    0.001,
+    0.005,
+    0.01,
+    0.05
+  ],
+  "eurosat_seed_comparison": [
+    0,
+    18,
+    42
+  ]
+}

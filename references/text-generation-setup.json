@@ -1,0 +1,114 @@
+{
+  "member": 4,
+  "paper": "C.4, Table 9, Tables 14–15 and Figure 7",
+  "model": {
+    "repo": "meta-llama/Llama-3.1-8B",
+    "revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b",
+    "target_layers": "attention linear layers"
+  },
+  "training": {
+    "optimizer": "AdamW",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "weight_decay": 0.0005,
+    "batch_size": 64,
+    "precision": "bf16",
+    "scheduler": "cosine",
+    "warmup_ratio": 0.03,
+    "table_9_warmup": 0.3,
+    "table_9_lr_decay": 0.1,
+    "learning_rate": 5e-05,
+    "learning_rate_overrides": {
+      "AdaLoRA": 0.0005,
+      "LoRA-FA": 0.0005,
+      "VeRA": 0.005
+    }
+  },
+  "tasks": {
+    "math": {
+      "train_dataset": "MetaMathQA",
+      "train_examples": 100000,
+      "evaluation_dataset": "GSM8K",
+      "evaluation_split": "test",
+      "metric": "accuracy",
+      "training_sample_ids": null
+    },
+    "code": {
+      "train_dataset": "Code-Feedback",
+      "paper_train_examples": 100000,
+      "training_source": null,
+      "evaluation_dataset": "HumanEval",
+      "metric": "pass@1"
+    },
+    "commonsense": {
+      "datasets": [
+        "ARC-Challenge",
+        "ARC-Easy",
+        "BoolQ",
+        "OpenBookQA",
+        "PIQA",
+        "Social IQa"
+      ],
+      "metric": "accuracy",
+      "training_source": null
+    }
+  },
+  "additional_models": [
+    {
+      "repo": "meta-llama/Llama-2-13b-hf",
+      "revision": "5c31dfb671ce7cfe2d7bb7c04375e44c55e815b1",
+      "uses": [
+        "table_15"
+      ],
+      "candidate": false
+    },
+    {
+      "repo": "Qwen/Qwen3-8B",
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "uses": [
+        "table_15",
+        "figure_7"
+      ],
+      "candidate": false
+    },
+    {
+      "repo": "openai/gpt-oss-20b",
+      "revision": "6cee5e81ee83917806bbde320786a8fb61efebee",
+      "uses": [
+        "table_15",
+        "figure_7"
+      ],
+      "candidate": false
+    },
+    {
+      "repo": "microsoft/Phi-4-mini-instruct",
+      "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+      "uses": [
+        "figure_7"
+      ],
+      "candidate": true
+    },
+    {
+      "repo": "google/gemma-2-9b-it",
+      "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+      "uses": [
+        "figure_7"
+      ],
+      "candidate": true
+    }
+  ],
+  "entropy_during_training": {
+    "optimizer": "AdaLomo",
+    "learning_rate": 0.0001,
+    "training_steps": 1024,
+    "record_every_steps": 5,
+    "projections": [
+      "Q",
+      "K",
+      "V",
+      "O"
+    ]
+  }
+}

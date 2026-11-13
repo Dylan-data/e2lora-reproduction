@@ -1,0 +1,82 @@
+{
+  "member": 5,
+  "paper": "Tables 4–5 and Figure 5",
+  "model": {
+    "repo": "meta-llama/Llama-3.1-8B",
+    "revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b",
+    "target_layers": "attention linear layers"
+  },
+  "training": {
+    "optimizer": "AdamW",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "weight_decay": 0.0005,
+    "batch_size": 64,
+    "precision": "bf16",
+    "scheduler": "cosine",
+    "warmup_ratio": 0.03,
+    "table_9_warmup": 0.3,
+    "table_9_lr_decay": 0.1,
+    "learning_rate": 5e-05,
+    "learning_rate_overrides": {
+      "AdaLoRA": 0.0005,
+      "LoRA-FA": 0.0005,
+      "VeRA": 0.005
+    }
+  },
+  "tasks": {
+    "math": {
+      "train_dataset": "MetaMathQA",
+      "train_examples": 100000,
+      "evaluation_dataset": "GSM8K",
+      "evaluation_split": "test",
+      "metric": "accuracy",
+      "training_sample_ids": null
+    },
+    "code": {
+      "train_dataset": "Code-Feedback",
+      "paper_train_examples": 100000,
+      "training_source": null,
+      "evaluation_dataset": "HumanEval",
+      "metric": "pass@1"
+    }
+  },
+  "mechanism_comparisons": [
+    "LoRA",
+    "sharing_only",
+    "rank_allocation_only",
+    "cosine_with_rank_allocation",
+    "l1_with_rank_allocation",
+    "l2_with_rank_allocation",
+    "kl_with_rank_allocation",
+    "E²LoRA"
+  ],
+  "parameter_budget_comparisons": [
+    {
+      "lora_rank": 4,
+      "e2lora_rank": 8
+    },
+    {
+      "lora_rank": 8,
+      "e2lora_rank": 16
+    }
+  ],
+  "rank_values": [
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "gradient_sampling_steps": [
+    8,
+    16,
+    32,
+    64,
+    128,
+    256,
+    512
+  ]
+}

@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.egg-info/
+.DS_Store
+.env
+.cache/
+outputs/
+*.safetensors
+*.pt
+*.pth
+*.ckpt

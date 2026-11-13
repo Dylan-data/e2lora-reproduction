@@ -11,3 +11,5 @@ outputs/
 *.ckpt
 
 /src/e2lora/model/weights/
+
+/src/e2lora/dataset/data/

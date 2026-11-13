@@ -21,3 +21,5 @@
 | Social IQa（SIQA） | [allenai/social_i_qa](https://huggingface.co/datasets/allenai/social_i_qa)，原版 | 表 14 |
 
 表 14 的训练来源和评估划分待确认。正式运行时记录所用数据提交号或发布版本、划分、随机种子和采样编号。使用压缩包时记录文件校验值。图像目录只登记了来源，实际使用的发布版本与训练、评估划分由 kathy 在实验配置中补齐。离线小样例使用脚本生成的数据。
+
+本地原始数据位于 `src/e2lora/dataset/data/`，该目录由 Git 忽略。Hugging Face 下载按数据集名称与提交号保存。EuroSAT、GTSRB、RESISC45、SUN397 使用 tanganke 的公开分发版本，SVHN 使用 ufldl-stanford 的裁剪数字子集。正式实验前按论文口径确认图像划分。

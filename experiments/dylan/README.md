@@ -21,4 +21,4 @@
 
 ## 交接参考
 
-统一设置与联调记录见 [references/dylan](../../references/dylan/)。
+统一设置见[共用配置](../../references/README.md)。本目录的 [result.json](result.json) 和 [rmi.svg](rmi.svg) 是四层小模型的检查结果及热图。[glue-pilot.csv](glue-pilot.csv) 记录真实 GLUE 小样本联调的分数和参数量。SST-2 的普通 LoRA 有 294,912 个适配器参数，当前 E²LoRA 有 296,448 个，正式对比需核对秩预算。

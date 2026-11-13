@@ -11,6 +11,6 @@ Dylan 负责共用模型和数据入口、运行配置、实验口径及交接�
 
 从 [共用实验设置](references/dylan/setup.md) 开始。下载地址在[模型清单](src/e2lora/model/LIST.md)和[数据清单](src/e2lora/dataset/LIST.md)。src/e2lora/ 提供共用加载、读取、梯度分析、分组和矩阵共享代码。experiments/dylan/ 保留已通过的离线检查。
 
-[共享参考](references/dylan/) 收录小模型分组、秩、参数核对和热图，以及 A40 的 GLUE 小规模联调数字。图像和生成路线尚无真实样本联调数字。每次运行的原始结果、临时日志和中断记录留在 outputs/，Git 默认忽略。scripts/download_models.py 用于下载指定版本的公开模型。受限模型按清单使用自己的账号获取。
+[Dylan 的联调记录](experiments/dylan/) 收录小模型分组、秩、参数核对和热图，以及 A40 的 GLUE 小规模联调数字。图像和生成路线尚无真实样本联调数字。每次运行的原始结果、临时日志和中断记录留在 outputs/，Git 默认忽略。scripts/download_models.py 用于下载指定版本的公开模型。受限模型按清单使用自己的账号获取。
 
 [Word 实验填写表](E%C2%B2LoRA%20%E8%AE%BA%E6%96%87%E5%A4%8D%E7%8E%B0%E6%8A%A5%E5%91%8A.docx) 包含四个角色的填写页和论文参考数值。

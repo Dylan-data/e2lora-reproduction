@@ -4,10 +4,10 @@
 
 ## 每个人的代码和结果放哪里
 
-| 成员 | 实验规划（仅 dylan 已分配） | 脚本和配置 | 运行结果 |
+| 成员 | 实验规划 | 脚本和配置 | 运行结果 |
 |---|---|---|---|
 | dylan | 共用算法，梯度热图、训练中代理熵、准备开销。图 1、3、4、6–13，§5 和附录 F | `experiments/dylan/` | `outputs/dylan/` |
-| s | GLUE 文本理解。表 1 和表 6、10、13 的文本部分 | `experiments/s/` | `outputs/s/` |
+| dylan（承接成员 2 的文本理解工作） | RoBERTa 与 GLUE。表 1 和表 6、10、13 的文本部分 | `experiments/dylan/` | `outputs/dylan/` |
 | kathy | 图像分类、噪声和种子实验。表 3、11、12 和表 6、10、13 的图像部分 | `experiments/kathy/` | `outputs/kathy/` |
 | chloe | 数学、代码、常识推理和扩展模型。表 2、14、15 | `experiments/chloe/` | `outputs/chloe/` |
 | acheng | 只分组、只分秩、换相似度、参数预算和采样对照。表 4、5 和图 5。提供表 10 的动态规划分组代码 | `experiments/acheng/` | `outputs/acheng/` |
@@ -38,8 +38,12 @@ python experiments/dylan/smoke.py --method manual-sharing
 
 这两条运行命令用 CPU 和小型人工数据，检查训练、组内共享以及参数计数。终端会显示写出的 `result.json` 路径。
 
-模型权重放在 `src/e2lora/model/weights/`，数据缓存和运行结果保存在本地。成员目录用于后续分配，当前仅 dylan 的任务已分配。
+模型权重放在 `src/e2lora/model/weights/`，数据缓存和运行结果保存在本地。Dylan 当前负责共用算法和文本理解训练。
 
 ## 怎么找结果
 
 运行结果按 `outputs/名字/本次运行/result.json` 保存。正式脚本要记录对应的论文表图、模型和数据版本、划分、种子、方法、可训练参数量、分数和耗时。例如 acheng 的表 4 实验写入 `outputs/acheng/`，用结果里的 GSM8K 正确率和参数量填写 Word 报告。
+
+## 当前文本理解实验
+
+Dylan 在 tc2 上运行 RoBERTa-base 和 GLUE。训练命令和配置见 [Dylan 的实验说明](experiments/dylan/README.md)。训练脚本与提交脚本都在 `experiments/dylan/`，下载回来的结果和日志在 `outputs/dylan/`。

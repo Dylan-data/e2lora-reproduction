@@ -1,8 +1,8 @@
 """Ordinary LoRA and manual weight sharing for the first integration run."""
 from collections import defaultdict
 
-import torch
 from torch import nn
+from torch.nn import functional as F
 
 
 class AdaptedLinear(nn.Module):
@@ -11,16 +11,18 @@ class AdaptedLinear(nn.Module):
         self.base = base
         self.down = down
         self.up = up
-        self.scale = alpha / down.out_features
+        self.scale = alpha / up.in_features
 
     def forward(self, inputs):
-        return self.base(inputs) + self.up(self.down(inputs)) * self.scale
+        down = F.linear(inputs, self.down.weight[: self.up.in_features])
+        return self.base(inputs) + self.up(down) * self.scale
 
 
-def apply_plan(model, plan, *, alpha):
-    """Each group specifies layer names and rank. Both factors are shared."""
+def apply_plan(model, plan, *, alpha, global_down=False):
+    """Each group specifies layer names and rank. Share both factors within an interval, optionally sharing A across its family."""
     layers_by_group = []
     seen = set()
+    families = {}
     for group in plan:
         names, rank = group["layers"], group["rank"]
         if not names or not isinstance(rank, int) or rank < 1:
@@ -36,16 +38,29 @@ def apply_plan(model, plan, *, alpha):
         }
         if len(signatures) != 1:
             raise ValueError("Layers in one group must have the same shape, device and dtype.")
+        family = group.get("family")
+        if global_down:
+            if not family:
+                raise ValueError("Global sharing requires a projection family for each interval.")
+            signature = next(iter(signatures))
+            previous, maximum = families.get(family, (signature, 0))
+            if previous != signature:
+                raise ValueError("Globally shared layers must have matching shapes and placement.")
+            families[family] = signature, max(maximum, rank)
         seen.update(names)
-        layers_by_group.append((names, rank, layers))
+        layers_by_group.append((names, rank, layers, family))
     if not layers_by_group:
         raise ValueError("The plan must include at least one target layer.")
 
     model.requires_grad_(False)
-    for names, rank, layers in layers_by_group:
+    shared_down = {
+        family: nn.Linear(in_features, rank, device=device, dtype=dtype, bias=False)
+        for family, ((in_features, _, device, dtype), rank) in families.items()
+    }
+    for names, rank, layers, family in layers_by_group:
         first = layers[0]
         kwargs = {"device": first.weight.device, "dtype": first.weight.dtype, "bias": False}
-        down = nn.Linear(first.in_features, rank, **kwargs)
+        down = shared_down[family] if global_down else nn.Linear(first.in_features, rank, **kwargs)
         up = nn.Linear(rank, first.out_features, **kwargs)
         nn.init.zeros_(up.weight)
         for name, layer in zip(names, layers):

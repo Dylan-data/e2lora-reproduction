@@ -40,7 +40,13 @@
       "paper_train_examples": 100000,
       "training_source": null,
       "evaluation_dataset": "HumanEval",
-      "metric": "pass@1"
+      "metric": "pass@1",
+      "public_dataset": {
+        "repo": "m-a-p/Code-Feedback",
+        "revision": "f411b16a97c910ac9acf8b0d0948e340aa77cc34",
+        "split": "train",
+        "approximate_rows": 66400
+      }
     }
   },
   "mechanism_comparisons": [
@@ -78,5 +84,11 @@
     128,
     256,
     512
-  ]
+  ],
+  "rank_policy": "paper",
+  "independent_runs": 3,
+  "figure_5_fixed_settings": {
+    "gradient_sampling_steps_when_varying_rank": null,
+    "base_rank_when_varying_gradient_sampling_steps": null
+  }
 }

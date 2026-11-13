@@ -9,7 +9,7 @@ Dylan 负责共用模型和数据入口、运行配置、实验口径及交接�
 | 成员 3（待认领） | 文本生成 | Llama 及扩展模型、数学与代码数据、统一设置 | 数学、代码和常识推理成绩及生成侧梯度图 |
 | 成员 4（待认领） | 消融对照 | Llama 3.1 8B Base、MetaMathQA、GSM8K、统一设置 | 独立运行数学基线、机制对照、秩和采样曲线及动态规划对照 |
 
-从 [共用实验设置](references/dylan/setup.md) 开始。下载地址在[模型清单](src/e2lora/model/LIST.md)和[数据清单](src/e2lora/dataset/LIST.md)。src/e2lora/ 提供共用加载、读取、梯度分析、分组和矩阵共享代码。experiments/dylan/ 保留已通过的离线检查。
+从 [共用实验设置](references/README.md) 开始。下载地址在[模型清单](src/e2lora/model/LIST.md)和[数据清单](src/e2lora/dataset/LIST.md)。src/e2lora/ 提供共用加载、读取、梯度分析、分组和矩阵共享代码。experiments/dylan/ 保留已通过的离线检查。
 
 [Dylan 的联调记录](experiments/dylan/) 收录小模型分组、秩、参数核对和热图，以及 A40 的 GLUE 小规模联调数字。图像和生成路线尚无真实样本联调数字。每次运行的原始结果、临时日志和中断记录留在 outputs/，Git 默认忽略。scripts/download_models.py 用于下载指定版本的公开模型。受限模型按清单使用自己的账号获取。
 

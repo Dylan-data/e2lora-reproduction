@@ -43,5 +43,26 @@
     0,
     18,
     42
-  ]
+  ],
+  "rank_policy": "paper",
+  "independent_runs": 3,
+  "table_13_rank_pairs": [
+    {
+      "lora_rank": 4,
+      "e2lora_rank": 8
+    },
+    {
+      "lora_rank": 8,
+      "e2lora_rank": 16
+    }
+  ],
+  "table_10_search": {
+    "methods": [
+      "greedy",
+      "dynamic_programming"
+    ],
+    "penalty_lambda": null
+  },
+  "eurosat_seed_projection": "key",
+  "noise_application": "add zero-mean Gaussian noise to RMI before computing thresholds and grouping"
 }

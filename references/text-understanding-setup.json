@@ -27,7 +27,8 @@
     "max_length": 512,
     "base_rank": 8,
     "lora_alpha": 16,
-    "gradient_sampling_steps": 64
+    "gradient_sampling_steps": 64,
+    "paper_prose_optimizer": "Adam"
   },
   "tasks": {
     "mnli": {
@@ -71,5 +72,24 @@
         "f1"
       ]
     }
+  },
+  "rank_policy": "paper",
+  "independent_runs": 3,
+  "table_13_rank_pairs": [
+    {
+      "lora_rank": 4,
+      "e2lora_rank": 8
+    },
+    {
+      "lora_rank": 8,
+      "e2lora_rank": 16
+    }
+  ],
+  "table_10_search": {
+    "methods": [
+      "greedy",
+      "dynamic_programming"
+    ],
+    "penalty_lambda": null
   }
 }

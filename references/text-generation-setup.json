@@ -179,6 +179,15 @@
         "e2sharelora": 1423360
       }
     },
-    "pilot_trainable_adapter_parameters": null
+    "pilot_trainable_adapter_parameters": {
+      "GSM8K": {
+        "e2lora": 3700736,
+        "e2sharelora": 1423360
+      },
+      "HumanEval": {
+        "e2lora": 3700736,
+        "e2sharelora": 1423360
+      }
+    }
   }
 }

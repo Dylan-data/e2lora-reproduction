@@ -1,0 +1,10 @@
+sst2:e2sharelora
+sst2:sharelora
+cola:lora
+cola:e2lora
+qnli:lora
+qnli:e2lora
+qqp:lora
+qqp:e2lora
+mnli:lora
+mnli:e2lora

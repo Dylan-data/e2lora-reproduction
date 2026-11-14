@@ -22,3 +22,15 @@
 ## 交接参考
 
 统一设置见[共用配置](../../references/README.md)。本目录的 [result.json](result.json) 和 [rmi.svg](rmi.svg) 是四层小模型的检查结果及热图。[glue-pilot.csv](glue-pilot.csv) 记录真实 GLUE 小样本联调的分数和参数量。SST-2 的普通 LoRA 有 294,912 个适配器参数，当前 E²LoRA 有 296,448 个，正式对比需核对秩预算。
+
+## tc2 实验脚本
+
+| 脚本 | 用途 |
+|---|---|
+| `train_glue.py`、`glue_pilots_tc2.sh` | 用 `--pilot` 做 GLUE 小样本训练和参数检查 |
+| `sst2_rank52.py`、`sst2_partial_rank.py` | 分别验证直接降秩、保留原秩但只更新部分分量 |
+| `generation_parameter_check.py` | 用少量数学和代码训练样本验证两个 E² 方法的参数量 |
+| `glue_full.py`、`glue_full_tc2.sh` | 跑完整 GLUE 训练。每轮保存进度，同一任务重新提交时从已保存进度接着跑 |
+| `glue_full_runs.txt` | 当前优先运行的组合。已完成的 SST-2 LoRA 和 E²LoRA 使用作业 53975 的结果 |
+
+从仓库根目录运行。tc2 脚本使用 `.cache/glue-env/bin/python`，模型和数据路径由 `references/text-understanding-setup.json` 指定。完整训练的日志、进度和评分分别写入 `outputs/dylan/glue-full-seed42/`。旧的 SST-2 候选脚本分别通过 `RANK52_OUTPUT` 和 `PARTIAL_RANK_OUTPUT` 指定结果目录，后者还需要小样本结果中的 `plan` 和 `diagnostics`，保存为该目录的 `pilot-plan.json`。

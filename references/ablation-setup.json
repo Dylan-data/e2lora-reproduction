@@ -90,5 +90,12 @@
   "figure_5_fixed_settings": {
     "gradient_sampling_steps_when_varying_rank": null,
     "base_rank_when_varying_gradient_sampling_steps": null
+  },
+  "partial_rank_sharing": {
+    "status": "pending_confirmation",
+    "group_sharing": null,
+    "frozen_components": null,
+    "trainable_rank_per_projection": null,
+    "pilot_trainable_adapter_parameters": null
   }
 }

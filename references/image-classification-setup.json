@@ -64,5 +64,14 @@
     "penalty_lambda": null
   },
   "eurosat_seed_projection": "key",
-  "noise_application": "add zero-mean Gaussian noise to RMI before computing thresholds and grouping"
+  "noise_application": "add zero-mean Gaussian noise to RMI before computing thresholds and grouping",
+  "partial_rank_sharing": {
+    "status": "pending_confirmation",
+    "target_projections": null,
+    "total_rank_per_projection": null,
+    "trainable_rank_per_projection": null,
+    "group_sharing": null,
+    "e2sharelora_A": null,
+    "pilot_trainable_adapter_parameters": null
+  }
 }

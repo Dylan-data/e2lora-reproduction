@@ -91,5 +91,59 @@
       "dynamic_programming"
     ],
     "penalty_lambda": null
+  },
+  "partial_rank_sharing": {
+    "status": "selected_for_reproduction",
+    "target_projections": [
+      "query",
+      "value"
+    ],
+    "total_rank_per_projection": 96,
+    "trainable_rank_per_projection": 52,
+    "group_sharing": "A_and_B_within_each_group",
+    "e2sharelora_A": "shared_across_layers_per_projection_and_frozen",
+    "frozen_components_have_nonzero_forward_contribution": true,
+    "allocation": "proportional_to_group_rank_largest_remainder",
+    "count": "unique_trainable_adapter_parameters_excluding_classifier",
+    "pilot_group_ranks": {
+      "query": [
+        35,
+        33,
+        28
+      ],
+      "value": [
+        28,
+        26,
+        23,
+        19
+      ]
+    },
+    "pilot_trainable_group_ranks": {
+      "query": [
+        19,
+        18,
+        15
+      ],
+      "value": [
+        15,
+        14,
+        13,
+        10
+      ]
+    },
+    "sst2_validation": {
+      "seed": 42,
+      "epochs": 60,
+      "examples": 872,
+      "e2lora_accuracy": 0.9346330165863037,
+      "lora_accuracy": 0.9403669834136963,
+      "e2sharelora_accuracy": null,
+      "e2lora_threshold": 0.9419,
+      "e2sharelora_threshold": 0.9411
+    },
+    "trainable_adapter_parameters": {
+      "e2lora": 159744,
+      "e2sharelora": 79872
+    }
   }
 }

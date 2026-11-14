@@ -137,9 +137,7 @@
       "examples": 872,
       "e2lora_accuracy": 0.9346330165863037,
       "lora_accuracy": 0.9403669834136963,
-      "e2sharelora_accuracy": null,
-      "e2lora_threshold": 0.9419,
-      "e2sharelora_threshold": 0.9411
+      "e2sharelora_accuracy": null
     },
     "trainable_adapter_parameters": {
       "e2lora": 159744,

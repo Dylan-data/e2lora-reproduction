@@ -159,8 +159,8 @@
     "split": "train"
   },
   "partial_rank_sharing": {
-    "status": "candidate_pending_confirmation",
-    "candidate": {
+    "status": "selected_for_reproduction",
+    "final_settings": {
       "target_projections": [
         "q_proj",
         "k_proj",
@@ -179,7 +179,6 @@
         "e2sharelora": 1423360
       }
     },
-    "final_settings": null,
     "pilot_trainable_adapter_parameters": null
   }
 }

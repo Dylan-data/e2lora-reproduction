@@ -1,10 +1,10 @@
 # dylan · 共用算法与诊断
 
-`smoke.py` 可离线检查普通 LoRA、手写共享和参数计数。后续在此放梯度热图、代理熵变化和开销测量的脚本。供团队调用的算法写在 `src/e2lora/adapters/`，结果放 `outputs/dylan/`。
+`smoke.py` 可离线检查普通 LoRA、手写共享和参数计数。后续在此放梯度热图、代理熵变化和开销测量的脚本。供团队调用的算法写在 `src/e2lora/adapters/`，算法检查结果放 `outputs/algorithm-checks/`。
 
 ## 成员 1 的离线验证
 
-在仓库根目录安装项目后运行 `python experiments/dylan/preflight.py`。脚本用人工样本训练四层小模型，生成 `outputs/dylan/adaptive-preflight-*/result.json` 和 `rmi.svg`。JSON 包含梯度采集耗时、代理熵、层间相似度、阈值、连续分组、秩和可训练参数量。SVG 是同一轮的相似度热图。结果用于验证代码和产物格式。
+在仓库根目录安装项目后运行 `python experiments/dylan/preflight.py`。脚本用人工样本训练四层小模型，生成 `outputs/algorithm-checks/adaptive-preflight-*/result.json` 和 `rmi.svg`。JSON 包含梯度采集耗时、代理熵、层间相似度、阈值、连续分组、秩和可训练参数量。SVG 是同一轮的相似度热图。结果用于验证代码和产物格式。
 
 ### 正式实验怎么接入
 
@@ -29,8 +29,8 @@
 |---|---|
 | `train_glue.py`、`glue_pilots_tc2.sh` | 用 `--pilot` 做 GLUE 小样本训练和参数检查 |
 | `sst2_rank52.py`、`sst2_partial_rank.py` | 分别验证直接降秩、保留原秩但只更新部分分量 |
-| `generation_parameter_check.py` | 用少量数学和代码训练样本验证两个 E² 方法的参数量 |
+| `generation_parameter_check.py` | 用少量数学和代码训练样本验证两个 E² 方法的参数量，结果放 `outputs/text-generation/parameter-check/` |
 | `glue_full.py`、`glue_full_tc2.sh` | 跑完整 GLUE 训练。每轮保存进度，同一任务重新提交时从已保存进度接着跑 |
 | `glue_full_runs.txt` | 当前优先运行的组合。已完成的 SST-2 LoRA 和 E²LoRA 使用作业 53975 的结果 |
 
-从仓库根目录运行。tc2 脚本使用 `.cache/glue-env/bin/python`，模型和数据路径由 `references/text-understanding-setup.json` 指定。完整训练的日志、进度和评分分别写入 `outputs/dylan/glue-full-seed42/`。旧的 SST-2 候选脚本分别通过 `RANK52_OUTPUT` 和 `PARTIAL_RANK_OUTPUT` 指定结果目录，后者还需要小样本结果中的 `plan` 和 `diagnostics`，保存为该目录的 `pilot-plan.json`。
+从仓库根目录运行。tc2 脚本使用 `.cache/glue-env/bin/python`，模型和数据路径由 `references/text-understanding-setup.json` 指定。完整训练的日志、进度和评分分别写入 `outputs/text-understanding/glue-full-seed42/`。旧的 SST-2 候选脚本分别通过 `RANK52_OUTPUT` 和 `PARTIAL_RANK_OUTPUT` 指定结果目录，后者还需要小样本结果中的 `plan` 和 `diagnostics`，保存为该目录的 `pilot-plan.json`。

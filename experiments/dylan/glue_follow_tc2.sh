@@ -2,7 +2,7 @@
 # Submit the four remaining priority runs as tc2 slots open.
 set -euo pipefail
 cd "$(dirname "$0")/../.."
-out="$PWD/outputs/dylan/glue-full-seed42"
+out="$PWD/outputs/text-understanding/glue-full-seed42"
 mkdir -p "$out"
 exec 9>"$out/follow.lock"
 flock -n 9 || exit 0
@@ -19,7 +19,8 @@ while true; do
     for run in qqp:lora qqp:e2lora mnli:lora mnli:e2lora; do
         task=${run%%:*}
         method=${run#*:}
-        if ! compgen -G "$out/results/text-understanding/glue-$task-$method-original-*/result.json" >/dev/null; then
+        if ! compgen -G "$out/results/dylan/glue-$task-$method-original-*/result.json" >/dev/null &&
+           ! compgen -G "$out/results/text-understanding/glue-$task-$method-original-*/result.json" >/dev/null; then
             remaining=$((remaining + 1))
             last=$(awk -v run="$run" '$2 == run {id=$1} END {print id}' "$queue")
             if [[ -n "$last" ]]; then

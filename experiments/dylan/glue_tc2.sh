@@ -7,7 +7,7 @@
 #SBATCH --mem=20G
 #SBATCH --time=06:00:00
 #SBATCH --job-name=e2lora-glue
-#SBATCH --output=outputs/dylan/glue-%j.log
+#SBATCH --output=outputs/text-understanding/glue-%j.log
 
 set -euo pipefail
 cd "$SLURM_SUBMIT_DIR"

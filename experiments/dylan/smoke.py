@@ -4,8 +4,8 @@ import argparse
 import torch
 from torch import nn
 
-from e2lora.adapters import apply_plan
-from e2lora.runner import run_classification, save_result
+from e2lora.adapters.lora_layers import apply_plan
+from e2lora.runner.classification_runner import run_classification, save_result
 
 
 def main():
@@ -33,7 +33,7 @@ def main():
         lambda model, batch: model(batch["inputs"]), lr=0.01, device="cpu",
     )
     assert result["trainable_parameters"] == 16 * len(groups)
-    print(save_result("dylan", "smoke", {
+    print(save_result("algorithm-checks", "smoke", {
         **result, "method": args.method, "seed": 42, "plan": plan,
         "paper_reference": None,
     }))

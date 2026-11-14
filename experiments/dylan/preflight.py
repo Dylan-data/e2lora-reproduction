@@ -8,9 +8,9 @@ from time import perf_counter
 import torch
 from torch import nn
 
-from e2lora.adapters import apply_plan, trainable_count
+from e2lora.adapters.lora_layers import apply_plan, trainable_count
 from e2lora.adapters.adaptive import build_plan, collect_gradients, gradient_similarity
-from e2lora.runner import run_classification, save_result
+from e2lora.runner.classification_runner import run_classification, save_result
 
 
 def save_heatmap(path, labels, matrix):
@@ -103,7 +103,7 @@ def main():
             lr=0.01, device="cpu",
         )
 
-    path = save_result("dylan", "adaptive-preflight", {
+    path = save_result("algorithm-checks", "adaptive-preflight", {
         "paper_reference": "§3; Appendix M; synthetic validation",
         "seed": args.seed, "rank_policy": "shift_nonpositive",
         "gradient_seconds": gradient_seconds, "gradient_examples": 32,

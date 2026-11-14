@@ -7,7 +7,7 @@ import torch
 from huggingface_hub import hf_hub_download, snapshot_download
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-from e2lora.adapters import apply_plan, trainable_count
+from e2lora.adapters.lora_layers import apply_plan, trainable_count
 from e2lora.adapters.adaptive import collect_gradients, gradient_similarity, greedy_intervals
 from sst2_partial_rank import SplitLinear
 
@@ -91,6 +91,8 @@ def main():
         projection: [f"model.layers.{i}.self_attn.{projection}" for i in range(model.config.num_hidden_layers)]
         for projection in cfg["target_projections"]
     }
+    output = ROOT / "outputs/text-generation/parameter-check"
+    output.mkdir(parents=True, exist_ok=True)
     for benchmark, ids, texts in samples():
         print(benchmark, "sampling gradients", ids, flush=True)
         batches = [tokenizer(text, return_tensors="pt", max_length=128, truncation=True).to("cuda") for text in texts]
@@ -107,7 +109,7 @@ def main():
                         for (start, end), rank, n in zip(intervals, ranks, active))
         counts = {"e2lora": check(model, plan, False), "e2sharelora": check(model, plan, True)}
         result = dict(benchmark=benchmark, sample_ids=ids, plan=plan, trainable_adapter_parameters=counts)
-        Path(f"{benchmark}.json").write_text(json.dumps(result, indent=2))
+        (output / f"{benchmark}.json").write_text(json.dumps(result, indent=2))
         print(benchmark, counts, flush=True)
         assert counts == cfg["estimated_trainable_adapter_parameters"]
 

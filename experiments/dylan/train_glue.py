@@ -11,9 +11,9 @@ import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 from transformers import get_linear_schedule_with_warmup
 
-from e2lora.adapters import apply_plan, trainable_count
+from e2lora.adapters.lora_layers import apply_plan, trainable_count
 from e2lora.adapters.adaptive import build_plan, collect_gradients
-from e2lora.runner import save_result
+from e2lora.runner.classification_runner import save_result
 
 ROOT = Path(__file__).resolve().parents[2]
 SETUP = json.loads((ROOT / "references/text-understanding-setup.json").read_text())

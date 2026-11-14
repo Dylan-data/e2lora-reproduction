@@ -6,8 +6,8 @@ from time import perf_counter
 
 import torch
 
-from e2lora.adapters import trainable_count
-from e2lora.tasks import accuracy, classification_loss
+from e2lora.adapters.lora_layers import trainable_count
+from e2lora.tasks.classification_metrics import accuracy, classification_loss
 
 
 def run_classification(model, train, evaluate, predict, *, lr, device):

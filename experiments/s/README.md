@@ -1,4 +1,4 @@
-# Member 4 / NLG and Appendix K/L experiment suite
+# NLG and Appendix K/L experiment suite
 
 This directory contains the text-generation implementation for:
 

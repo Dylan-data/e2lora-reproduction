@@ -1,0 +1,9 @@
+{
+  "metric": "accuracy",
+  "correct": 1456,
+  "total": 1954,
+  "accuracy": 0.7451381780962129,
+  "parse_failures": 0,
+  "evaluation_dataset": "siqa/validation",
+  "split_protocol": "public validation held out for final evaluation; checkpoint selection used a disjoint deterministic hold-out from the train split (team protocol; paper does not state exact split)"
+}

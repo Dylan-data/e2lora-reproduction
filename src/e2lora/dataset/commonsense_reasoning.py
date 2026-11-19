@@ -23,11 +23,13 @@ DATASETS = {
     "openbookqa": {"repo": "allenai/openbookqa", "subset": "main",
                    "revision": "388097ea7776314e93a529163e0fea805b8a6454",
                    "paper_name": "OpenBookQA", "short_name": "OBQA"},
-    "piqa": {"repo": "ybisk/piqa", "subset": None, "revision": None,
-             "paper_name": "PIQA", "short_name": "PIQA"},
-    "siqa": {"repo": "allenai/social_i_qa", "subset": None, "revision": None,
-             "paper_name": "Social IQa", "short_name": "SIQA"},
-}
+    "piqa": {"repo": "ybisk/piqa", "subset": "plain_text",
+        "revision": "f7af4e534d3934fcce5511153df45ba340543d9f",
+        "paper_name": "PIQA", "short_name": "PIQA",},
+    "siqa": {"repo": "allenai/social_i_qa", "subset": "default",
+        "revision": "a8e45ea64a25b66aba3da431e50cca860d1a982b",
+        "paper_name": "Social IQa", "short_name": "SIQA",},
+    }
 
 
 def _choice_label(index: int) -> str:
@@ -117,19 +119,29 @@ def normalize_commonsense_row(task: str, row: dict[str, Any]) -> dict[str, str]:
     return {"prompt": prompt, "target": target, "question": str(question_text)}
 
 
-def load_commonsense_split(task: str, split: str, *, cache_dir=None,
-                           allow_unpinned: bool = False):
+def load_commonsense_split(task: str, split: str, *, cache_dir=None, allow_unpinned: bool = False,):
     if task not in DATASETS:
-        raise ValueError(f"Unsupported task {task}; supported: {tuple(DATASETS)}")
-    cfg = DATASETS[task]
-    if cfg["revision"] is None and not allow_unpinned:
         raise ValueError(
-            f"{task} has no commit-pinned revision in the repository dataset list. "
-            "Pass --allow-unpinned-datasets only after approving that reproducibility limitation, "
-            "or provide a local, checksum-pinned copy."
+            f"Unsupported task {task}; "
+            f"supported: {tuple(DATASETS)}"
         )
-    return load_split(cfg["repo"], cfg["subset"], split=split,
-                      revision=cfg["revision"], cache_dir=cache_dir)
+
+    cfg = DATASETS[task]
+    revision = cfg["revision"]
+
+    if not revision and not allow_unpinned:
+        raise ValueError(
+            f"{task} has no commit-pinned revision."
+        )
+
+    return load_split(
+        cfg["repo"],
+        cfg["subset"],
+        split=split,
+        revision=revision,
+        cache_dir=cache_dir,
+        trust_remote_code=True,
+    )
 
 
 def evaluate_split_for_public_labels(task: str) -> str:

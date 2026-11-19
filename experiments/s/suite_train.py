@@ -13,13 +13,14 @@ import hashlib
 import json
 import math
 import random
+import signal
 import sys
 import time
 from pathlib import Path
 from typing import Any
 
 import torch
-from torch.utils.data import DataLoader, Dataset
+from torch.utils.data import DataLoader, Dataset, Subset
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
@@ -42,6 +43,14 @@ from e2lora.dataset.text_generation import canonical_row_hash
 from e2lora.tasks.commonsense_metrics import score_commonsense
 from e2lora.tasks.code_metrics import write_humaneval_samples, run_official_humaneval
 from e2lora.tasks.generation_metrics import score_gsm8k_generations
+
+_PREEMPTION_REQUESTED = False
+
+
+def _request_preemption_checkpoint(signum, frame):
+    global _PREEMPTION_REQUESTED
+    _PREEMPTION_REQUESTED = True
+
 
 MODELS = {
     "llama31_8b": {"repo": "meta-llama/Llama-3.1-8B", "revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b"},
@@ -91,6 +100,8 @@ def parse_args():
     p.add_argument("--gradient-checkpointing", action="store_true")
     p.add_argument("--num-workers", type=int, default=0)
     p.add_argument("--resume", action="store_true")
+    p.add_argument("--save-steps", type=int, default=20,
+                   help="Save an atomic resumable checkpoint every N optimizer updates")
     p.add_argument("--do-final-eval", action="store_true", help="Run benchmark-specific final evaluation after training")
     p.add_argument("--eval-limit", type=int, default=None, help="Diagnostic-only evaluation subset")
     p.add_argument("--human-eval-timeout", type=int, default=3)
@@ -256,8 +267,31 @@ def _mean_loss(model, loader, device):
     return total_loss / max(total_tokens, 1)
 
 
+def _capture_rng_state():
+    state = {"python": random.getstate(), "torch_cpu": torch.get_rng_state()}
+    if torch.cuda.is_available():
+        state["torch_cuda"] = torch.cuda.get_rng_state_all()
+    return state
+
+
+def _restore_rng_state(state):
+    if not state:
+        return
+    random.setstate(state["python"])
+    torch.set_rng_state(state["torch_cpu"])
+    if torch.cuda.is_available() and state.get("torch_cuda") is not None:
+        torch.cuda.set_rng_state_all(state["torch_cuda"])
+
+
 def _save_trainable_checkpoint(model, method_metadata, optimizer, scheduler, output_dir, epoch, global_step,
-                               run_config, best_metric, *, filename="checkpoint_last.pt"):
+                               run_config, best_metric, *, filename="checkpoint_last.pt",
+                               micro_batches_consumed=0, epoch_completed=False, epoch_losses=None):
+    """Atomically save a checkpoint at an optimizer boundary.
+
+    `micro_batches_consumed` counts DataLoader batches already applied in this epoch.
+    Checkpoints are only written after optimizer.step(), so no partial .grad buffers
+    need to be serialized.
+    """
     output_dir.mkdir(parents=True, exist_ok=True)
     if hasattr(model, "_e2lora_adapter_bank"):
         model_state = capture_adapter_state(model)
@@ -268,10 +302,16 @@ def _save_trainable_checkpoint(model, method_metadata, optimizer, scheduler, out
         save_kind = "trainable_parameters"
     checkpoint = {"save_kind": save_kind, "model_state": model_state,
                   "optimizer": optimizer.state_dict(), "scheduler": scheduler.state_dict(),
-                  "epoch": epoch, "global_step": global_step, "best_metric": best_metric,
-                  "run_config": run_config}
+                  "epoch": int(epoch), "global_step": int(global_step),
+                  "best_metric": float(best_metric), "run_config": run_config,
+                  "micro_batches_consumed": int(micro_batches_consumed),
+                  "epoch_completed": bool(epoch_completed),
+                  "epoch_losses": list(epoch_losses or []),
+                  "rng_state": _capture_rng_state(),
+                  "checkpoint_format_version": 2}
     tmp = output_dir / (filename + ".tmp")
-    torch.save(checkpoint, tmp); tmp.replace(output_dir / filename)
+    torch.save(checkpoint, tmp)
+    tmp.replace(output_dir / filename)
 
 
 def _restore_checkpoint_model(model, checkpoint):
@@ -390,12 +430,18 @@ def final_eval(model, tokenizer, task, args, output_dir):
 
 def main():
     args = parse_args()
+    # SLURM sends USR1 before the wall-time limit. Defer the actual write until
+    # an optimizer boundary so no partially accumulated gradients are lost.
+    if hasattr(signal, "SIGUSR1"):
+        signal.signal(signal.SIGUSR1, _request_preemption_checkpoint)
     if args.run_human_eval_harness and not args.confirm_isolated_sandbox:
         raise ValueError("HumanEval executes untrusted generated code; add --confirm-isolated-sandbox only inside a hardened, network-isolated sandbox")
     if args.epochs < 1 or args.max_seq_length < 2 or args.max_new_tokens < 1:
         raise ValueError("epochs, max-seq-length and max-new-tokens must be positive")
     if args.per_device_batch_size < 1 or args.gradient_accumulation_steps < 1:
         raise ValueError("batch size and gradient accumulation must be positive")
+    if args.save_steps < 1:
+        raise ValueError("--save-steps must be at least 1")
     if args.task in COMMONSENSE_DATASETS and args.suite != "table14":
         raise ValueError("Commonsense tasks are only part of --suite table14")
     if args.suite == "table14" and args.task not in COMMONSENSE_DATASETS:
@@ -519,9 +565,6 @@ def main():
 
     optimizer = build_optimizer(model, method_metadata, lr=lr, weight_decay=args.weight_decay,
                                 betas=(0.9, 0.999), lora_plus_ratio=args.lora_plus_ratio)
-    train_loader = DataLoader(TextRows(train_rows), batch_size=args.per_device_batch_size,
-                              shuffle=True, collate_fn=make_collator(tokenizer, args.max_seq_length),
-                              num_workers=args.num_workers)
     valid_loader = DataLoader(TextRows(valid_rows), batch_size=args.per_device_batch_size,
                               shuffle=False, collate_fn=make_collator(tokenizer, args.max_seq_length),
                               num_workers=args.num_workers)
@@ -539,49 +582,133 @@ def main():
     global_step = 0
     best_val = float("inf")
     start_epoch = 1
+    resume_micro_batches = 0
+    resume_epoch_losses = []
+    resume_epoch_completed = True
     if args.resume:
         checkpoint = torch.load(args.output_dir / "checkpoint_last.pt", map_location="cpu", weights_only=False)
         _restore_checkpoint_model(model, checkpoint)
         optimizer.load_state_dict(checkpoint["optimizer"])
         scheduler.load_state_dict(checkpoint["scheduler"])
         global_step = int(checkpoint["global_step"])
-        start_epoch = int(checkpoint["epoch"]) + 1
+        saved_epoch = int(checkpoint["epoch"])
+        # Legacy checkpoints were only written at epoch end.
+        resume_epoch_completed = bool(checkpoint.get("epoch_completed", True))
+        if resume_epoch_completed:
+            start_epoch = saved_epoch + 1
+        else:
+            start_epoch = saved_epoch
+            resume_micro_batches = int(checkpoint.get("micro_batches_consumed", 0))
+            resume_epoch_losses = list(checkpoint.get("epoch_losses", []))
         best_val = float(checkpoint.get("best_metric", float("inf")))
         history_path = args.output_dir / "training_history.json"
         if history_path.is_file():
             history = json.loads(history_path.read_text(encoding="utf-8"))
+        # Restore after model/adapter/optimizer construction so initialization does
+        # not advance the saved dropout/random stream.
+        _restore_rng_state(checkpoint.get("rng_state"))
+
     model.train()
     for epoch in range(start_epoch, args.epochs + 1):
         epoch_start = time.perf_counter()
+        epoch_losses = resume_epoch_losses if (args.resume and epoch == start_epoch and not resume_epoch_completed) else []
+        batch_offset = resume_micro_batches if (args.resume and epoch == start_epoch and not resume_epoch_completed) else 0
+        # A fixed per-epoch permutation makes mid-epoch resume independent of the
+        # DataLoader's internal RandomSampler state.
+        epoch_indices = list(range(len(train_rows)))
+        random.Random(args.seed + epoch).shuffle(epoch_indices)
+        if batch_offset < 0 or batch_offset > math.ceil(len(epoch_indices) / args.per_device_batch_size):
+            raise ValueError(f"Invalid checkpoint micro_batches_consumed={batch_offset} for epoch {epoch}")
+        consumed_examples = min(batch_offset * args.per_device_batch_size, len(epoch_indices))
+        remaining_indices = epoch_indices[consumed_examples:]
+        epoch_loader = DataLoader(
+            Subset(TextRows(train_rows), remaining_indices),
+            batch_size=args.per_device_batch_size, shuffle=False,
+            collate_fn=make_collator(tokenizer, args.max_seq_length),
+            num_workers=args.num_workers,
+            generator=torch.Generator().manual_seed(args.seed + epoch + 991),
+        )
         group_batches = []
-        losses = []
-        for batch in train_loader:
+        micro_batches_consumed = batch_offset
+        for batch in epoch_loader:
             group_batches.append(batch)
             if len(group_batches) < args.gradient_accumulation_steps:
                 continue
             global_step += 1
-            _optimizer_group_step(model, optimizer, scheduler, group_batches, args.device, losses, global_step)
+            _optimizer_group_step(model, optimizer, scheduler, group_batches, args.device, epoch_losses, global_step)
+            micro_batches_consumed += len(group_batches)
             group_batches = []
+            if global_step % args.save_steps == 0 or _PREEMPTION_REQUESTED:
+                _save_trainable_checkpoint(
+                    model, method_metadata, optimizer, scheduler, args.output_dir,
+                    epoch, global_step, run_config, best_val,
+                    micro_batches_consumed=micro_batches_consumed,
+                    epoch_completed=False, epoch_losses=epoch_losses,
+                )
+                print(json.dumps({"event": "checkpoint_saved", "epoch": epoch,
+                                  "global_step": global_step,
+                                  "micro_batches_consumed": micro_batches_consumed,
+                                  "save_path": str(args.output_dir / "checkpoint_last.pt")}), flush=True)
+                if _PREEMPTION_REQUESTED:
+                    print(json.dumps({"event": "preemption_checkpoint_complete", "resume_required": True}), flush=True)
+                    return
         if group_batches:
             global_step += 1
-            _optimizer_group_step(model, optimizer, scheduler, group_batches, args.device, losses, global_step)
+            _optimizer_group_step(model, optimizer, scheduler, group_batches, args.device, epoch_losses, global_step)
+            micro_batches_consumed += len(group_batches)
+            group_batches = []
+            if _PREEMPTION_REQUESTED:
+                _save_trainable_checkpoint(
+                    model, method_metadata, optimizer, scheduler, args.output_dir,
+                    epoch, global_step, run_config, best_val,
+                    micro_batches_consumed=micro_batches_consumed,
+                    epoch_completed=False, epoch_losses=epoch_losses,
+                )
+                print(json.dumps({"event": "preemption_checkpoint_complete", "resume_required": True}), flush=True)
+                return
+        # Save before validation too. If the wall-time limit hits during validation,
+        # resume will re-enter this epoch, perform an empty remaining-data pass,
+        # and retry validation without repeating optimizer updates.
+        _save_trainable_checkpoint(
+            model, method_metadata, optimizer, scheduler, args.output_dir,
+            epoch, global_step, run_config, best_val,
+            micro_batches_consumed=micro_batches_consumed,
+            epoch_completed=False, epoch_losses=epoch_losses,
+        )
+        if _PREEMPTION_REQUESTED:
+            print(json.dumps({"event": "preemption_checkpoint_complete", "resume_required": True}), flush=True)
+            return
         val_loss = _mean_loss(model, valid_loader, args.device)
+        if _PREEMPTION_REQUESTED:
+            print(json.dumps({"event": "preemption_checkpoint_complete", "resume_required": True}), flush=True)
+            return
+        # A restart can happen after history is written but before the completed-
+        # epoch checkpoint; replace that epoch's row instead of duplicating it.
+        history = [item for item in history if int(item.get("epoch", -1)) != epoch]
         row = {"epoch": epoch, "global_step": global_step,
-               "train_loss": sum(losses) / max(1, len(losses)), "validation_loss": val_loss,
-               "epoch_seconds": time.perf_counter() - epoch_start}
+               "train_loss": sum(epoch_losses) / max(1, len(epoch_losses)), "validation_loss": val_loss,
+               "epoch_seconds_this_segment": time.perf_counter() - epoch_start}
         history.append(row)
         (args.output_dir / "training_history.json").write_text(json.dumps(history, indent=2))
         is_best = val_loss < best_val
         if is_best:
             best_val = val_loss
             (args.output_dir / "best_epoch.json").write_text(json.dumps(row, indent=2))
-        _save_trainable_checkpoint(model, method_metadata, optimizer, scheduler, args.output_dir,
-                                   epoch, global_step, run_config, best_val, filename="checkpoint_last.pt")
+        _save_trainable_checkpoint(
+            model, method_metadata, optimizer, scheduler, args.output_dir,
+            epoch, global_step, run_config, best_val,
+            micro_batches_consumed=0, epoch_completed=True, epoch_losses=[],
+        )
         if is_best:
             _save_trainable_checkpoint(model, method_metadata, optimizer, scheduler, args.output_dir,
-                                       epoch, global_step, run_config, best_val, filename="checkpoint_best.pt")
+                                       epoch, global_step, run_config, best_val,
+                                       filename="checkpoint_best.pt", micro_batches_consumed=0,
+                                       epoch_completed=True, epoch_losses=[])
         print(json.dumps(row), flush=True)
         model.train()
+        resume_micro_batches = 0
+        resume_epoch_losses = []
+        resume_epoch_completed = True
     hardware = {"torch_version": torch.__version__, "device": args.device,
                 "cuda_available": torch.cuda.is_available(),
                 "gpu_count": torch.cuda.device_count() if torch.cuda.is_available() else 0}

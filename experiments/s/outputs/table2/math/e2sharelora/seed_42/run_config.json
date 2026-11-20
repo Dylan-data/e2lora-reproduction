@@ -1,0 +1,577 @@
+{
+  "suite": "table2",
+  "task": "math",
+  "method": "e2sharelora",
+  "model": {
+    "repo": "meta-llama/Llama-3.1-8B",
+    "revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b"
+  },
+  "dataset": {
+    "repo": "meta-math/MetaMathQA",
+    "revision": "aa4f34d3d2d3231299b5b03d9b3e5a20da45aa18",
+    "split": "train",
+    "train_count": 100000,
+    "validation_count": 2000,
+    "sampling_seed": 42,
+    "validation_seed": 43,
+    "validation_protocol": "disjoint held-out rows from MetaMathQA train (team choice)",
+    "diagnostic_subset": false
+  },
+  "train_manifest_sha256": "d0d8fc23d349b3b7287a7c5a5b41eee1240be5460276fe1e3bf5c91c101df700",
+  "seed": 42,
+  "data_seed": 42,
+  "validation_seed": 43,
+  "epochs": 1,
+  "sequence_length": 2048,
+  "max_new_tokens": 512,
+  "batching": {
+    "per_device_batch": 1,
+    "gradient_accumulation": 64,
+    "effective_batch": 64
+  },
+  "hyperparameters": {
+    "learning_rate_cli": null,
+    "weight_decay": 0.0005,
+    "warmup_ratio": 0.03,
+    "table9_lr_decay_unresolved": 0.1,
+    "precision": "bf16 if CUDA else fp32",
+    "learning_rate_used": 5e-05
+  },
+  "team_choices": {
+    "data_sampling_seed": 42,
+    "selection_validation_seed": 43,
+    "baseline_rank": 8,
+    "e2_base_rank": 8,
+    "e2_rank_budget_status": "default base rank 8 guided by Appendix J.1 (LoRA r4 vs E2 base r8); target-suite rank is not separately stated and actual counts must be checked",
+    "alpha": 16.0,
+    "lora_plus_ratio": 16.0,
+    "vera_rank": 256,
+    "selection_validation": "task-specific; see dataset metadata",
+    "attention_implementation": "sdpa"
+  },
+  "paper_settings": {
+    "optimizer": "AdamW",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "global_batch_size": 64,
+    "weight_decay": 0.0005,
+    "C4_warmup": 0.03,
+    "Table9_warmup": 0.3,
+    "Table9_LR_decay": 0.1
+  },
+  "diagnostic_subset": false,
+  "method_implementation": {
+    "method": "e2sharelora",
+    "target_layers": {
+      "q_proj": [
+        "model.layers.0.self_attn.q_proj",
+        "model.layers.1.self_attn.q_proj",
+        "model.layers.2.self_attn.q_proj",
+        "model.layers.3.self_attn.q_proj",
+        "model.layers.4.self_attn.q_proj",
+        "model.layers.5.self_attn.q_proj",
+        "model.layers.6.self_attn.q_proj",
+        "model.layers.7.self_attn.q_proj",
+        "model.layers.8.self_attn.q_proj",
+        "model.layers.9.self_attn.q_proj",
+        "model.layers.10.self_attn.q_proj",
+        "model.layers.11.self_attn.q_proj",
+        "model.layers.12.self_attn.q_proj",
+        "model.layers.13.self_attn.q_proj",
+        "model.layers.14.self_attn.q_proj",
+        "model.layers.15.self_attn.q_proj",
+        "model.layers.16.self_attn.q_proj",
+        "model.layers.17.self_attn.q_proj",
+        "model.layers.18.self_attn.q_proj",
+        "model.layers.19.self_attn.q_proj",
+        "model.layers.20.self_attn.q_proj",
+        "model.layers.21.self_attn.q_proj",
+        "model.layers.22.self_attn.q_proj",
+        "model.layers.23.self_attn.q_proj",
+        "model.layers.24.self_attn.q_proj",
+        "model.layers.25.self_attn.q_proj",
+        "model.layers.26.self_attn.q_proj",
+        "model.layers.27.self_attn.q_proj",
+        "model.layers.28.self_attn.q_proj",
+        "model.layers.29.self_attn.q_proj",
+        "model.layers.30.self_attn.q_proj",
+        "model.layers.31.self_attn.q_proj"
+      ],
+      "k_proj": [
+        "model.layers.0.self_attn.k_proj",
+        "model.layers.1.self_attn.k_proj",
+        "model.layers.2.self_attn.k_proj",
+        "model.layers.3.self_attn.k_proj",
+        "model.layers.4.self_attn.k_proj",
+        "model.layers.5.self_attn.k_proj",
+        "model.layers.6.self_attn.k_proj",
+        "model.layers.7.self_attn.k_proj",
+        "model.layers.8.self_attn.k_proj",
+        "model.layers.9.self_attn.k_proj",
+        "model.layers.10.self_attn.k_proj",
+        "model.layers.11.self_attn.k_proj",
+        "model.layers.12.self_attn.k_proj",
+        "model.layers.13.self_attn.k_proj",
+        "model.layers.14.self_attn.k_proj",
+        "model.layers.15.self_attn.k_proj",
+        "model.layers.16.self_attn.k_proj",
+        "model.layers.17.self_attn.k_proj",
+        "model.layers.18.self_attn.k_proj",
+        "model.layers.19.self_attn.k_proj",
+        "model.layers.20.self_attn.k_proj",
+        "model.layers.21.self_attn.k_proj",
+        "model.layers.22.self_attn.k_proj",
+        "model.layers.23.self_attn.k_proj",
+        "model.layers.24.self_attn.k_proj",
+        "model.layers.25.self_attn.k_proj",
+        "model.layers.26.self_attn.k_proj",
+        "model.layers.27.self_attn.k_proj",
+        "model.layers.28.self_attn.k_proj",
+        "model.layers.29.self_attn.k_proj",
+        "model.layers.30.self_attn.k_proj",
+        "model.layers.31.self_attn.k_proj"
+      ],
+      "v_proj": [
+        "model.layers.0.self_attn.v_proj",
+        "model.layers.1.self_attn.v_proj",
+        "model.layers.2.self_attn.v_proj",
+        "model.layers.3.self_attn.v_proj",
+        "model.layers.4.self_attn.v_proj",
+        "model.layers.5.self_attn.v_proj",
+        "model.layers.6.self_attn.v_proj",
+        "model.layers.7.self_attn.v_proj",
+        "model.layers.8.self_attn.v_proj",
+        "model.layers.9.self_attn.v_proj",
+        "model.layers.10.self_attn.v_proj",
+        "model.layers.11.self_attn.v_proj",
+        "model.layers.12.self_attn.v_proj",
+        "model.layers.13.self_attn.v_proj",
+        "model.layers.14.self_attn.v_proj",
+        "model.layers.15.self_attn.v_proj",
+        "model.layers.16.self_attn.v_proj",
+        "model.layers.17.self_attn.v_proj",
+        "model.layers.18.self_attn.v_proj",
+        "model.layers.19.self_attn.v_proj",
+        "model.layers.20.self_attn.v_proj",
+        "model.layers.21.self_attn.v_proj",
+        "model.layers.22.self_attn.v_proj",
+        "model.layers.23.self_attn.v_proj",
+        "model.layers.24.self_attn.v_proj",
+        "model.layers.25.self_attn.v_proj",
+        "model.layers.26.self_attn.v_proj",
+        "model.layers.27.self_attn.v_proj",
+        "model.layers.28.self_attn.v_proj",
+        "model.layers.29.self_attn.v_proj",
+        "model.layers.30.self_attn.v_proj",
+        "model.layers.31.self_attn.v_proj"
+      ],
+      "o_proj": [
+        "model.layers.0.self_attn.o_proj",
+        "model.layers.1.self_attn.o_proj",
+        "model.layers.2.self_attn.o_proj",
+        "model.layers.3.self_attn.o_proj",
+        "model.layers.4.self_attn.o_proj",
+        "model.layers.5.self_attn.o_proj",
+        "model.layers.6.self_attn.o_proj",
+        "model.layers.7.self_attn.o_proj",
+        "model.layers.8.self_attn.o_proj",
+        "model.layers.9.self_attn.o_proj",
+        "model.layers.10.self_attn.o_proj",
+        "model.layers.11.self_attn.o_proj",
+        "model.layers.12.self_attn.o_proj",
+        "model.layers.13.self_attn.o_proj",
+        "model.layers.14.self_attn.o_proj",
+        "model.layers.15.self_attn.o_proj",
+        "model.layers.16.self_attn.o_proj",
+        "model.layers.17.self_attn.o_proj",
+        "model.layers.18.self_attn.o_proj",
+        "model.layers.19.self_attn.o_proj",
+        "model.layers.20.self_attn.o_proj",
+        "model.layers.21.self_attn.o_proj",
+        "model.layers.22.self_attn.o_proj",
+        "model.layers.23.self_attn.o_proj",
+        "model.layers.24.self_attn.o_proj",
+        "model.layers.25.self_attn.o_proj",
+        "model.layers.26.self_attn.o_proj",
+        "model.layers.27.self_attn.o_proj",
+        "model.layers.28.self_attn.o_proj",
+        "model.layers.29.self_attn.o_proj",
+        "model.layers.30.self_attn.o_proj",
+        "model.layers.31.self_attn.o_proj"
+      ]
+    },
+    "peft": false,
+    "implementation": "E2 adaptive interval; A shared per projection, B shared within interval",
+    "plan": [
+      {
+        "layers": [
+          "model.layers.0.self_attn.q_proj",
+          "model.layers.1.self_attn.q_proj"
+        ],
+        "rank": 27,
+        "family": "q_proj",
+        "trainable_rank": 27,
+        "adapter_id": "B_q_proj_000"
+      },
+      {
+        "layers": [
+          "model.layers.2.self_attn.q_proj",
+          "model.layers.3.self_attn.q_proj",
+          "model.layers.4.self_attn.q_proj",
+          "model.layers.5.self_attn.q_proj",
+          "model.layers.6.self_attn.q_proj"
+        ],
+        "rank": 25,
+        "family": "q_proj",
+        "trainable_rank": 25,
+        "adapter_id": "B_q_proj_001"
+      },
+      {
+        "layers": [
+          "model.layers.7.self_attn.q_proj",
+          "model.layers.8.self_attn.q_proj",
+          "model.layers.9.self_attn.q_proj",
+          "model.layers.10.self_attn.q_proj",
+          "model.layers.11.self_attn.q_proj"
+        ],
+        "rank": 24,
+        "family": "q_proj",
+        "trainable_rank": 24,
+        "adapter_id": "B_q_proj_002"
+      },
+      {
+        "layers": [
+          "model.layers.12.self_attn.q_proj",
+          "model.layers.13.self_attn.q_proj",
+          "model.layers.14.self_attn.q_proj",
+          "model.layers.15.self_attn.q_proj",
+          "model.layers.16.self_attn.q_proj"
+        ],
+        "rank": 25,
+        "family": "q_proj",
+        "trainable_rank": 25,
+        "adapter_id": "B_q_proj_003"
+      },
+      {
+        "layers": [
+          "model.layers.17.self_attn.q_proj",
+          "model.layers.18.self_attn.q_proj",
+          "model.layers.19.self_attn.q_proj",
+          "model.layers.20.self_attn.q_proj",
+          "model.layers.21.self_attn.q_proj",
+          "model.layers.22.self_attn.q_proj",
+          "model.layers.23.self_attn.q_proj",
+          "model.layers.24.self_attn.q_proj",
+          "model.layers.25.self_attn.q_proj",
+          "model.layers.26.self_attn.q_proj"
+        ],
+        "rank": 26,
+        "family": "q_proj",
+        "trainable_rank": 26,
+        "adapter_id": "B_q_proj_004"
+      },
+      {
+        "layers": [
+          "model.layers.27.self_attn.q_proj"
+        ],
+        "rank": 25,
+        "family": "q_proj",
+        "trainable_rank": 25,
+        "adapter_id": "B_q_proj_005"
+      },
+      {
+        "layers": [
+          "model.layers.28.self_attn.q_proj"
+        ],
+        "rank": 27,
+        "family": "q_proj",
+        "trainable_rank": 27,
+        "adapter_id": "B_q_proj_006"
+      },
+      {
+        "layers": [
+          "model.layers.29.self_attn.q_proj"
+        ],
+        "rank": 24,
+        "family": "q_proj",
+        "trainable_rank": 24,
+        "adapter_id": "B_q_proj_007"
+      },
+      {
+        "layers": [
+          "model.layers.30.self_attn.q_proj"
+        ],
+        "rank": 28,
+        "family": "q_proj",
+        "trainable_rank": 28,
+        "adapter_id": "B_q_proj_008"
+      },
+      {
+        "layers": [
+          "model.layers.31.self_attn.q_proj"
+        ],
+        "rank": 25,
+        "family": "q_proj",
+        "trainable_rank": 25,
+        "adapter_id": "B_q_proj_009"
+      },
+      {
+        "layers": [
+          "model.layers.0.self_attn.k_proj"
+        ],
+        "rank": 25,
+        "family": "k_proj",
+        "trainable_rank": 25,
+        "adapter_id": "B_k_proj_000"
+      },
+      {
+        "layers": [
+          "model.layers.1.self_attn.k_proj"
+        ],
+        "rank": 23,
+        "family": "k_proj",
+        "trainable_rank": 23,
+        "adapter_id": "B_k_proj_001"
+      },
+      {
+        "layers": [
+          "model.layers.2.self_attn.k_proj",
+          "model.layers.3.self_attn.k_proj",
+          "model.layers.4.self_attn.k_proj",
+          "model.layers.5.self_attn.k_proj",
+          "model.layers.6.self_attn.k_proj",
+          "model.layers.7.self_attn.k_proj",
+          "model.layers.8.self_attn.k_proj",
+          "model.layers.9.self_attn.k_proj",
+          "model.layers.10.self_attn.k_proj",
+          "model.layers.11.self_attn.k_proj",
+          "model.layers.12.self_attn.k_proj",
+          "model.layers.13.self_attn.k_proj"
+        ],
+        "rank": 22,
+        "family": "k_proj",
+        "trainable_rank": 22,
+        "adapter_id": "B_k_proj_002"
+      },
+      {
+        "layers": [
+          "model.layers.14.self_attn.k_proj",
+          "model.layers.15.self_attn.k_proj",
+          "model.layers.16.self_attn.k_proj",
+          "model.layers.17.self_attn.k_proj"
+        ],
+        "rank": 23,
+        "family": "k_proj",
+        "trainable_rank": 23,
+        "adapter_id": "B_k_proj_003"
+      },
+      {
+        "layers": [
+          "model.layers.18.self_attn.k_proj",
+          "model.layers.19.self_attn.k_proj",
+          "model.layers.20.self_attn.k_proj",
+          "model.layers.21.self_attn.k_proj",
+          "model.layers.22.self_attn.k_proj"
+        ],
+        "rank": 24,
+        "family": "k_proj",
+        "trainable_rank": 24,
+        "adapter_id": "B_k_proj_004"
+      },
+      {
+        "layers": [
+          "model.layers.23.self_attn.k_proj",
+          "model.layers.24.self_attn.k_proj",
+          "model.layers.25.self_attn.k_proj"
+        ],
+        "rank": 23,
+        "family": "k_proj",
+        "trainable_rank": 23,
+        "adapter_id": "B_k_proj_005"
+      },
+      {
+        "layers": [
+          "model.layers.26.self_attn.k_proj"
+        ],
+        "rank": 25,
+        "family": "k_proj",
+        "trainable_rank": 25,
+        "adapter_id": "B_k_proj_006"
+      },
+      {
+        "layers": [
+          "model.layers.27.self_attn.k_proj"
+        ],
+        "rank": 21,
+        "family": "k_proj",
+        "trainable_rank": 21,
+        "adapter_id": "B_k_proj_007"
+      },
+      {
+        "layers": [
+          "model.layers.28.self_attn.k_proj"
+        ],
+        "rank": 23,
+        "family": "k_proj",
+        "trainable_rank": 23,
+        "adapter_id": "B_k_proj_008"
+      },
+      {
+        "layers": [
+          "model.layers.29.self_attn.k_proj",
+          "model.layers.30.self_attn.k_proj"
+        ],
+        "rank": 24,
+        "family": "k_proj",
+        "trainable_rank": 24,
+        "adapter_id": "B_k_proj_009"
+      },
+      {
+        "layers": [
+          "model.layers.31.self_attn.k_proj"
+        ],
+        "rank": 22,
+        "family": "k_proj",
+        "trainable_rank": 22,
+        "adapter_id": "B_k_proj_010"
+      },
+      {
+        "layers": [
+          "model.layers.0.self_attn.v_proj",
+          "model.layers.1.self_attn.v_proj",
+          "model.layers.2.self_attn.v_proj",
+          "model.layers.3.self_attn.v_proj",
+          "model.layers.4.self_attn.v_proj",
+          "model.layers.5.self_attn.v_proj",
+          "model.layers.6.self_attn.v_proj",
+          "model.layers.7.self_attn.v_proj"
+        ],
+        "rank": 54,
+        "family": "v_proj",
+        "trainable_rank": 54,
+        "adapter_id": "B_v_proj_000"
+      },
+      {
+        "layers": [
+          "model.layers.8.self_attn.v_proj",
+          "model.layers.9.self_attn.v_proj",
+          "model.layers.10.self_attn.v_proj",
+          "model.layers.11.self_attn.v_proj",
+          "model.layers.12.self_attn.v_proj",
+          "model.layers.13.self_attn.v_proj"
+        ],
+        "rank": 62,
+        "family": "v_proj",
+        "trainable_rank": 62,
+        "adapter_id": "B_v_proj_001"
+      },
+      {
+        "layers": [
+          "model.layers.14.self_attn.v_proj",
+          "model.layers.15.self_attn.v_proj",
+          "model.layers.16.self_attn.v_proj",
+          "model.layers.17.self_attn.v_proj",
+          "model.layers.18.self_attn.v_proj",
+          "model.layers.19.self_attn.v_proj",
+          "model.layers.20.self_attn.v_proj",
+          "model.layers.21.self_attn.v_proj",
+          "model.layers.22.self_attn.v_proj"
+        ],
+        "rank": 67,
+        "family": "v_proj",
+        "trainable_rank": 67,
+        "adapter_id": "B_v_proj_002"
+      },
+      {
+        "layers": [
+          "model.layers.23.self_attn.v_proj",
+          "model.layers.24.self_attn.v_proj",
+          "model.layers.25.self_attn.v_proj",
+          "model.layers.26.self_attn.v_proj",
+          "model.layers.27.self_attn.v_proj",
+          "model.layers.28.self_attn.v_proj",
+          "model.layers.29.self_attn.v_proj",
+          "model.layers.30.self_attn.v_proj",
+          "model.layers.31.self_attn.v_proj"
+        ],
+        "rank": 72,
+        "family": "v_proj",
+        "trainable_rank": 72,
+        "adapter_id": "B_v_proj_003"
+      },
+      {
+        "layers": [
+          "model.layers.0.self_attn.o_proj",
+          "model.layers.1.self_attn.o_proj",
+          "model.layers.2.self_attn.o_proj",
+          "model.layers.3.self_attn.o_proj",
+          "model.layers.4.self_attn.o_proj",
+          "model.layers.5.self_attn.o_proj",
+          "model.layers.6.self_attn.o_proj",
+          "model.layers.7.self_attn.o_proj",
+          "model.layers.8.self_attn.o_proj",
+          "model.layers.9.self_attn.o_proj",
+          "model.layers.10.self_attn.o_proj",
+          "model.layers.11.self_attn.o_proj",
+          "model.layers.12.self_attn.o_proj",
+          "model.layers.13.self_attn.o_proj",
+          "model.layers.14.self_attn.o_proj",
+          "model.layers.15.self_attn.o_proj",
+          "model.layers.16.self_attn.o_proj"
+        ],
+        "rank": 58,
+        "family": "o_proj",
+        "trainable_rank": 58,
+        "adapter_id": "B_o_proj_000"
+      },
+      {
+        "layers": [
+          "model.layers.17.self_attn.o_proj",
+          "model.layers.18.self_attn.o_proj",
+          "model.layers.19.self_attn.o_proj",
+          "model.layers.20.self_attn.o_proj",
+          "model.layers.21.self_attn.o_proj",
+          "model.layers.22.self_attn.o_proj"
+        ],
+        "rank": 65,
+        "family": "o_proj",
+        "trainable_rank": 65,
+        "adapter_id": "B_o_proj_001"
+      },
+      {
+        "layers": [
+          "model.layers.23.self_attn.o_proj",
+          "model.layers.24.self_attn.o_proj",
+          "model.layers.25.self_attn.o_proj",
+          "model.layers.26.self_attn.o_proj",
+          "model.layers.27.self_attn.o_proj",
+          "model.layers.28.self_attn.o_proj",
+          "model.layers.29.self_attn.o_proj",
+          "model.layers.30.self_attn.o_proj"
+        ],
+        "rank": 70,
+        "family": "o_proj",
+        "trainable_rank": 70,
+        "adapter_id": "B_o_proj_002"
+      },
+      {
+        "layers": [
+          "model.layers.31.self_attn.o_proj"
+        ],
+        "rank": 63,
+        "family": "o_proj",
+        "trainable_rank": 63,
+        "adapter_id": "B_o_proj_003"
+      }
+    ]
+  },
+  "parameter_counts": {
+    "trainable_total_params": 3418112,
+    "trainable_adapter_params": 3418112,
+    "frozen_adapter_buffer_elements": 0,
+    "full_adapter_factor_elements": 3418112,
+    "total_trainable_params": 3418112
+  }
+}

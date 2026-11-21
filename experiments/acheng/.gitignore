@@ -1,0 +1,28 @@
+# Local data and model caches
+cache/
+datasets/
+weights/
+models/
+
+# Weights, checkpoints, and serialized training state
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.model
+
+# Per-run logs and large raw artifacts
+outputs/**/slurm-*.out
+outputs/**/*.out
+outputs/**/*.err
+outputs/**/checkpoint*
+outputs/**/optimizer*
+outputs/**/scheduler*
+outputs/**/predictions*
+outputs/**/raw/
+outputs/**/gradients*
+outputs/**/*rmi*.npy
+outputs/**/*noise*.npy
+outputs/**/cache/
+outputs/**/*.tmp

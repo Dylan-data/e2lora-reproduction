@@ -1,0 +1,1496 @@
+{
+  "run_type": "cpu_sampling_resource_audit",
+  "eligible_for_formal_tables": false,
+  "gpu_operations": false,
+  "base_weights_loaded": false,
+  "model": {
+    "repo": "meta-llama/Llama-3.1-8B",
+    "path": "/home/msds/yahui003/e2lora-storage/models/Llama-3.1-8B",
+    "revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b"
+  },
+  "inventory": {
+    "layer_count": 32,
+    "target_count": 128,
+    "families": {
+      "q_proj": {
+        "targets": [
+          {
+            "target": "model.layers.0.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.1.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.2.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.3.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.4.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.5.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.6.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.7.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.8.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.9.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.10.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.11.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.12.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.13.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.14.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.15.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.16.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.17.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.18.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.19.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.20.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.21.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.22.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.23.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.24.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.25.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.26.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.27.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.28.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.29.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.30.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.31.self_attn.q_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          }
+        ],
+        "cpu_fp32_family_cache_bytes": 2147483648
+      },
+      "k_proj": {
+        "targets": [
+          {
+            "target": "model.layers.0.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.1.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.2.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.3.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.4.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.5.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.6.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.7.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.8.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.9.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.10.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.11.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.12.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.13.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.14.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.15.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.16.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.17.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.18.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.19.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.20.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.21.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.22.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.23.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.24.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.25.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.26.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.27.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.28.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.29.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.30.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.31.self_attn.k_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          }
+        ],
+        "cpu_fp32_family_cache_bytes": 536870912
+      },
+      "v_proj": {
+        "targets": [
+          {
+            "target": "model.layers.0.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.1.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.2.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.3.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.4.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.5.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.6.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.7.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.8.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.9.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.10.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.11.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.12.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.13.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.14.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.15.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.16.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.17.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.18.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.19.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.20.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.21.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.22.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.23.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.24.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.25.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.26.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.27.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.28.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.29.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.30.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          },
+          {
+            "target": "model.layers.31.self_attn.v_proj",
+            "shape": [
+              1024,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 4194304,
+            "cpu_fp32_gradient_bytes": 16777216
+          }
+        ],
+        "cpu_fp32_family_cache_bytes": 536870912
+      },
+      "o_proj": {
+        "targets": [
+          {
+            "target": "model.layers.0.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.1.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.2.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.3.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.4.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.5.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.6.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.7.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.8.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.9.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.10.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.11.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.12.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.13.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.14.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.15.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.16.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.17.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.18.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.19.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.20.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.21.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.22.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.23.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.24.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.25.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.26.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.27.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.28.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.29.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.30.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          },
+          {
+            "target": "model.layers.31.self_attn.o_proj",
+            "shape": [
+              4096,
+              4096
+            ],
+            "weight_dtype": "BF16",
+            "elements": 16777216,
+            "cpu_fp32_gradient_bytes": 67108864
+          }
+        ],
+        "cpu_fp32_family_cache_bytes": 2147483648
+      }
+    },
+    "all_targets_cpu_fp32_bytes_if_retained": 5368709120,
+    "sequential_peak_family_cpu_fp32_bytes": 2147483648,
+    "largest_single_fp32_gradient_bytes": 67108864,
+    "largest_single_fp64_moment_copy_bytes": 134217728,
+    "largest_alternative_metric_family_fp64_copies_bytes": 4294967296
+  },
+  "formula": "targets * steps * ceil(logical_batch_size / micro_batch_size)",
+  "count_examples_not_formal_batch_confirmation": {
+    "B1_micro1": [
+      {
+        "targets": 128,
+        "logical_steps": 8,
+        "logical_batch_size": 1,
+        "micro_batch_size": 1,
+        "examples": 8,
+        "micro_batches_per_target": 8,
+        "forward_calls": 1024,
+        "autograd_grad_calls": 1024,
+        "optimizer_updates": 0
+      },
+      {
+        "targets": 128,
+        "logical_steps": 16,
+        "logical_batch_size": 1,
+        "micro_batch_size": 1,
+        "examples": 16,
+        "micro_batches_per_target": 16,
+        "forward_calls": 2048,
+        "autograd_grad_calls": 2048,
+        "optimizer_updates": 0
+      },
+      {
+        "targets": 128,
+        "logical_steps": 32,
+        "logical_batch_size": 1,
+        "micro_batch_size": 1,
+        "examples": 32,
+        "micro_batches_per_target": 32,
+        "forward_calls": 4096,
+        "autograd_grad_calls": 4096,
+        "optimizer_updates": 0
+      },
+      {
+        "targets": 128,
+        "logical_steps": 64,
+        "logical_batch_size": 1,
+        "micro_batch_size": 1,
+        "examples": 64,
+        "micro_batches_per_target": 64,
+        "forward_calls": 8192,
+        "autograd_grad_calls": 8192,
+        "optimizer_updates": 0
+      },
+      {
+        "targets": 128,
+        "logical_steps": 128,
+        "logical_batch_size": 1,
+        "micro_batch_size": 1,
+        "examples": 128,
+        "micro_batches_per_target": 128,
+        "forward_calls": 16384,
+        "autograd_grad_calls": 16384,
+        "optimizer_updates": 0
+      },
+      {
+        "targets": 128,
+        "logical_steps": 256,
+        "logical_batch_size": 1,
+        "micro_batch_size": 1,
+        "examples": 256,
+        "micro_batches_per_target": 256,
+        "forward_calls": 32768,
+        "autograd_grad_calls": 32768,
+        "optimizer_updates": 0
+      },
+      {
+        "targets": 128,
+        "logical_steps": 512,
+        "logical_batch_size": 1,
+        "micro_batch_size": 1,
+        "examples": 512,
+        "micro_batches_per_target": 512,
+        "forward_calls": 65536,
+        "autograd_grad_calls": 65536,
+        "optimizer_updates": 0
+      }
+    ],
+    "B64_micro1": [
+      {
+        "targets": 128,
+        "logical_steps": 8,
+        "logical_batch_size": 64,
+        "micro_batch_size": 1,
+        "examples": 512,
+        "micro_batches_per_target": 512,
+        "forward_calls": 65536,
+        "autograd_grad_calls": 65536,
+        "optimizer_updates": 0
+      },
+      {
+        "targets": 128,
+        "logical_steps": 16,
+        "logical_batch_size": 64,
+        "micro_batch_size": 1,
+        "examples": 1024,
+        "micro_batches_per_target": 1024,
+        "forward_calls": 131072,
+        "autograd_grad_calls": 131072,
+        "optimizer_updates": 0
+      },
+      {
+        "targets": 128,
+        "logical_steps": 32,
+        "logical_batch_size": 64,
+        "micro_batch_size": 1,
+        "examples": 2048,
+        "micro_batches_per_target": 2048,
+        "forward_calls": 262144,
+        "autograd_grad_calls": 262144,
+        "optimizer_updates": 0
+      },
+      {
+        "targets": 128,
+        "logical_steps": 64,
+        "logical_batch_size": 64,
+        "micro_batch_size": 1,
+        "examples": 4096,
+        "micro_batches_per_target": 4096,
+        "forward_calls": 524288,
+        "autograd_grad_calls": 524288,
+        "optimizer_updates": 0
+      },
+      {
+        "targets": 128,
+        "logical_steps": 128,
+        "logical_batch_size": 64,
+        "micro_batch_size": 1,
+        "examples": 8192,
+        "micro_batches_per_target": 8192,
+        "forward_calls": 1048576,
+        "autograd_grad_calls": 1048576,
+        "optimizer_updates": 0
+      },
+      {
+        "targets": 128,
+        "logical_steps": 256,
+        "logical_batch_size": 64,
+        "micro_batch_size": 1,
+        "examples": 16384,
+        "micro_batches_per_target": 16384,
+        "forward_calls": 2097152,
+        "autograd_grad_calls": 2097152,
+        "optimizer_updates": 0
+      },
+      {
+        "targets": 128,
+        "logical_steps": 512,
+        "logical_batch_size": 64,
+        "micro_batch_size": 1,
+        "examples": 32768,
+        "micro_batches_per_target": 32768,
+        "forward_calls": 4194304,
+        "autograd_grad_calls": 4194304,
+        "optimizer_updates": 0
+      }
+    ]
+  },
+  "cpu_input_tensor_upper_bound_example": {
+    "assumptions": "illustrative S512 B64 L2048, input_ids/mask/labels all int64 on CPU",
+    "bytes": 1610612736
+  },
+  "total_sampling_time_seconds": null,
+  "timing_status": "one q_proj observation is not a 128-target or multi-step throughput calibration",
+  "memory_limits": [
+    "Family cache is retained until similarity is computed, not freed after each target",
+    "FP32 transfer/accumulation, FP64 moments, finite-check temporaries and allocator overhead add memory",
+    "Alternative metrics retain a full family's FP64 copies in addition to original FP32 gradients",
+    "CPU batches, Python token lists, source JSON and model loading require additional RAM",
+    "Reserved memory may grow from allocator caching; observe allocated bytes and tensor liveness separately"
+  ]
+}

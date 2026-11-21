@@ -1,0 +1,59 @@
+{
+  "status": "historical_1024_dual_task_scenario_superseded_math_only_2026_11_18",
+  "assumptions": {
+    "math_examples": 100000,
+    "code_examples": 100000,
+    "epochs": 1,
+    "global_batch_size": 64,
+    "max_length": 1024,
+    "sampling_batch_size": 64,
+    "main_sampling_steps": 64,
+    "figure5_rank_fixed_sampling_steps": 64,
+    "figure5_steps_fixed_rank": 8,
+    "gpu_count_per_run": 1
+  },
+  "measurement_sources": {
+    "stageA_gradient_seconds_for_2x1_samples_at_length256": 27.03363682399504,
+    "stageB_train_seconds_for_20_updates_global8_length256": 43.85371205001138
+  },
+  "training_per_run_gpu_hours_linear_token_scenario": 30.463711970741237,
+  "training_per_run_planning_range_gpu_hours": [
+    12,
+    72
+  ],
+  "sampling_gpu_hours_by_logical_steps_linear_token_scenario": {
+    "8": 7.689567807714145,
+    "16": 15.37913561542829,
+    "32": 30.75827123085658,
+    "64": 61.51654246171316,
+    "128": 123.03308492342632,
+    "256": 246.06616984685263,
+    "512": 492.13233969370526
+  },
+  "formal_configs": 36,
+  "planned_runs": 108,
+  "math_runs": 72,
+  "code_runs": 36,
+  "training_only_total_range_gpu_hours": [
+    1296,
+    7776
+  ],
+  "sampling_total_gpu_hours_naive_per_run_scenario": 9365.893589795827,
+  "excluded": [
+    "generation/evaluation",
+    "data preprocessing",
+    "queue time",
+    "checkpoint I/O",
+    "model reloading",
+    "rank64 slowdown",
+    "CPU similarity memory/time"
+  ],
+  "limitations": [
+    "Linear scaling is only a risk indicator; attention length, response lengths and utilization are nonlinear.",
+    "The Code task has no measured throughput; the 100K Code assumption is not confirmed.",
+    "No gradient cache is implemented; each adaptive run replays 128 targets.",
+    "Figure fixed values and seeds remain null in formal configs.",
+    "Use approved performance measurements to replace this scenario before any large batch."
+  ],
+  "superseded_by": "experiments/chloe/report/math-only-resource-plan.json"
+}

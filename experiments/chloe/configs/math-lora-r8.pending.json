@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "task": "math",
+  "method": "lora",
+  "run_type": "formal",
+  "protocol_status": "pending_team_confirmation",
+  "seed": 42,
+  "output_dir": "outputs/chloe/math/baseline-lora-r8-seed42",
+  "model": {
+    "repo": "meta-llama/Llama-3.1-8B",
+    "path": "/home/msds/yahui003/e2lora-storage/models/Llama-3.1-8B",
+    "revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b"
+  },
+  "data": {
+    "source": "/home/msds/yahui003/e2lora-storage/datasets/metamathqa/MetaMathQA-395K.json",
+    "revision": "aa4f34d3d2d3231299b5b03d9b3e5a20da45aa18",
+    "manifest": "outputs/chloe/data/math-100k-seed42.json",
+    "manifest_count": 100000,
+    "train_limit": null,
+    "prompt_template": null,
+    "loss": "response_only_token_weighted",
+    "truncation": "keep_BOS_and_prompt_tail_then_truncate_response_right",
+    "packing": false
+  },
+  "adapter": {
+    "rank": 8,
+    "alpha": null,
+    "dropout": 0,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "sharing": "none",
+    "rank_allocation": "uniform",
+    "adapter_dtype": "float32"
+  },
+  "training": {
+    "precision": "bf16",
+    "optimizer": "AdamW",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "weight_decay": 0.0005,
+    "learning_rate": 5e-05,
+    "scheduler": "cosine",
+    "warmup_steps": null,
+    "epochs": 1,
+    "max_steps": null,
+    "max_length": 2048,
+    "max_prompt_length": null,
+    "micro_batch_size": 1,
+    "gradient_accumulation": 64,
+    "global_batch_size": 64,
+    "gradient_checkpointing": true,
+    "max_grad_norm": 1.0,
+    "checkpoint_every": 10,
+    "log_every": 1,
+    "warmup_ratio": 0.03
+  },
+  "evaluation": {
+    "repo": "openai/gsm8k",
+    "revision": "740312add88f781978c0658806c59bc2815b9866",
+    "configuration": "main",
+    "split": "test",
+    "local_parquet": "/home/msds/yahui003/e2lora-storage/hf-home/hub/datasets--openai--gsm8k/snapshots/740312add88f781978c0658806c59bc2815b9866/main/test-00000-of-00001.parquet",
+    "metric": "accuracy",
+    "limit": null,
+    "max_new_tokens": 512,
+    "do_sample": false,
+    "num_beams": 1,
+    "few_shot_examples": null
+  }
+}

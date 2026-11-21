@@ -1,0 +1,11 @@
+{
+  "partition": "MGPU-TC2",
+  "account": "stud",
+  "qos": "normal",
+  "cpus": 8,
+  "memory": "30G",
+  "time": "06:00:00",
+  "max_submitted_jobs": 2,
+  "inspection_file": "outputs/chloe/slurm/cluster-inspection.txt",
+  "evidence": "Observed prior school runs: A40 48GB, per-user1GPU/10CPU/30G/6h, max2 jobs. Reinspect before submitting elsewhere."
+}

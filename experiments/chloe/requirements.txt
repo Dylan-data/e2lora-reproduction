@@ -1,0 +1,7 @@
+# Use the team's existing CUDA PyTorch environment.
+transformers>=4.56,<5
+datasets>=3,<5
+pyarrow>=18
+numpy>=1.26
+matplotlib>=3.8
+pytest>=8

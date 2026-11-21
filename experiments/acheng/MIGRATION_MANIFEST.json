@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "migration_id": "migration-from-kathy-20261117",
+  "owner": "acheng",
+  "member": 3,
+  "scope": "confirmed EuroSAT image-classification task files only",
+  "cluster_checkout": {
+    "host": "CCDS-TC2.cm.cluster",
+    "repository_root": "/home/msds/weicheng001/e2lora-reproduction",
+    "branch": "main",
+    "head": "c9f76648020a4dcb5ccc41a52512686fa1015642",
+    "origin_main": "d13dc42784dea9c3114e66f53606874f0ab41df8",
+    "source_directory_file_count": 9,
+    "moved_file_count": 9,
+    "moved_total_bytes": 27513,
+    "remaining_source_files": 0
+  },
+  "local_checkout": {
+    "status": "not separately accessible from this session",
+    "observed_working_directory": "/home/msds/weicheng001",
+    "observed_git_status": "not a git repository",
+    "modified": false,
+    "note": "The accessible repository is on the cluster login host; no separate local checkout was assumed or changed."
+  },
+  "ownership_evidence": {
+    "tracked_files_commit": "c9f76648020a4dcb5ccc41a52512686fa1015642",
+    "tracked_files_author": "#WANG WEICHENG# <weicheng001@CCDS-TC2.cm.cluster>",
+    "untracked_backup": "experiments/kathy/eurosat_zero_shot.sh.before-54488-fix",
+    "untracked_backup_reason": "EuroSAT zero-shot script backup directly tied to the recorded 54488 task failure"
+  },
+  "job_dependency_review": {
+    "checked_at": "2026-11-17T10:43:00+08:00",
+    "active_task_jobs": [],
+    "job_55190": {
+      "state": "FAILED",
+      "exit_code": "1:0",
+      "uses_kathy_paths": false,
+      "run_directory": "experiments/acheng/outputs/EuroSAT/LoRA-r8/2026/20261117T004722+0800/",
+      "checkpoint_dependency": false,
+      "note": "Failed before model initialization/training; no checkpoint was created."
+    },
+    "job_55170": {
+      "state": "COMPLETED",
+      "belongs_to_task": false,
+      "modified_or_cancelled": false
+    },
+    "retry_submission": "No retry was submitted; the wrapper invocation was rejected with exit 126 before sbatch because its execute bit was unset."
+  },
+  "inventory": {
+    "hidden_files": 0,
+    "directories_below_source": 0,
+    "logs": 0,
+    "results": 0,
+    "figures": 0,
+    "checkpoints": 0,
+    "weights_or_data": 0,
+    "historical_results_outside_source_directory": "Existing files under outputs/image-classification/ were left in place."
+  },
+  "files": [
+    {
+      "source": "experiments/kathy/README.md",
+      "destination": "experiments/acheng/archive/migration-from-kathy-20261117/docs/README.md",
+      "size_bytes": 1729,
+      "sha256": "18e80a654e79ecdabafdc4d103c708dbe5a8e4b3acb9228c579c6c54283f92ae",
+      "git_tracked": true,
+      "action": "moved verbatim"
+    },
+    {
+      "source": "experiments/kathy/PLAN.md",
+      "destination": "experiments/acheng/archive/migration-from-kathy-20261117/docs/PLAN.md",
+      "size_bytes": 3879,
+      "sha256": "b99de171fcad6960839d50b672071064d717c6da519db2cabed19695bf1e91df",
+      "git_tracked": true,
+      "action": "moved verbatim"
+    },
+    {
+      "source": "experiments/kathy/PILOT_RESULTS.md",
+      "destination": "experiments/acheng/archive/migration-from-kathy-20261117/docs/PILOT_RESULTS.md",
+      "size_bytes": 3168,
+      "sha256": "e686e5d7657284199eed625c6e822bb7e9ebb5197335bdaa3352780c43fcac3c",
+      "git_tracked": true,
+      "action": "moved verbatim"
+    },
+    {
+      "source": "experiments/kathy/eurosat_zero_shot.sh",
+      "destination": "experiments/acheng/archive/migration-from-kathy-20261117/scripts/eurosat_zero_shot.sh",
+      "size_bytes": 1299,
+      "sha256": "6891a2763932bf0f830b0d0d7239521dd110d95d8af72156d5cab8376a1ff616",
+      "git_tracked": true,
+      "action": "moved verbatim"
+    },
+    {
+      "source": "experiments/kathy/eurosat_zero_shot_full.sh",
+      "destination": "experiments/acheng/archive/migration-from-kathy-20261117/scripts/eurosat_zero_shot_full.sh",
+      "size_bytes": 1313,
+      "sha256": "f0cb6c47850c6262e37e46719e952c70c7881955a969a234191f7b119e02b3e9",
+      "git_tracked": true,
+      "action": "moved verbatim"
+    },
+    {
+      "source": "experiments/kathy/train_pilot.py",
+      "destination": "experiments/acheng/archive/migration-from-kathy-20261117/scripts/train_pilot.py",
+      "size_bytes": 10297,
+      "sha256": "b40d5d1f8707db2bf20f7c6dd6971f05a4f5dceca70bd061dd33054de0afc608",
+      "git_tracked": true,
+      "action": "moved verbatim"
+    },
+    {
+      "source": "experiments/kathy/train_pilot.sh",
+      "destination": "experiments/acheng/archive/migration-from-kathy-20261117/scripts/train_pilot.sh",
+      "size_bytes": 1328,
+      "sha256": "46701b21f7df5990ce916bbf4318028255f746e6ad96b11b7172dada67be6619",
+      "git_tracked": true,
+      "action": "moved verbatim"
+    },
+    {
+      "source": "experiments/kathy/zero_shot.py",
+      "destination": "experiments/acheng/archive/migration-from-kathy-20261117/scripts/zero_shot.py",
+      "size_bytes": 3659,
+      "sha256": "ecbf29b238a5e29e4e0365568743daacc285fc346e87905ed4e24694c95ee8aa",
+      "git_tracked": true,
+      "action": "moved verbatim"
+    },
+    {
+      "source": "experiments/kathy/eurosat_zero_shot.sh.before-54488-fix",
+      "destination": "experiments/acheng/archive/migration-from-kathy-20261117/scripts/eurosat_zero_shot.sh.before-54488-fix",
+      "size_bytes": 841,
+      "sha256": "bcf7aad99fefa3c52fe8988c11efc7282b924dc46b088a713f11ea96a51de51b",
+      "git_tracked": false,
+      "action": "moved verbatim"
+    }
+  ],
+  "path_policy": {
+    "active_entrypoints": [
+      "experiments/acheng/scripts/submit_lora.sh",
+      "experiments/acheng/scripts/train_lora.sbatch",
+      "experiments/acheng/scripts/train_lora.py"
+    ],
+    "active_configs_and_registry": [
+      "experiments/acheng/configs/",
+      "experiments/acheng/runs.json"
+    ],
+    "archived_files": "Preserved as historical snapshots; old path strings in the archived copies are not valid execution instructions.",
+    "historical_source_records": "Supplied prompt and archived experiment documents remain unchanged."
+  }
+}

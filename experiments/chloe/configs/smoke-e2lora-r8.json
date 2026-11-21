@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "task": "math",
+  "method": "e2lora",
+  "run_type": "smoke",
+  "protocol_status": "provisional_literal_mechanism_smoke_only",
+  "seed": 42,
+  "output_dir": "outputs/chloe/smoke/math-e2lora-r8-seed42",
+  "model": {
+    "repo": "meta-llama/Llama-3.1-8B",
+    "path": "/home/msds/yahui003/e2lora-storage/models/Llama-3.1-8B",
+    "revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b"
+  },
+  "data": {
+    "source": "/home/msds/yahui003/e2lora-storage/datasets/metamathqa/MetaMathQA-395K.json",
+    "revision": "aa4f34d3d2d3231299b5b03d9b3e5a20da45aa18",
+    "manifest": "outputs/chloe/data/math-100k-seed42.json",
+    "manifest_count": 100000,
+    "train_limit": 160,
+    "prompt_template": "Question: {query}\nAnswer:\n",
+    "loss": "response_only_token_weighted",
+    "truncation": "keep_BOS_and_prompt_tail_then_truncate_response_right",
+    "packing": false
+  },
+  "adapter": {
+    "rank": 8,
+    "alpha": 16,
+    "dropout": 0,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "sharing": "A_and_B_within_group",
+    "rank_allocation": "entropy",
+    "adapter_dtype": "float32"
+  },
+  "training": {
+    "precision": "bf16",
+    "optimizer": "AdamW",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "weight_decay": 0.0005,
+    "learning_rate": 5e-05,
+    "scheduler": "cosine",
+    "warmup_steps": 1,
+    "epochs": 1,
+    "max_steps": 20,
+    "max_length": 256,
+    "max_prompt_length": 128,
+    "micro_batch_size": 1,
+    "gradient_accumulation": 8,
+    "global_batch_size": 8,
+    "gradient_checkpointing": true,
+    "max_grad_norm": 1.0,
+    "checkpoint_every": 10,
+    "log_every": 1
+  },
+  "evaluation": {
+    "repo": "openai/gsm8k",
+    "revision": "740312add88f781978c0658806c59bc2815b9866",
+    "configuration": "main",
+    "split": "test",
+    "local_parquet": "/home/msds/yahui003/e2lora-storage/hf-home/hub/datasets--openai--gsm8k/snapshots/740312add88f781978c0658806c59bc2815b9866/main/test-00000-of-00001.parquet",
+    "metric": "accuracy",
+    "limit": 32,
+    "max_new_tokens": 256,
+    "do_sample": false,
+    "num_beams": 1,
+    "few_shot_examples": 0
+  },
+  "adaptive": {
+    "lss": true,
+    "hra": true,
+    "similarity": "rmi",
+    "grouping": "greedy",
+    "rank_policy": "paper",
+    "trainable_components": "all_group_A_and_B",
+    "partial_rank_sharing": {
+      "enabled": false,
+      "status": "pending alignment",
+      "reason": "First mechanism Smoke uses fully trainable shared A/B; no assumed 139 active ranks or claimed paper parameter savings."
+    },
+    "sampling": {
+      "steps": 2,
+      "batch_size": 1,
+      "seed": 42,
+      "order": "baseline_epoch0_order_prefix",
+      "target_block_size": 1
+    },
+    "prepared_plan": "outputs/chloe/smoke/math-e2lora-r8-seed42/prepared-plan.json"
+  }
+}

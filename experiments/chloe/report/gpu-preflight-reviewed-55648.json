@@ -1,0 +1,62 @@
+{
+  "run_type": "bounded_gpu_probe_review",
+  "reviewed_job_id": "55648",
+  "review_status": "PASSED_FOUR_TARGET_NON_FORMAL",
+  "eligible_for_formal_tables": false,
+  "slurm_state": "COMPLETED",
+  "exit_code": "0:0",
+  "slurm_elapsed_seconds": 30,
+  "slurm_accounting_source": "user-provided; no sacct query in this review",
+  "source_result_path": "outputs/chloe/preflight/multi-target2048/first-layer4-v1.json",
+  "source_result_sha256": "9cfd8cb1edb005c69bb2a69803a3b192818550cfbf65ceecba87c4954be07a00",
+  "source_progress_path": "outputs/chloe/preflight/multi-target2048/first-layer4-v1.targets.jsonl",
+  "source_progress_sha256": "317394e9002ba6c8a3f6355bcbffc02da88fbc42e9b10e598d7710516727a071",
+  "checks": {
+    "progress_matches_per_target": true,
+    "four_targets_eight_calls_zero_updates": true,
+    "all_post_target_allocated_equal": true,
+    "all_post_target_reserved_equal": true,
+    "family_allocated_restores_same_baseline": true,
+    "cache_shape_expected": true,
+    "reported_release_bytes_match_cache": true,
+    "core_sampler_source_matches_tested_run": true
+  },
+  "measured_phase_seconds": 7.339354546973482,
+  "process_seconds": 22.535120952874422,
+  "peak_allocated_bytes": 28383159808,
+  "peak_reserved_bytes": 29183967232,
+  "post_target_allocated_bytes": [
+    16077562368,
+    16077562368,
+    16077562368,
+    16077562368
+  ],
+  "rss_after_target_range_bytes": [
+    1533956096,
+    1585229824
+  ],
+  "rss_after_family_range_bytes": [
+    1483689984,
+    1554403328
+  ],
+  "peak_process_rss_bytes": 5874597888,
+  "gpu_leak_observed_in_this_bounded_run": false,
+  "cpu_conclusion": "Expected cache byte counts and no sustained RSS growth; no leak signal in four targets. released_gradient_bytes is a declared before-delete size, not independent lifetime proof.",
+  "per_family_reserved_present_in_original": false,
+  "direct_cpu_weakref_release_present_in_original": false,
+  "next_probe_diagnostic_additions": [
+    "per-family reserved",
+    "weak-reference live Tensor count after release",
+    "expected CPU cache bytes from actual prefix weight shapes"
+  ],
+  "limits": [
+    "Each family had only one layer; family accumulation across multiple layers was not tested",
+    "RSS/peakRSS are process allocator metrics, not raw gradient live bytes; peakRSS includes earlier loading",
+    "No proof for full128, longer sampling, actual MetaMathQA or CPU similarity workspace",
+    "Original raw JSON status intentionally remains COMPLETED_REQUIRES_REVIEW",
+    "No time prediction obtained by scaling the 7.339-second result"
+  ],
+  "next_case": "spread12",
+  "next_probe_submitted": false,
+  "full128_authorized": false
+}

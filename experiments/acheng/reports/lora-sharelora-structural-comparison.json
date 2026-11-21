@@ -1,0 +1,1693 @@
+{
+  "status": "verified_from_recorded_baseline_and_single_batch_pilot",
+  "model": "openai/clip-vit-base-patch16",
+  "model_revision": "57c216476eefef5ab752ec549e440a49ae4ae5f3",
+  "dataset": "DTD",
+  "seed": 2026,
+  "rank": 8,
+  "alpha": 16,
+  "object_identity_note": "Stable labels describe equality groups proved by in-memory identity checks, not persisted Python addresses. LoRA uniqueness is evidenced by named_parameters deduplication and all 144 recorded updated tensor names.",
+  "lora": {
+    "A_objects": 72,
+    "B_objects": 72,
+    "parameters": 1327104,
+    "formula": "12*(55296 A + 55296 B) = 1327104"
+  },
+  "sharelora": {
+    "A_objects": 6,
+    "B_objects": 72,
+    "A_parameters": 55296,
+    "B_parameters": 663552,
+    "parameters": 718848,
+    "formula": "55296 shared A + 663552 independent B = 718848",
+    "first_batch_loss": 2.1298112869262695,
+    "first_batch_B_updates": 72,
+    "first_batch_A_updates": 0,
+    "first_batch_A_zero_gradient_reason": "B was initialized to zero"
+  },
+  "frozen_and_trainable": "Original model weights and text branch frozen; both A and B trainable; both audits confirmed frozen weights unchanged.",
+  "scope": "Paper says A globally shared and B layer-specific; exact partition of differently shaped image projections is not specified. Sharing one A per projection family across 12 layers is the recorded team interpretation, not a proven original implementation detail.",
+  "rounding": "718848 rounds to 0.72M as in the paper. 1327104 rounds to 1.33M rather than the paper's displayed 1.31M; rounding/target-scope difference alone is not proof of error.",
+  "targets": [
+    {
+      "layer": "vision_model.encoder.layers.0.self_attn.q_proj",
+      "family": "self_attn.q_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.0.self_attn.q_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.0.self_attn.q_proj:B",
+      "share_A_object": "share:self_attn.q_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.0.self_attn.q_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.1.self_attn.q_proj",
+      "family": "self_attn.q_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.1.self_attn.q_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.1.self_attn.q_proj:B",
+      "share_A_object": "share:self_attn.q_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.1.self_attn.q_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.2.self_attn.q_proj",
+      "family": "self_attn.q_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.2.self_attn.q_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.2.self_attn.q_proj:B",
+      "share_A_object": "share:self_attn.q_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.2.self_attn.q_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.3.self_attn.q_proj",
+      "family": "self_attn.q_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.3.self_attn.q_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.3.self_attn.q_proj:B",
+      "share_A_object": "share:self_attn.q_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.3.self_attn.q_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.4.self_attn.q_proj",
+      "family": "self_attn.q_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.4.self_attn.q_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.4.self_attn.q_proj:B",
+      "share_A_object": "share:self_attn.q_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.4.self_attn.q_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.5.self_attn.q_proj",
+      "family": "self_attn.q_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.5.self_attn.q_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.5.self_attn.q_proj:B",
+      "share_A_object": "share:self_attn.q_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.5.self_attn.q_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.6.self_attn.q_proj",
+      "family": "self_attn.q_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.6.self_attn.q_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.6.self_attn.q_proj:B",
+      "share_A_object": "share:self_attn.q_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.6.self_attn.q_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.7.self_attn.q_proj",
+      "family": "self_attn.q_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.7.self_attn.q_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.7.self_attn.q_proj:B",
+      "share_A_object": "share:self_attn.q_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.7.self_attn.q_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.8.self_attn.q_proj",
+      "family": "self_attn.q_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.8.self_attn.q_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.8.self_attn.q_proj:B",
+      "share_A_object": "share:self_attn.q_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.8.self_attn.q_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.9.self_attn.q_proj",
+      "family": "self_attn.q_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.9.self_attn.q_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.9.self_attn.q_proj:B",
+      "share_A_object": "share:self_attn.q_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.9.self_attn.q_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.10.self_attn.q_proj",
+      "family": "self_attn.q_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.10.self_attn.q_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.10.self_attn.q_proj:B",
+      "share_A_object": "share:self_attn.q_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.10.self_attn.q_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.11.self_attn.q_proj",
+      "family": "self_attn.q_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.11.self_attn.q_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.11.self_attn.q_proj:B",
+      "share_A_object": "share:self_attn.q_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.11.self_attn.q_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.0.self_attn.k_proj",
+      "family": "self_attn.k_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.0.self_attn.k_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.0.self_attn.k_proj:B",
+      "share_A_object": "share:self_attn.k_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.0.self_attn.k_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.1.self_attn.k_proj",
+      "family": "self_attn.k_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.1.self_attn.k_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.1.self_attn.k_proj:B",
+      "share_A_object": "share:self_attn.k_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.1.self_attn.k_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.2.self_attn.k_proj",
+      "family": "self_attn.k_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.2.self_attn.k_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.2.self_attn.k_proj:B",
+      "share_A_object": "share:self_attn.k_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.2.self_attn.k_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.3.self_attn.k_proj",
+      "family": "self_attn.k_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.3.self_attn.k_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.3.self_attn.k_proj:B",
+      "share_A_object": "share:self_attn.k_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.3.self_attn.k_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.4.self_attn.k_proj",
+      "family": "self_attn.k_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.4.self_attn.k_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.4.self_attn.k_proj:B",
+      "share_A_object": "share:self_attn.k_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.4.self_attn.k_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.5.self_attn.k_proj",
+      "family": "self_attn.k_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.5.self_attn.k_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.5.self_attn.k_proj:B",
+      "share_A_object": "share:self_attn.k_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.5.self_attn.k_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.6.self_attn.k_proj",
+      "family": "self_attn.k_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.6.self_attn.k_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.6.self_attn.k_proj:B",
+      "share_A_object": "share:self_attn.k_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.6.self_attn.k_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.7.self_attn.k_proj",
+      "family": "self_attn.k_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.7.self_attn.k_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.7.self_attn.k_proj:B",
+      "share_A_object": "share:self_attn.k_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.7.self_attn.k_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.8.self_attn.k_proj",
+      "family": "self_attn.k_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.8.self_attn.k_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.8.self_attn.k_proj:B",
+      "share_A_object": "share:self_attn.k_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.8.self_attn.k_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.9.self_attn.k_proj",
+      "family": "self_attn.k_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.9.self_attn.k_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.9.self_attn.k_proj:B",
+      "share_A_object": "share:self_attn.k_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.9.self_attn.k_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.10.self_attn.k_proj",
+      "family": "self_attn.k_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.10.self_attn.k_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.10.self_attn.k_proj:B",
+      "share_A_object": "share:self_attn.k_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.10.self_attn.k_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.11.self_attn.k_proj",
+      "family": "self_attn.k_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.11.self_attn.k_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.11.self_attn.k_proj:B",
+      "share_A_object": "share:self_attn.k_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.11.self_attn.k_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.0.self_attn.v_proj",
+      "family": "self_attn.v_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.0.self_attn.v_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.0.self_attn.v_proj:B",
+      "share_A_object": "share:self_attn.v_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.0.self_attn.v_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.1.self_attn.v_proj",
+      "family": "self_attn.v_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.1.self_attn.v_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.1.self_attn.v_proj:B",
+      "share_A_object": "share:self_attn.v_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.1.self_attn.v_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.2.self_attn.v_proj",
+      "family": "self_attn.v_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.2.self_attn.v_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.2.self_attn.v_proj:B",
+      "share_A_object": "share:self_attn.v_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.2.self_attn.v_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.3.self_attn.v_proj",
+      "family": "self_attn.v_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.3.self_attn.v_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.3.self_attn.v_proj:B",
+      "share_A_object": "share:self_attn.v_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.3.self_attn.v_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.4.self_attn.v_proj",
+      "family": "self_attn.v_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.4.self_attn.v_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.4.self_attn.v_proj:B",
+      "share_A_object": "share:self_attn.v_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.4.self_attn.v_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.5.self_attn.v_proj",
+      "family": "self_attn.v_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.5.self_attn.v_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.5.self_attn.v_proj:B",
+      "share_A_object": "share:self_attn.v_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.5.self_attn.v_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.6.self_attn.v_proj",
+      "family": "self_attn.v_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.6.self_attn.v_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.6.self_attn.v_proj:B",
+      "share_A_object": "share:self_attn.v_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.6.self_attn.v_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.7.self_attn.v_proj",
+      "family": "self_attn.v_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.7.self_attn.v_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.7.self_attn.v_proj:B",
+      "share_A_object": "share:self_attn.v_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.7.self_attn.v_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.8.self_attn.v_proj",
+      "family": "self_attn.v_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.8.self_attn.v_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.8.self_attn.v_proj:B",
+      "share_A_object": "share:self_attn.v_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.8.self_attn.v_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.9.self_attn.v_proj",
+      "family": "self_attn.v_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.9.self_attn.v_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.9.self_attn.v_proj:B",
+      "share_A_object": "share:self_attn.v_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.9.self_attn.v_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.10.self_attn.v_proj",
+      "family": "self_attn.v_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.10.self_attn.v_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.10.self_attn.v_proj:B",
+      "share_A_object": "share:self_attn.v_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.10.self_attn.v_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.11.self_attn.v_proj",
+      "family": "self_attn.v_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.11.self_attn.v_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.11.self_attn.v_proj:B",
+      "share_A_object": "share:self_attn.v_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.11.self_attn.v_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.0.self_attn.out_proj",
+      "family": "self_attn.out_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.0.self_attn.out_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.0.self_attn.out_proj:B",
+      "share_A_object": "share:self_attn.out_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.0.self_attn.out_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.1.self_attn.out_proj",
+      "family": "self_attn.out_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.1.self_attn.out_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.1.self_attn.out_proj:B",
+      "share_A_object": "share:self_attn.out_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.1.self_attn.out_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.2.self_attn.out_proj",
+      "family": "self_attn.out_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.2.self_attn.out_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.2.self_attn.out_proj:B",
+      "share_A_object": "share:self_attn.out_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.2.self_attn.out_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.3.self_attn.out_proj",
+      "family": "self_attn.out_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.3.self_attn.out_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.3.self_attn.out_proj:B",
+      "share_A_object": "share:self_attn.out_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.3.self_attn.out_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.4.self_attn.out_proj",
+      "family": "self_attn.out_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.4.self_attn.out_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.4.self_attn.out_proj:B",
+      "share_A_object": "share:self_attn.out_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.4.self_attn.out_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.5.self_attn.out_proj",
+      "family": "self_attn.out_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.5.self_attn.out_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.5.self_attn.out_proj:B",
+      "share_A_object": "share:self_attn.out_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.5.self_attn.out_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.6.self_attn.out_proj",
+      "family": "self_attn.out_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.6.self_attn.out_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.6.self_attn.out_proj:B",
+      "share_A_object": "share:self_attn.out_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.6.self_attn.out_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.7.self_attn.out_proj",
+      "family": "self_attn.out_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.7.self_attn.out_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.7.self_attn.out_proj:B",
+      "share_A_object": "share:self_attn.out_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.7.self_attn.out_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.8.self_attn.out_proj",
+      "family": "self_attn.out_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.8.self_attn.out_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.8.self_attn.out_proj:B",
+      "share_A_object": "share:self_attn.out_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.8.self_attn.out_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.9.self_attn.out_proj",
+      "family": "self_attn.out_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.9.self_attn.out_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.9.self_attn.out_proj:B",
+      "share_A_object": "share:self_attn.out_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.9.self_attn.out_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.10.self_attn.out_proj",
+      "family": "self_attn.out_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.10.self_attn.out_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.10.self_attn.out_proj:B",
+      "share_A_object": "share:self_attn.out_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.10.self_attn.out_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.11.self_attn.out_proj",
+      "family": "self_attn.out_proj",
+      "base_shape": [
+        768,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.11.self_attn.out_proj:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.11.self_attn.out_proj:B",
+      "share_A_object": "share:self_attn.out_proj:A",
+      "share_B_object": "share:vision_model.encoder.layers.11.self_attn.out_proj:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.0.mlp.fc1",
+      "family": "mlp.fc1",
+      "base_shape": [
+        3072,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        3072,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.0.mlp.fc1:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.0.mlp.fc1:B",
+      "share_A_object": "share:mlp.fc1:A",
+      "share_B_object": "share:vision_model.encoder.layers.0.mlp.fc1:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.1.mlp.fc1",
+      "family": "mlp.fc1",
+      "base_shape": [
+        3072,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        3072,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.1.mlp.fc1:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.1.mlp.fc1:B",
+      "share_A_object": "share:mlp.fc1:A",
+      "share_B_object": "share:vision_model.encoder.layers.1.mlp.fc1:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.2.mlp.fc1",
+      "family": "mlp.fc1",
+      "base_shape": [
+        3072,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        3072,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.2.mlp.fc1:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.2.mlp.fc1:B",
+      "share_A_object": "share:mlp.fc1:A",
+      "share_B_object": "share:vision_model.encoder.layers.2.mlp.fc1:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.3.mlp.fc1",
+      "family": "mlp.fc1",
+      "base_shape": [
+        3072,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        3072,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.3.mlp.fc1:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.3.mlp.fc1:B",
+      "share_A_object": "share:mlp.fc1:A",
+      "share_B_object": "share:vision_model.encoder.layers.3.mlp.fc1:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.4.mlp.fc1",
+      "family": "mlp.fc1",
+      "base_shape": [
+        3072,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        3072,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.4.mlp.fc1:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.4.mlp.fc1:B",
+      "share_A_object": "share:mlp.fc1:A",
+      "share_B_object": "share:vision_model.encoder.layers.4.mlp.fc1:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.5.mlp.fc1",
+      "family": "mlp.fc1",
+      "base_shape": [
+        3072,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        3072,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.5.mlp.fc1:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.5.mlp.fc1:B",
+      "share_A_object": "share:mlp.fc1:A",
+      "share_B_object": "share:vision_model.encoder.layers.5.mlp.fc1:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.6.mlp.fc1",
+      "family": "mlp.fc1",
+      "base_shape": [
+        3072,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        3072,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.6.mlp.fc1:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.6.mlp.fc1:B",
+      "share_A_object": "share:mlp.fc1:A",
+      "share_B_object": "share:vision_model.encoder.layers.6.mlp.fc1:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.7.mlp.fc1",
+      "family": "mlp.fc1",
+      "base_shape": [
+        3072,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        3072,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.7.mlp.fc1:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.7.mlp.fc1:B",
+      "share_A_object": "share:mlp.fc1:A",
+      "share_B_object": "share:vision_model.encoder.layers.7.mlp.fc1:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.8.mlp.fc1",
+      "family": "mlp.fc1",
+      "base_shape": [
+        3072,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        3072,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.8.mlp.fc1:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.8.mlp.fc1:B",
+      "share_A_object": "share:mlp.fc1:A",
+      "share_B_object": "share:vision_model.encoder.layers.8.mlp.fc1:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.9.mlp.fc1",
+      "family": "mlp.fc1",
+      "base_shape": [
+        3072,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        3072,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.9.mlp.fc1:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.9.mlp.fc1:B",
+      "share_A_object": "share:mlp.fc1:A",
+      "share_B_object": "share:vision_model.encoder.layers.9.mlp.fc1:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.10.mlp.fc1",
+      "family": "mlp.fc1",
+      "base_shape": [
+        3072,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        3072,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.10.mlp.fc1:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.10.mlp.fc1:B",
+      "share_A_object": "share:mlp.fc1:A",
+      "share_B_object": "share:vision_model.encoder.layers.10.mlp.fc1:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.11.mlp.fc1",
+      "family": "mlp.fc1",
+      "base_shape": [
+        3072,
+        768
+      ],
+      "A_shape": [
+        8,
+        768
+      ],
+      "B_shape": [
+        3072,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.11.mlp.fc1:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.11.mlp.fc1:B",
+      "share_A_object": "share:mlp.fc1:A",
+      "share_B_object": "share:vision_model.encoder.layers.11.mlp.fc1:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.0.mlp.fc2",
+      "family": "mlp.fc2",
+      "base_shape": [
+        768,
+        3072
+      ],
+      "A_shape": [
+        8,
+        3072
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.0.mlp.fc2:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.0.mlp.fc2:B",
+      "share_A_object": "share:mlp.fc2:A",
+      "share_B_object": "share:vision_model.encoder.layers.0.mlp.fc2:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.1.mlp.fc2",
+      "family": "mlp.fc2",
+      "base_shape": [
+        768,
+        3072
+      ],
+      "A_shape": [
+        8,
+        3072
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.1.mlp.fc2:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.1.mlp.fc2:B",
+      "share_A_object": "share:mlp.fc2:A",
+      "share_B_object": "share:vision_model.encoder.layers.1.mlp.fc2:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.2.mlp.fc2",
+      "family": "mlp.fc2",
+      "base_shape": [
+        768,
+        3072
+      ],
+      "A_shape": [
+        8,
+        3072
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.2.mlp.fc2:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.2.mlp.fc2:B",
+      "share_A_object": "share:mlp.fc2:A",
+      "share_B_object": "share:vision_model.encoder.layers.2.mlp.fc2:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.3.mlp.fc2",
+      "family": "mlp.fc2",
+      "base_shape": [
+        768,
+        3072
+      ],
+      "A_shape": [
+        8,
+        3072
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.3.mlp.fc2:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.3.mlp.fc2:B",
+      "share_A_object": "share:mlp.fc2:A",
+      "share_B_object": "share:vision_model.encoder.layers.3.mlp.fc2:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.4.mlp.fc2",
+      "family": "mlp.fc2",
+      "base_shape": [
+        768,
+        3072
+      ],
+      "A_shape": [
+        8,
+        3072
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.4.mlp.fc2:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.4.mlp.fc2:B",
+      "share_A_object": "share:mlp.fc2:A",
+      "share_B_object": "share:vision_model.encoder.layers.4.mlp.fc2:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.5.mlp.fc2",
+      "family": "mlp.fc2",
+      "base_shape": [
+        768,
+        3072
+      ],
+      "A_shape": [
+        8,
+        3072
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.5.mlp.fc2:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.5.mlp.fc2:B",
+      "share_A_object": "share:mlp.fc2:A",
+      "share_B_object": "share:vision_model.encoder.layers.5.mlp.fc2:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.6.mlp.fc2",
+      "family": "mlp.fc2",
+      "base_shape": [
+        768,
+        3072
+      ],
+      "A_shape": [
+        8,
+        3072
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.6.mlp.fc2:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.6.mlp.fc2:B",
+      "share_A_object": "share:mlp.fc2:A",
+      "share_B_object": "share:vision_model.encoder.layers.6.mlp.fc2:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.7.mlp.fc2",
+      "family": "mlp.fc2",
+      "base_shape": [
+        768,
+        3072
+      ],
+      "A_shape": [
+        8,
+        3072
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.7.mlp.fc2:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.7.mlp.fc2:B",
+      "share_A_object": "share:mlp.fc2:A",
+      "share_B_object": "share:vision_model.encoder.layers.7.mlp.fc2:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.8.mlp.fc2",
+      "family": "mlp.fc2",
+      "base_shape": [
+        768,
+        3072
+      ],
+      "A_shape": [
+        8,
+        3072
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.8.mlp.fc2:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.8.mlp.fc2:B",
+      "share_A_object": "share:mlp.fc2:A",
+      "share_B_object": "share:vision_model.encoder.layers.8.mlp.fc2:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.9.mlp.fc2",
+      "family": "mlp.fc2",
+      "base_shape": [
+        768,
+        3072
+      ],
+      "A_shape": [
+        8,
+        3072
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.9.mlp.fc2:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.9.mlp.fc2:B",
+      "share_A_object": "share:mlp.fc2:A",
+      "share_B_object": "share:vision_model.encoder.layers.9.mlp.fc2:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.10.mlp.fc2",
+      "family": "mlp.fc2",
+      "base_shape": [
+        768,
+        3072
+      ],
+      "A_shape": [
+        8,
+        3072
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.10.mlp.fc2:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.10.mlp.fc2:B",
+      "share_A_object": "share:mlp.fc2:A",
+      "share_B_object": "share:vision_model.encoder.layers.10.mlp.fc2:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    },
+    {
+      "layer": "vision_model.encoder.layers.11.mlp.fc2",
+      "family": "mlp.fc2",
+      "base_shape": [
+        768,
+        3072
+      ],
+      "A_shape": [
+        8,
+        3072
+      ],
+      "B_shape": [
+        768,
+        8
+      ],
+      "lora_A_object": "lora:vision_model.encoder.layers.11.mlp.fc2:A",
+      "lora_B_object": "lora:vision_model.encoder.layers.11.mlp.fc2:B",
+      "share_A_object": "share:mlp.fc2:A",
+      "share_B_object": "share:vision_model.encoder.layers.11.mlp.fc2:B",
+      "base_weight_frozen": true,
+      "adapter_A_trainable": true,
+      "adapter_B_trainable": true
+    }
+  ],
+  "sources": [
+    "experiments/acheng/outputs/DTD/LoRA-r8/2026/20261119T173117+0800/result.json",
+    "experiments/acheng/outputs/DTD/ShareLoRA-r8/2026/20261120T165158+0800/result.json"
+  ]
+}

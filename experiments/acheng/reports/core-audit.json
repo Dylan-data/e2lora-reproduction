@@ -1,0 +1,99 @@
+{
+  "updated_at": "2026-11-17",
+  "owner": "acheng",
+  "scope": "72-hour staged core reproduction",
+  "model": {
+    "name": "openai/clip-vit-base-patch16",
+    "revision": "57c216476eefef5ab752ec549e440a49ae4ae5f3",
+    "converted_safetensors_revision": "5ef227a78de3f75873f373246dac80def63b0003",
+    "precision": "FP32"
+  },
+  "zero_shot": {
+    "status": "historical_full_test_audited_reuse",
+    "job_id": "54495",
+    "dataset": "tanganke/eurosat",
+    "dataset_revision": "43750fc422c7fbd4289e2df3f7473617a5937acc",
+    "split": "pinned mirror test split; not asserted to be the paper's original split",
+    "count": 2700,
+    "correct": 1424,
+    "accuracy_percent": 52.74074074074074,
+    "indices": "all ordered indices 0 through 2699",
+    "prompts": "10 prompts exactly follow a photo of a {class} and align with the verified EuroSAT class order",
+    "prediction_label_score_audit": "passed: stored predictions, labels, counts and accuracy agree",
+    "notable_class_metrics": {
+      "forest": "0/312 correct",
+      "pasture land": "0/206 correct"
+    },
+    "interpretation": "These unusually low per-class values were checked against class order, prompt strings and stored prediction/label scoring; no alignment defect was detected. Treat as measured model behavior, not as evidence to silently remap labels.",
+    "result_path": "outputs/image-classification/eurosat-zero-shot-full-54495/result.json",
+    "validation_path": "outputs/image-classification/eurosat-zero-shot-full-54495/validation.json",
+    "result_sha256": "498cfc1f3641669bf6a038d3580b68e59cf0174d9c5181da49a9ff31c744372f",
+    "validation_sha256": "99af3521e8a2bbd9f394e06d1c19282c59ddae1249ee2e9f725b17e4f3e16b15",
+    "audit_command": "python experiments/acheng/scripts/verify_eurosat_history.py --repo-root ."
+  },
+  "target_layers": {
+    "scope": "12 CLIP vision-transformer blocks; q_proj, k_proj, v_proj, out_proj, mlp.fc1 and mlp.fc2",
+    "target_matrix_count": 72,
+    "visual_projection": "excluded; transformer-block target count yields the reported ordinary-LoRA budget, but this count alone is not proof of E2 correctness",
+    "ordinary_lora_rank": 8,
+    "ordinary_lora_adapter_parameters": 1327104,
+    "parameter_formula": "sum over target linears of rank * (in_features + out_features); no adapter biases"
+  },
+  "e2lora_blocker": {
+    "status": "BLOCKED_FOR_FORMAL_PAIRED_TRAINING",
+    "pilot_job_id": "54504",
+    "pilot_only": true,
+    "plan_rank_policy": "paper",
+    "groups": 24,
+    "target_layers_covered": 72,
+    "per_family_rank_sum": {
+      "self_attn.q_proj": 95,
+      "self_attn.k_proj": 96,
+      "self_attn.v_proj": 96,
+      "self_attn.out_proj": 96,
+      "mlp.fc1": 96,
+      "mlp.fc2": 96
+    },
+    "rank_sum_total": 575,
+    "ordinary_lora_nominal_rank_sum_total": 576,
+    "recomputed_unique_shared_adapter_parameters": 1325568,
+    "pilot_recorded_adapter_parameters": 1325568,
+    "recomputation_matches_pilot": true,
+    "parameter_ratio_e2_to_lora": 0.9988425925925926,
+    "difference_from_lora_parameters": -1536,
+    "paper_displayed_budget": "approximately 0.66M for E2LoRA rank-8 versus approximately 1.31M for LoRA rank-8",
+    "evidence": {
+      "pilot_result": "outputs/image-classification/eurosat-e2lora-pilot-54504/result.json",
+      "pilot_result_sha256": "521c0d8f49f9e6b36a359026e20ca0cc7582345cb96987b080fdd125a4607a94",
+      "pilot_plan": "outputs/image-classification/eurosat-e2lora-pilot-54504/plan.json",
+      "pilot_plan_sha256": "ee27537e9f519eedcee37b1c666c8900f4a23252e576365b0a45b6247114f263",
+      "layer_inventory": "outputs/image-classification/eurosat-e2lora-pilot-54504/linear-layers.json",
+      "layer_inventory_sha256": "0ce877d010cdd148c67e016ac40acd48a72bd34ac0097475c2ddd94cd264f3cb"
+    },
+    "reason": "The literal paper-policy pilot allocates a total rank sum almost equal to the independent LoRA rank budget; recomputation of unique shared factors matches the recorded adapter count, which is not close to the paper's displayed half-budget. The paper/report does not authorize applying the text partial-rank scheme to the image model.",
+    "decision": "Do not launch a formal E2LoRA pair or alter rank allocation, freeze factors, or sharing to force parameter parity. Continue independent baseline and scoring work; revisit only with a defensible source-grounded interpretation."
+  },
+  "formal_lora_unit": {
+    "experiment_id": "table3/eurosat/lora-r8/seed-2026",
+    "run_id": "20261117T140537+0800",
+    "config_sha256": "6b6baf45e915f8e770d63dff2e2c589b54500465d1266e4930cb64634644e61d",
+    "seed": 2026,
+    "configured_epochs": 30,
+    "status": "in_progress_checkpointed_serially",
+    "live_job_and_checkpoint": "Use the attempt-3 task entry in runs.json; it is updated after each segment by the acheng continuation controller.",
+    "output_dir": "experiments/acheng/outputs/EuroSAT/LoRA-r8/2026/20261117T140537+0800/"
+  },
+  "scope_decisions": {
+    "p0": "audit split, prompt/score, target matrices and literal parameter policy",
+    "p1": "finish the registered 30-epoch EuroSAT LoRA seed-2026 and reuse the audited full EuroSAT zero-shot result",
+    "paired_e2lora": "blocked pending source-grounded rank/parameter interpretation",
+    "p2": "after P1, prefer a complete EuroSAT LoRA seed-2027 run if time permits; label it as a single baseline replicate, not a paired E2 result or three-seed stability estimate",
+    "deferred": [
+      "EuroSAT additional seeds",
+      "second dataset",
+      "Tables 6, 10, 11, 12 and 13",
+      "Cars Figure 6 gradient diagnostic"
+    ],
+    "report_buffer_hours": "4-6"
+  }
+}

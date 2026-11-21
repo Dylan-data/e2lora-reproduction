@@ -12,3 +12,5 @@
 - New Figure5 settings/rank extensions are explicit reviewable reproduction choices. Code/HumanEval remains excluded under the existing Math-only scope.
 
 School SSH environment validation before upload: 128 passed, 5 explicitly skipped, 10.35s; CUDA_VISIBLE_DEVICES empty. No new GPU job submitted.
+
+Post-merge school validation against main ae243032b96b175d1a9f83fe3d37e3d515449c39: 128 passed, 5 skipped in 11.19s. Other members tree entries unchanged. Local sparse view omits only four pre-existing upstream checkpoint blobs; Git history retains them.

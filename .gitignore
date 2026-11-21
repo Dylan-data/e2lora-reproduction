@@ -13,3 +13,5 @@ __pycache__/
 
 /src/e2lora/dataset/data/
 /logs/
+/outputs/chloe/
+/experiments/chloe/**/*.bak

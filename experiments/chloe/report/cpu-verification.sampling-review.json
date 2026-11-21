@@ -1,0 +1,43 @@
+{
+  "run_type": "cpu_sampling_lifecycle_review",
+  "tests_passed": 90,
+  "tests_failed": 0,
+  "pytest_elapsed_seconds": 6.04,
+  "command": "CUDA_VISIBLE_DEVICES='' PYTHONPATH=src HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 /home/msds/yahui003/.conda/envs/e2lora/bin/python -m pytest experiments/chloe/tests -q",
+  "new_tests": 13,
+  "gpu_operations_this_review": false,
+  "gpu_jobs_submitted": 0,
+  "formal_runs_started": 0,
+  "pushed": false,
+  "prior_user_gpu_jobs_recorded": [
+    "55643",
+    "55644"
+  ],
+  "prior_gpu_results_and_smoke_changed": [],
+  "protected_result_files_checked": 21,
+  "formal_math_ready": false,
+  "formal_math_issue_count": 91,
+  "test_evidence": [
+    "loss and autograd result weakrefs dead before next forward",
+    "one target requires_grad; weighted result matches independent autograd",
+    "prior projection CPU means die before next projection",
+    "observer failure restores flags/mode",
+    "128-target backward geometry incl nondivisible microbatch",
+    "actual model headers imply 5GiB all-target and 2GiB max-family raw FP32 storage",
+    "multi-target CLI capped at 12 targets and 2 samples"
+  ],
+  "source_sha256": {
+    "src/e2lora/adapters/adaptive.py": "7ab90e82fab7d961eabbb50f46acd8502170404b8ee298add887b51a70f9282f",
+    "src/e2lora/adapters/preparation.py": "9b24bd3020ec7a086379b89a07b0252d04dc7f536bf1b588be9b79a8b3b47965",
+    "experiments/chloe/multi_target_preflight.py": "8fa722fe21073af41202f17f1128e3e746677052315faf4099b0069f679a23dd",
+    "experiments/chloe/sampling_audit.py": "bafed1f3e4b0749b6aa997fd407c39c15a8dc2a36ac8be60e4796ed38db433df",
+    "experiments/chloe/tests/test_sampling_lifecycle.py": "8414284284729220ab83374ed1d08d39856e571c95decd355fd4ae03c78eb78d",
+    "experiments/chloe/slurm/multi-target2048-preflight.sbatch": "599d8a5afecb126fa08a14a6fab1623e48910981f8b6975ac2e371448cd5d047"
+  },
+  "limits": [
+    "CPU tests do not measure multi-target GPU allocated/reserved trends",
+    "New GPU probe execution path has only been prepared, not executed",
+    "Full sampling duration remains unknown; no extrapolation from 2.017 seconds",
+    "Partial-rank and member4 Math protocol remain pending"
+  ]
+}

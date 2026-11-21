@@ -1,0 +1,40 @@
+{
+  "run_type": "cpu_verification_for_55648_review_and_spread12_preparation",
+  "tests_passed": 90,
+  "tests_failed": 0,
+  "pytest_elapsed_seconds": 4.97,
+  "command": "CUDA_VISIBLE_DEVICES='' PYTHONPATH=src HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 /home/msds/yahui003/.conda/envs/e2lora/bin/python -m pytest experiments/chloe/tests -q",
+  "extra_cpu_same_family_probe": {
+    "prefix_bytes": [
+      64,
+      128,
+      192
+    ],
+    "live_mean_tensors_after_release": 0,
+    "shape": "three toy 4x4 Linear weights, not Llama GPU memory"
+  },
+  "shell_syntax_passed": true,
+  "spread12_cpu_dry_run_passed": true,
+  "protected_existing_result_core_and_protocol_files": 25,
+  "protected_files_changed": [],
+  "algorithm_hra_and_freezing_changed": false,
+  "gpu_jobs_submitted": 0,
+  "full128_executed": false,
+  "formal_training_started": false,
+  "pushed": false,
+  "four_target_review": "PASSED_FOUR_TARGET_NON_FORMAL",
+  "next_probe": "spread12; prepared but not submitted",
+  "next_expected_geometry": {
+    "targets": 12,
+    "samples": 2,
+    "forward_calls": 24,
+    "autograd_grad_calls": 24,
+    "optimizer_updates": 0
+  },
+  "source_sha256": {
+    "experiments/chloe/multi_target_preflight.py": "dc91b01e6b6b48e7685bde4a3cdfb8b9e63ee22877e0c6a3ab772c1c77e514ac",
+    "experiments/chloe/slurm/multi-target2048-preflight.sbatch": "599d8a5afecb126fa08a14a6fab1623e48910981f8b6975ac2e371448cd5d047",
+    "src/e2lora/adapters/adaptive.py": "7ab90e82fab7d961eabbb50f46acd8502170404b8ee298add887b51a70f9282f",
+    "src/e2lora/adapters/preparation.py": "9b24bd3020ec7a086379b89a07b0252d04dc7f536bf1b588be9b79a8b3b47965"
+  }
+}

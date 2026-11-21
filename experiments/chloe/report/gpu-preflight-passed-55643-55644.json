@@ -1,0 +1,122 @@
+{
+  "run_type": "reported_gpu_capacity_acceptance",
+  "status": "BOTH_CAPACITY_PROBES_PASSED_NOT_FORMAL_READY",
+  "eligible_for_formal_tables": false,
+  "formal_protocol_confirmed": false,
+  "records": [
+    {
+      "job_id": "55643",
+      "slurm_state": "COMPLETED",
+      "exit_code": "0:0",
+      "slurm_accounting_source": "user-provided; no sacct query performed in this review",
+      "local_result_path": "outputs/chloe/preflight/math2048/train-r8-gc-on-v1.json",
+      "local_result_sha256": "9c536235e5dff6d17df6f6919f6f1bf5ac6a174150731283269e1cd5f40d6d3f",
+      "stdout_matches_result": true,
+      "result": {
+        "run_type": "memory_preflight",
+        "eligible_for_formal_tables": false,
+        "status": "MEMORY_PROBE_PASSED_NOT_FORMAL_READY",
+        "task": "math",
+        "stage": "train",
+        "seed": 42,
+        "sequence_length": 2048,
+        "micro_batch_size": 1,
+        "diagnostic_rank": 8,
+        "checkpointing": "on",
+        "optimizer_updates": 2,
+        "diagnostic_accumulation": 1,
+        "formal_global_batch_target": 64,
+        "formal_batch_validated": false,
+        "gradient_targets": [],
+        "input": "synthetic repeated valid token, full 2048 length; first half labels masked",
+        "adapter_policy": "independent FP32 LoRA, diagnostic alpha=16; no inferred partial-rank policy",
+        "precision": "bf16 base and autocast",
+        "attention": "sdpa",
+        "use_cache": false,
+        "gpu_jobs_submitted": 0,
+        "limitations": [
+          "No formal Prompt, manifest or scoring validation",
+          "One gradient target cannot validate total 128-target duration/CPU memory",
+          "Independent LoRA rank does not validate actual shared E2 group ranks",
+          "Formal throughput and generation KV memory require later representative measurements"
+        ],
+        "gpu": "NVIDIA A40",
+        "cuda_total_bytes": 47709159424,
+        "loading_peak_allocated_bytes": 16060523008,
+        "trainable_parameters": 6815744,
+        "installed_groups": 128,
+        "measured_optimizer_updates": 2,
+        "step_seconds": [
+          9.768843178870156,
+          1.209208820015192
+        ],
+        "measured_phase_seconds": 10.978059877175838,
+        "peak_allocated_bytes": 19882919936,
+        "peak_reserved_bytes": 20912799744,
+        "process_seconds": 403.7299206019379,
+        "reserved_headroom_bytes": 26796359680
+      },
+      "peak_allocated_gib": 18.517412185668945,
+      "peak_reserved_gib": 19.4765625
+    },
+    {
+      "job_id": "55644",
+      "slurm_state": "COMPLETED",
+      "exit_code": "0:0",
+      "slurm_accounting_source": "user-provided; no sacct query performed in this review",
+      "local_result_path": "outputs/chloe/preflight/math2048/gradient-q0-eval-v1.json",
+      "local_result_sha256": "b63e28a797dae331dcdc1c59752b6d402121d6583e082aada11ca5ac351788d5",
+      "stdout_matches_result": true,
+      "result": {
+        "run_type": "memory_preflight",
+        "eligible_for_formal_tables": false,
+        "status": "MEMORY_PROBE_PASSED_NOT_FORMAL_READY",
+        "task": "math",
+        "stage": "gradient",
+        "seed": 42,
+        "sequence_length": 2048,
+        "micro_batch_size": 1,
+        "diagnostic_rank": 8,
+        "checkpointing": "off",
+        "optimizer_updates": 0,
+        "diagnostic_accumulation": 1,
+        "formal_global_batch_target": 64,
+        "formal_batch_validated": false,
+        "gradient_targets": [
+          "model.layers.0.self_attn.q_proj"
+        ],
+        "input": "synthetic repeated valid token, full 2048 length; first half labels masked",
+        "adapter_policy": "independent FP32 LoRA, diagnostic alpha=16; no inferred partial-rank policy",
+        "precision": "bf16 base and autocast",
+        "attention": "sdpa",
+        "use_cache": false,
+        "gpu_jobs_submitted": 0,
+        "limitations": [
+          "No formal Prompt, manifest or scoring validation",
+          "One gradient target cannot validate total 128-target duration/CPU memory",
+          "Independent LoRA rank does not validate actual shared E2 group ranks",
+          "Formal throughput and generation KV memory require later representative measurements"
+        ],
+        "gpu": "NVIDIA A40",
+        "cuda_total_bytes": 47709159424,
+        "loading_peak_allocated_bytes": 16060523008,
+        "measured_optimizer_updates": 0,
+        "measured_phase_seconds": 2.017151412088424,
+        "cpu_gradient_bytes": 67108864,
+        "peak_allocated_bytes": 28374689280,
+        "peak_reserved_bytes": 29183967232,
+        "process_seconds": 12.839576771948487,
+        "reserved_headroom_bytes": 18525192192
+      },
+      "peak_allocated_gib": 26.42598867416382,
+      "peak_reserved_gib": 27.1796875
+    }
+  ],
+  "full_sampling_time_prediction_seconds": null,
+  "limits": [
+    "Only independent r8 training with two synthetic sequence presentations passed",
+    "Only layer0 q_proj and one synthetic sample were gradient-tested",
+    "New explicit tensor-release changes are CPU-tested but not yet multi-target GPU-validated",
+    "No claim about full128 sampling, real data prompts, partial ranks or formal GSM8K scoring"
+  ]
+}

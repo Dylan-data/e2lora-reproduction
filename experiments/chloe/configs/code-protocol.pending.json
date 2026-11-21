@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "task": "code",
+  "status": "pending_generation_member_confirmation",
+  "source_config": "references/text-generation-setup.json",
+  "ablation_config": "references/ablation-setup.json",
+  "known": {
+    "dataset_repo": "m-a-p/Code-Feedback",
+    "dataset_revision": "f411b16a97c910ac9acf8b0d0948e340aa77cc34",
+    "split": "train",
+    "approximate_public_rows": 66400,
+    "paper_train_examples": 100000,
+    "evaluation_dataset": "HumanEval",
+    "metric": "pass@1"
+  },
+  "data_download_status": "not_downloaded",
+  "pending": {
+    "training_source": null,
+    "actual_training_examples": null,
+    "code_only_filter_and_multiturn_expansion": null,
+    "deduplication_and_sampling_ids": null,
+    "prompt_template_and_response_loss_mask": null,
+    "epochs_sequence_length_and_batch_accumulation": null,
+    "generation_temperature_top_p_top_k": null,
+    "generation_max_new_tokens_and_stop_sequences": null,
+    "humaneval_repo_revision_task_count": null,
+    "humaneval_samples_per_task_and_pass_at_1_estimator": null,
+    "humaneval_completion_extraction": null,
+    "humaneval_runner_revision_timeout_and_isolation": null,
+    "model_sharing_and_freezing": null,
+    "figure5_fixed_sampling_steps_and_base_rank": null
+  },
+  "confirmation": {
+    "generation_member": null,
+    "approved_protocol_document": null,
+    "confirmed_at": null
+  },
+  "alignment_status": "pending alignment",
+  "current_scope_status": "excluded_by_group_approval_math_only",
+  "current_scope_file": "experiments/chloe/configs/experiment-scope.json"
+}

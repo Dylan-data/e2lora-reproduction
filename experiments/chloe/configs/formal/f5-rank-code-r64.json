@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "run_id": "f5-rank-code-r64",
+  "study": "figure5_rank",
+  "task": "code",
+  "method": "e2lora",
+  "run_type": "formal",
+  "protocol_file": "experiments/chloe/configs/formal-protocol.pending.json",
+  "base_rank": 64,
+  "sampling_steps": null,
+  "lss": true,
+  "hra": true,
+  "similarity": "rmi",
+  "rank_policy": "paper",
+  "grouping": "greedy",
+  "independent_runs": 0,
+  "training_seeds": [],
+  "eligible_for_formal_tables": false,
+  "status": "EXCLUDED_BY_GROUP_APPROVAL_MATH_ONLY",
+  "exclusion_scope": "math-only-2026-11-18"
+}

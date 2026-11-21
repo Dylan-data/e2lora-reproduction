@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "run_id": "t4-l2_with_rank_allocation",
+  "study": "table4",
+  "task": "math",
+  "method": "l2_with_rank_allocation",
+  "run_type": "formal",
+  "protocol_file": "experiments/chloe/configs/formal-protocol.pending.json",
+  "base_rank": null,
+  "sampling_steps": null,
+  "lss": true,
+  "hra": true,
+  "similarity": "l2",
+  "rank_policy": "paper",
+  "grouping": "greedy",
+  "independent_runs": 3,
+  "training_seeds": [
+    42
+  ],
+  "eligible_for_formal_tables": false,
+  "status": "BLOCKED_PROTOCOL_ALIGNMENT"
+}

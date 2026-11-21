@@ -1,0 +1,312 @@
+{
+  "schema_version": 1,
+  "audit_title": "Final experiment protocol audit",
+  "audited_on": "2026-11-19",
+  "status": "BLOCKED_PROTOCOL_ALIGNMENT",
+  "missing_sentinel": "MISSING",
+  "scope": {
+    "read_only_review": true,
+    "only_new_audit_outputs_written": true,
+    "gpu_jobs_started_this_turn": 0,
+    "formal_training_started_this_turn": false,
+    "push_or_branch_switch": false,
+    "existing_results_preserved": true,
+    "preexisting_dirty_worktree_entries_before_audit_output": 48
+  },
+  "repository": {
+    "origin_url": "https://github.com/Dylan-data/e2lora-reproduction.git",
+    "local_branch": "chloe-ablation",
+    "local_head_sha": "d13dc42784dea9c3114e66f53606874f0ab41df8",
+    "live_origin_main_sha": "1c4f3bbc0f20659dac57d484d231eb84bbb3c27e",
+    "live_remote_check": "git ls-remote --heads origin main; read-only query on 2026-11-19",
+    "worktree_status": "dirty before audit outputs; all pre-existing modifications and outputs preserved"
+  },
+  "table2_user_relayed_confirmed": {
+    "model_label": "Llama 3.1 8B Base",
+    "dataset_label": "MetaMathQA, fixed version, 100000 examples",
+    "training_seed": 42,
+    "epochs": 1,
+    "max_seq_length": 2048,
+    "max_new_tokens": 512,
+    "evaluation_dataset_label": "GSM8K"
+  },
+  "table2_actual_execution_record": {
+    "formal_run_config": "MISSING",
+    "actual_entrypoint_and_commit": "MISSING",
+    "actual_model_repo_and_revision": "MISSING",
+    "actual_data_manifest_and_sha256": "MISSING",
+    "actual_training_prompts_and_token_ids": "MISSING",
+    "actual_full_hyperparameters": "MISSING",
+    "actual_evaluation_dataset_revision_and_order": "MISSING",
+    "actual_evaluation_prompt": "MISSING",
+    "actual_scorer_and_sha256": "MISSING",
+    "formal_result_or_checkpoint": "MISSING"
+  },
+  "dataset_candidate_in_current_project": {
+    "dataset_repo": "meta-math/MetaMathQA",
+    "dataset_revision": "aa4f34d3d2d3231299b5b03d9b3e5a20da45aa18",
+    "source_file_name": "MetaMathQA-395K.json",
+    "source_path": "/home/msds/yahui003/e2lora-storage/datasets/metamathqa/MetaMathQA-395K.json",
+    "source_rows": 395000,
+    "source_size_bytes": 395626321,
+    "source_sha256": "fb39a5d8c05c042ece92eae37dfd5ea414a5979df2bf3ad3b86411bef8205725",
+    "candidate_manifest_path": "outputs/chloe/data/math-100k-seed42.json",
+    "candidate_manifest_sha256": "32aa1d172728a66da282f480f7cf7d2262d8620ae606dc19d2f34f612d21d56b",
+    "selected_count": 100000,
+    "selection_seed": 42,
+    "selection_algorithm": "Python random.Random(42).sample(range(395000), 100000)",
+    "index_base": 0,
+    "selected_indices_sha256": "3c297cb3bb2908c36a7af7e2a9b98ef138f13ae0b04af00af5a4de68d390c7c6",
+    "candidate_manifest_status": "candidate_pending_team_manifest_alignment",
+    "selection_is_without_replacement": true,
+    "sampled_indices_sorted": false,
+    "preparation_filter": "No row-content filtering or content deduplication; selected rows must have string query/response. Current Chloe encoder errors on empty response rather than filtering and backfilling.",
+    "member4_actual_ordered_manifest": "MISSING",
+    "member4_actual_filter_and_selection_proof": "MISSING",
+    "member4_actual_training_shuffle_order": "MISSING",
+    "member4_actual_validation_manifest": "MISSING",
+    "current_code_order_behavior": {
+      "member4_suite": "DataLoader(shuffle=True); actual RNG realization/run artifact MISSING",
+      "chloe_train": "random.Random(seed + epoch).shuffle(position_order); not evidence that member4 used this order",
+      "member4_suite_validation_candidate": "2000 rows sampled from remaining rows using validation seed 43; actual use MISSING"
+    }
+  },
+  "declared_shared_reference_not_verified_as_executed": {
+    "model_repo_candidate": "meta-llama/Llama-3.1-8B",
+    "model_revision_candidate": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b",
+    "optimizer_candidate": "AdamW",
+    "betas_candidate": [0.9, 0.999],
+    "weight_decay_candidate": 0.0005,
+    "learning_rate_candidate": 0.00005,
+    "precision_candidate": "bf16",
+    "scheduler_candidate": "cosine",
+    "warmup_ratio_candidate": 0.03,
+    "effective_batch_size_candidate": 64,
+    "suite_per_device_batch_default_candidate": 1,
+    "suite_gradient_accumulation_default_candidate": 64,
+    "actual_execution_proof_for_these_values": "MISSING"
+  },
+  "actual_full_hyperparameters": {
+    "confirmed_from_member4_relay": {
+      "seed": 42,
+      "epochs": 1,
+      "max_seq_length": 2048,
+      "max_new_tokens": 512
+    },
+    "actual_optimizer_and_lr": "MISSING",
+    "actual_betas_and_weight_decay": "MISSING",
+    "actual_micro_batch_and_gradient_accumulation": "MISSING",
+    "actual_global_batch_and_tail_batch_rule": "MISSING",
+    "actual_max_steps_and_optimizer_update_count": "MISSING",
+    "actual_scheduler_and_stepwise_lr": "MISSING",
+    "actual_warmup_rounding_and_first_step_lr": "MISSING",
+    "actual_gradient_clipping": "MISSING",
+    "actual_precision_and_adapter_optimizer_state_dtype": "MISSING",
+    "actual_gradient_checkpointing_and_attention_backend": "MISSING",
+    "actual_rank_alpha_dropout_initialization_and_scaling_by_method": "MISSING",
+    "actual_target_modules_and_freezing": "MISSING",
+    "actual_loss_mask_weighting_and_packing": "MISSING",
+    "actual_prompt_truncation_response_truncation_and_eos_policy": "MISSING",
+    "actual_checkpoint_validation_selection_and_resume_policy": "MISSING",
+    "actual_environment_lock": "MISSING",
+    "note": "Repository reference values and Smoke configuration are not proof of actual Table 2 execution."
+  },
+  "prompts_and_evaluation": {
+    "actual_member4_training_prompt": "MISSING",
+    "member4_suite_training_prompt_candidate": "query.strip() + newline",
+    "member4_legacy_training_prompt_candidate": "query.rstrip() + newline",
+    "chloe_smoke_training_prompt_candidate": "Question: {query}\nAnswer:\n",
+    "formal_protocol_training_template": "MISSING",
+    "actual_member4_gsm8k_evaluation_prompt": "MISSING",
+    "member4_suite_evaluation_prompt_candidate": "Question: {question}\nAnswer: (no trailing newline)",
+    "chloe_smoke_evaluation_prompt_candidate": "Question: {query}\nAnswer:\n",
+    "actual_member4_gsm8k_scorer": "MISSING",
+    "member4_suite_scorer_module": "src/e2lora/tasks/generation_metrics.py is missing from current GitHub main",
+    "chloe_evaluate_py_status": "Smoke scorer candidate, not confirmed member4 scorer",
+    "chloe_score_rule": "Last #### suffix; otherwise final numeric token for prediction; Fraction exact equality; commas/scientific notation/fractions/simple LaTeX frac supported; unparseable prediction counts wrong; gold requires ####.",
+    "gsm8k_member4_dataset_revision_and_order": "MISSING",
+    "gsm8k_member4_jsonl_source_candidate": "openai/grade-school-math commit 3101c7d5072418e28b9008a6636bde82a006892c, test.jsonl",
+    "gsm8k_chloe_local_candidate": {
+      "repo": "openai/gsm8k",
+      "revision": "740312add88f781978c0658806c59bc2815b9866",
+      "configuration": "main",
+      "split": "test",
+      "count": 1319,
+      "parquet_sha256": "ee7b8da9e381df27b9e3f7758a159ab2bdaa4dbaa910546cbbc47e0cb44e4f59"
+    },
+    "gsm8k_jsonl_parquet_canonical_content_and_order_match": "MISSING",
+    "actual_decode_settings_other_than_max_new_tokens": "MISSING",
+    "actual_max_token_hit_and_parse_failure_statistics": "MISSING"
+  },
+  "trainable_parameter_audit": {
+    "count_definition": "Unique installed Parameters with requires_grad=true; shared group Parameters counted once; excludes base model and frozen buffers.",
+    "architecture_basis": "Actual local Llama 3.1 8B meta architecture, 32 layers and Q/K/V/O projections; no 8B weight load or GPU operation for static audit.",
+    "e2lora_basis": "Existing cached 2-example, 256-token Smoke grouping. E2 r8 plan is cached; r16 ranks were recomputed from the same cache. Not formal 2048 sampling.",
+    "table5_paper_display_M": {
+      "lora_r4": 3.41,
+      "lora_r8": 6.82,
+      "e2lora_r8": 3.61,
+      "e2lora_r16": 7.22
+    },
+    "current_static_counts": [
+      {
+        "study": "Table 5",
+        "method": "LoRA",
+        "rank": 4,
+        "unique_trainable_parameters": 3407872,
+        "paper_display": "3.41M",
+        "status": "static meta installation audit"
+      },
+      {
+        "study": "Table 5",
+        "method": "E2LoRA",
+        "rank": 8,
+        "unique_trainable_parameters": 6810624,
+        "paper_display": "3.61M",
+        "status": "cached Smoke plan; all group A/B trainable; non-formal"
+      },
+      {
+        "study": "Table 5",
+        "method": "LoRA",
+        "rank": 8,
+        "unique_trainable_parameters": 6815744,
+        "paper_display": "6.82M",
+        "status": "static meta installation audit"
+      },
+      {
+        "study": "Table 5",
+        "method": "E2LoRA",
+        "rank": 16,
+        "unique_trainable_parameters": 13631488,
+        "paper_display": "7.22M",
+        "status": "same cached Smoke statistics; all group A/B trainable; non-formal"
+      },
+      {
+        "study": "Figure 5 candidate",
+        "method": "LoRA",
+        "rank": 16,
+        "unique_trainable_parameters": 13631488,
+        "paper_display": "MISSING",
+        "status": "static meta installation audit"
+      },
+      {
+        "study": "Figure 5 candidate",
+        "method": "LoRA",
+        "rank": 32,
+        "unique_trainable_parameters": 27262976,
+        "paper_display": "MISSING",
+        "status": "static meta installation audit"
+      },
+      {
+        "study": "Figure 5 candidate",
+        "method": "LoRA",
+        "rank": 64,
+        "unique_trainable_parameters": 54525952,
+        "paper_display": "MISSING",
+        "status": "static meta installation audit"
+      },
+      {
+        "study": "Figure 5 candidate",
+        "method": "E2LoRA",
+        "rank": 4,
+        "unique_trainable_parameters": 3412992,
+        "paper_display": "MISSING",
+        "status": "cached Smoke grouping; non-formal"
+      },
+      {
+        "study": "Figure 5 candidate",
+        "method": "E2LoRA",
+        "rank": 32,
+        "unique_trainable_parameters": "MISSING",
+        "paper_display": "MISSING",
+        "status": "MISSING"
+      },
+      {
+        "study": "Figure 5 candidate",
+        "method": "E2LoRA",
+        "rank": 64,
+        "unique_trainable_parameters": "MISSING",
+        "paper_display": "MISSING",
+        "status": "MISSING"
+      }
+    ],
+    "table4_formal_counts": "MISSING: base rank and confirmed sampling/metric plans are not resolved",
+    "table5_differences_from_display_centers": {
+      "lora_r4": -2128,
+      "lora_r8": -4256,
+      "e2lora_r8": 3200624,
+      "e2lora_r16": 6411488
+    },
+    "current_e2lora_freezing_policy": "All group A/B trainable; no partial-rank freezing in current Smoke/static candidate. For this candidate, physical trainable coordinates equal active forward Rank coordinates.",
+    "author_budget_interpretation_and_approved_parameter_policy": "MISSING"
+  },
+  "cross_study_protocol_status": {
+    "table2": "PARTIALLY_CONFIRMED; full actual run protocol MISSING",
+    "table4": "BLOCKED_PROTOCOL_ALIGNMENT; base_rank, sampling_steps, metric conventions, method policies MISSING",
+    "table5": "BLOCKED_PROTOCOL_ALIGNMENT; E2LoRA parameter budget unresolved and differs materially from paper display",
+    "figure5": "BLOCKED_PROTOCOL_ALIGNMENT; fixed rank/steps, sampling batch, seed/subset/nesting and E2 ranks 32/64 counts MISSING",
+    "can_claim_same_actual_training_and_evaluation_protocol": false
+  },
+  "resource_validation_2048": {
+    "job_55643": {
+      "scope": "Synthetic 2048-sequence independent LoRA r8 training",
+      "optimizer_updates": 2,
+      "micro_batch_size": 1,
+      "gradient_accumulation": 1,
+      "formal_global_batch_64_validated": false
+    },
+    "job_55644": {
+      "scope": "Synthetic single-target layer0 q_proj gradient",
+      "target_count": 1,
+      "measured_phase_seconds": 2.017151,
+      "formal_full_sampling_validated": false
+    },
+    "job_55648": {
+      "status": "PASSED_FOUR_TARGET_NON_FORMAL",
+      "slurm_state": "COMPLETED",
+      "exit_code": "0:0",
+      "slurm_elapsed_seconds": 30,
+      "target_count": 4,
+      "forward_and_autograd_grad_calls": 8,
+      "optimizer_updates": 0,
+      "measured_phase_seconds": 7.339354546973482,
+      "peak_allocated_bytes": 28383159808,
+      "peak_reserved_bytes": 29183967232,
+      "post_target_allocated_bytes_each": 16077562368,
+      "rss_after_target_range_bytes": [1533956096, 1585229824],
+      "peak_process_rss_bytes": 5874597888,
+      "same_family_multilayer_accumulation_tested": false,
+      "direct_cpu_tensor_weakref_release_tested_in_job": false,
+      "observed_leak_in_bounded_scope": false
+    },
+    "full_128_target_2048_resource_validation": "MISSING",
+    "actual_2048_tokenized_training_batches_used": "MISSING",
+    "confirmed_sampling_steps_batch_and_microbatch": "MISSING",
+    "full128_cpu_similarity_workspace_rss_and_lifecycle": "MISSING",
+    "formal_save_restore_and_gsm8k_end_to_end_validation": "MISSING",
+    "sufficient_for_formal_ablation": false,
+    "next_spread12_probe_submitted_or_run_this_turn": false
+  },
+  "formal_release_blockers": [
+    "Member4 actual full run_config and environment/model identity",
+    "Member4 actual ordered MetaMathQA 100K manifest, source hash, filtering and validation evidence",
+    "Actual prompts, sequence boundaries, decoding configuration and GSM8K scorer",
+    "Table4 mechanisms and Figure5 fixed factors/sampling semantics",
+    "Table5 author parameter budget policy and confirmed freeze/active-rank rule",
+    "2048 full128 resource and lifecycle validation"
+  ],
+  "evidence_files": [
+    "experiments/chloe/MEMBER4_ALIGNMENT_REPORT.md",
+    "experiments/chloe/MEMBER4_HANDOFF.md",
+    "experiments/chloe/configs/member4-table2-confirmed.json",
+    "experiments/chloe/configs/formal-protocol.pending.json",
+    "experiments/chloe/prepare_data.py",
+    "experiments/chloe/common.py",
+    "experiments/chloe/train.py",
+    "experiments/chloe/evaluate.py",
+    "experiments/chloe/report/table5-budget-audit-v1.json",
+    "experiments/chloe/report/math-only-partial-rank-audit-20261118.json",
+    "experiments/chloe/report/gpu-preflight-reviewed-55648.json",
+    "experiments/chloe/report/formal-preflight.pending.json"
+  ]
+}

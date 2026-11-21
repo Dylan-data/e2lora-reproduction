@@ -1,0 +1,98 @@
+{
+  "run_type": "math_only_resource_planning",
+  "date": "2026-11-18",
+  "gpu_jobs_submitted": 0,
+  "formal_gpu_execution_authorized": false,
+  "configurations": 24,
+  "configurations_by_study": {
+    "table4": 8,
+    "table5": 4,
+    "figure5_rank": 5,
+    "figure5_steps": 7
+  },
+  "planned_repeats": 3,
+  "planned_runs": 72,
+  "runs_by_study": {
+    "table4": 24,
+    "table5": 12,
+    "figure5_rank": 15,
+    "figure5_steps": 21
+  },
+  "known_seed": 42,
+  "first_seed_configurations": 24,
+  "additional_repeat_seeds": null,
+  "code_gpu_runs": 0,
+  "table10_cpu_only": true,
+  "one_epoch_updates_at_100k_batch64": 1563,
+  "last_update_examples": 32,
+  "total_optimizer_updates_if_one_epoch_each": 112536,
+  "base_training_gpu": {
+    "count": 1,
+    "model": "A40",
+    "micro_batch_candidate": 1,
+    "accumulation_candidate_for_global64": 64,
+    "checkpointing": "candidate; compare on/off, formal value unconfirmed"
+  },
+  "measurements_from_existing_smoke": {
+    "stageA_gradient_seconds_for_2x1_samples_at_length256": 27.03363682399504,
+    "stageB_train_seconds_for_20_updates_global8_length256": 43.85371205001138
+  },
+  "training_extrapolations_not_bounds": {
+    "sample_count_only_hours_per_run": 7.613491675349199,
+    "sample_count_only_hours_first_seed": 182.72380020838077,
+    "sample_count_only_hours_all_repeats": 548.1714006251423,
+    "all_examples_at_cap2048_vs256_hours_per_run": 60.90793340279359,
+    "all_examples_at_cap2048_vs256_hours_first_seed": 1461.7904016670461,
+    "all_examples_at_cap2048_vs256_hours_all_repeats": 4385.371205001138
+  },
+  "sampling_formula_logical_steps_all_repeats": "3 * (9 * main_steps + 5 * rank_fixed_steps + 1016)",
+  "sampling_illustrative_assumptions": {
+    "label": "illustrative_only_not_confirmed_protocol",
+    "batch_size": 64,
+    "main_steps": 64,
+    "rank_sweep_fixed_steps": 64,
+    "sampling_micro_batch_size": 1,
+    "reuse": false
+  },
+  "sampling_cap_scaled_risk_example": {
+    "logical_steps_all_repeats": 5736,
+    "examples_all_repeats": 367104,
+    "hours_by_step_setting_one_run": {
+      "8": 15.37913561542829,
+      "16": 30.75827123085658,
+      "32": 61.51654246171316,
+      "64": 123.03308492342632,
+      "128": 246.06616984685263,
+      "256": 492.13233969370526,
+      "512": 984.2646793874105
+    },
+    "all_repeats_gpu_hours": 11026.840236262084
+  },
+  "preflight_allocation_envelope": {
+    "gpu_count": 1,
+    "cpus": 8,
+    "host_memory_gib": 96,
+    "minutes_per_case_limit": 30,
+    "required_cases": 3,
+    "optional_high_rank_cases": 1,
+    "maximum_gpu_hours_required_cases": 1.5,
+    "maximum_gpu_hours_including_optional_case": 2.0
+  },
+  "excluded_costs": [
+    "generation of 1319 GSM8K answers up to 512 tokens",
+    "validation/model selection",
+    "checkpoint I/O",
+    "model loading",
+    "queueing",
+    "CPU similarity",
+    "high-rank overhead"
+  ],
+  "limitations": [
+    "Neither extrapolation is a prediction or a lower/upper bound",
+    "Dynamic padding with microbatch=1 does not pad every example to 2048",
+    "Only length256/global8 Smoke was measured; checkpointing and long attention are nonlinear",
+    "Sampling batch/fixed steps are unconfirmed; their example must not enter formal configs",
+    "Sampling currently replays 128 targets; no persistent raw-gradient cache/resume",
+    "Use representative real-data 2048 training and sampling measurements before scheduling batches"
+  ]
+}

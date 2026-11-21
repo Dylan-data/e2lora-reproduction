@@ -4,11 +4,10 @@ __pycache__/
 .DS_Store
 .env
 .cache/
-outputs/
 *.safetensors
-*.pt
 *.pth
 *.ckpt
+*.icloud
 
 /src/e2lora/model/weights/
 

@@ -1,0 +1,9 @@
+{
+  "metric": "accuracy",
+  "correct": 872,
+  "total": 1319,
+  "accuracy": 0.6611068991660348,
+  "parse_failures": 0,
+  "evaluation_dataset": "GSM8K test",
+  "protocol_note": "Exact numeric extraction; prompt is a documented team choice."
+}

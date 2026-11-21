@@ -1,0 +1,7 @@
+{
+  "epoch": 1,
+  "global_step": 1563,
+  "train_loss": 0.261437598365419,
+  "validation_loss": 0.23667123604903897,
+  "epoch_seconds_this_segment": 4601.14700063807
+}

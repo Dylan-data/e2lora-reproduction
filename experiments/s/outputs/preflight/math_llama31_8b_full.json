@@ -1,0 +1,75 @@
+{
+  "task": "math",
+  "model": {
+    "repo": "meta-llama/Llama-3.1-8B",
+    "revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b"
+  },
+  "source": {
+    "repo": "meta-math/MetaMathQA",
+    "revision": "aa4f34d3d2d3231299b5b03d9b3e5a20da45aa18",
+    "split": "train",
+    "train_count": 100000,
+    "validation_count": 0,
+    "sampling_seed": 42,
+    "validation_seed": 43,
+    "validation_protocol": "disjoint held-out rows from MetaMathQA train (team choice)"
+  },
+  "prompt_tokens": {
+    "count": 100000,
+    "min": 2,
+    "mean": 57.25225,
+    "p50": 51,
+    "p90": 89,
+    "p95": 106,
+    "p99": 167,
+    "max": 972
+  },
+  "answer_tokens_including_eos": {
+    "count": 100000,
+    "min": 5,
+    "mean": 162.88239,
+    "p50": 137,
+    "p90": 277,
+    "p95": 335,
+    "p99": 529,
+    "max": 1705
+  },
+  "combined_tokens": {
+    "count": 100000,
+    "min": 7,
+    "mean": 220.13464,
+    "p50": 192,
+    "p90": 357,
+    "p95": 423,
+    "p99": 652,
+    "max": 1815
+  },
+  "candidate_checks": [
+    {
+      "max_seq_length": 512,
+      "answer_alone_too_long_to_fit": 1117,
+      "examples_requiring_prompt_left_truncation": 1176,
+      "naive_right_truncation_risk": 2293
+    },
+    {
+      "max_seq_length": 1024,
+      "answer_alone_too_long_to_fit": 62,
+      "examples_requiring_prompt_left_truncation": 70,
+      "naive_right_truncation_risk": 132
+    },
+    {
+      "max_seq_length": 2048,
+      "answer_alone_too_long_to_fit": 0,
+      "examples_requiring_prompt_left_truncation": 0,
+      "naive_right_truncation_risk": 0
+    },
+    {
+      "max_seq_length": 4096,
+      "answer_alone_too_long_to_fit": 0,
+      "examples_requiring_prompt_left_truncation": 0,
+      "naive_right_truncation_risk": 0
+    }
+  ],
+  "selected_max_seq_length": null,
+  "note": "Selection is intentionally not automated; choose the smallest cap that preserves every target answer and has acceptable prompt truncation."
+}

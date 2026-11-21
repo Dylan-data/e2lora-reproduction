@@ -1,0 +1,75 @@
+{
+  "task": "math",
+  "model": {
+    "repo": "openai/gpt-oss-20b",
+    "revision": "6cee5e81ee83917806bbde320786a8fb61efebee"
+  },
+  "source": {
+    "repo": "meta-math/MetaMathQA",
+    "revision": "aa4f34d3d2d3231299b5b03d9b3e5a20da45aa18",
+    "split": "train",
+    "train_count": 100000,
+    "validation_count": 0,
+    "sampling_seed": 42,
+    "validation_seed": 43,
+    "validation_protocol": "disjoint held-out rows from MetaMathQA train (team choice)"
+  },
+  "prompt_tokens": {
+    "count": 100000,
+    "min": 1,
+    "mean": 55.92004,
+    "p50": 50,
+    "p90": 87,
+    "p95": 104,
+    "p99": 167,
+    "max": 956
+  },
+  "answer_tokens_including_eos": {
+    "count": 100000,
+    "min": 5,
+    "mean": 162.25594,
+    "p50": 137,
+    "p90": 276,
+    "p95": 333,
+    "p99": 526,
+    "max": 1655
+  },
+  "combined_tokens": {
+    "count": 100000,
+    "min": 6,
+    "mean": 218.17598,
+    "p50": 190,
+    "p90": 353,
+    "p95": 420,
+    "p99": 647,
+    "max": 1761
+  },
+  "candidate_checks": [
+    {
+      "max_seq_length": 512,
+      "answer_alone_too_long_to_fit": 1092,
+      "examples_requiring_prompt_left_truncation": 1162,
+      "naive_right_truncation_risk": 2254
+    },
+    {
+      "max_seq_length": 1024,
+      "answer_alone_too_long_to_fit": 58,
+      "examples_requiring_prompt_left_truncation": 67,
+      "naive_right_truncation_risk": 125
+    },
+    {
+      "max_seq_length": 2048,
+      "answer_alone_too_long_to_fit": 0,
+      "examples_requiring_prompt_left_truncation": 0,
+      "naive_right_truncation_risk": 0
+    },
+    {
+      "max_seq_length": 4096,
+      "answer_alone_too_long_to_fit": 0,
+      "examples_requiring_prompt_left_truncation": 0,
+      "naive_right_truncation_risk": 0
+    }
+  ],
+  "selected_max_seq_length": null,
+  "note": "Selection is intentionally not automated; choose the smallest cap that preserves every target answer and has acceptable prompt truncation."
+}

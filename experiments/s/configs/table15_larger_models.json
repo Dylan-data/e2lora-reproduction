@@ -1,0 +1,37 @@
+{
+  "paper": "ICLR 2026 E2LoRA, Appendix L, Table 15",
+  "task": {"train_dataset": "meta-math/MetaMathQA", "revision": "aa4f34d3d2d3231299b5b03d9b3e5a20da45aa18", "train_count": 100000, "evaluation_dataset": "GSM8K", "split": "test", "metric": "accuracy"},
+  "methods": ["lora", "e2lora"],
+  "models": {
+    "llama2_13b": {"display_name": "Llama-2-13B (Dense)", "repo": "meta-llama/Llama-2-13b-hf", "revision": "5c31dfb671ce7cfe2d7bb7c04375e44c55e815b1", "reference_lora_params": "13.11M", "reference_lora_accuracy": 52.94, "reference_e2lora_params": "6.55M", "reference_e2lora_accuracy": 53.82},
+    "qwen3_8b": {"display_name": "Qwen3-8B (Dense)", "repo": "Qwen/Qwen3-8B", "revision": "b968826d9c46dd6066d109eabc6255188de91218", "reference_lora_params": "7.67M", "reference_lora_accuracy": 82.49, "reference_e2lora_params": "4.06M", "reference_e2lora_accuracy": 82.49},
+    "gpt_oss_20b": {"display_name": "GPT-OSS-20B (MoE)", "repo": "openai/gpt-oss-20b", "revision": "6cee5e81ee83917806bbde320786a8fb61efebee", "reference_lora_params": "3.98M", "reference_lora_accuracy": 82.03, "reference_e2lora_params": "1.75M", "reference_e2lora_accuracy": 83.17}
+  },
+  "training": {
+    "rank": 8,
+    "e2_base_rank": 8,
+    "e2_base_rank_status": "rank-matched inference guided by Appendix J.1; Table 15 rank not stated directly",
+    "alpha": 16,
+    "target_projections": ["q_proj", "k_proj", "v_proj", "o_proj"],
+    "optimizer": "AdamW",
+    "betas": [0.9, 0.999],
+    "weight_decay": 0.0005,
+    "learning_rate": 0.00005,
+    "global_batch_size": 64,
+    "precision": "bf16",
+    "scheduler": "cosine",
+    "warmup_ratio_C4": 0.03,
+    "epochs": null,
+    "max_sequence_length": null,
+    "max_new_tokens": null,
+    "gradient_examples": null,
+    "independent_runs": 3,
+    "seed_values_team_choice": [42, 43, 44]
+  },
+  "caveats": [
+    "Appendix L identifies math benchmarks and accuracy but does not restate the exact train/evaluation split or per-model hyperparameters.",
+    "This config reuses MetaMathQA 100K and GSM8K test from Table 2 as an explicitly documented extension assumption, not a detail independently stated in Appendix L.",
+    "The model revisions are the team's pinned revisions from src/e2lora/model/LIST.md; paper commit IDs were not recovered.",
+    "GPT-OSS-20B model implementation and Q/K/V/O target shapes must be verified through target discovery and the initial smoke run."
+  ]
+}

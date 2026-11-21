@@ -1,0 +1,49 @@
+{
+  "paper": "ICLR 2026 E2LoRA, Appendix K, Table 14",
+  "model": {"key": "llama31_8b", "repo": "meta-llama/Llama-3.1-8B", "revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b"},
+  "methods": ["lora", "e2lora"],
+  "tasks": {
+    "arc_challenge": {"paper_name": "ARC-Challenge", "short": "ARC-C", "repo": "allenai/ai2_arc", "subset": "ARC-Challenge", "revision": "210d026faf9955653af8916fad021475a3f00453", "reference_lora": 82.50, "reference_e2lora": 81.14},
+    "arc_easy": {"paper_name": "ARC-Easy", "short": "ARC-E", "repo": "allenai/ai2_arc", "subset": "ARC-Easy", "revision": "210d026faf9955653af8916fad021475a3f00453", "reference_lora": 93.09, "reference_e2lora": 91.45},
+    "boolq": {"paper_name": "BoolQ", "short": "BoolQ", "repo": "google/boolq", "revision": "35b264d03638db9f4ce671b711558bf7ff0f80d5", "reference_lora": 64.95, "reference_e2lora": 70.06},
+    "openbookqa": {"paper_name": "OpenBookQA", "short": "OBQA", "repo": "allenai/openbookqa", "subset": "main", "revision": "388097ea7776314e93a529163e0fea805b8a6454", "reference_lora": 86.40, "reference_e2lora": 84.20},
+    "piqa": {"paper_name": "PIQA", "short": "PIQA", "repo": "ybisk/piqa", "revision": null, "revision_status": "not commit-pinned in repository list", "reference_lora": 88.46, "reference_e2lora": 86.07},
+    "siqa": {"paper_name": "Social IQa", "short": "SIQA", "repo": "allenai/social_i_qa", "revision": null, "revision_status": "not commit-pinned in repository list", "reference_lora": 77.67, "reference_e2lora": 80.72}
+  },
+  "training": {
+    "target_projections": ["q_proj", "k_proj", "v_proj", "o_proj"],
+    "rank": 8,
+    "e2_base_rank": 8,
+    "e2_base_rank_status": "rank-matched inference guided by Appendix J.1 (LoRA rank 4 vs E2 base rank 8); Table 14 rank not stated directly",
+    "alpha": 16,
+    "optimizer": "AdamW",
+    "betas": [0.9, 0.999],
+    "weight_decay": 0.0005,
+    "learning_rate": 0.00005,
+    "global_batch_size": 64,
+    "precision": "bf16",
+    "scheduler": "cosine",
+    "warmup_ratio_C4": 0.03,
+    "epochs": null,
+    "max_sequence_length": null,
+    "max_new_tokens": null,
+    "gradient_examples": null,
+    "independent_runs": 3,
+    "seed_values_team_choice": [42, 43, 44]
+  },
+  "evaluation": {
+    "metric": "accuracy",
+    "default_split": "validation",
+    "default_split_status": "team reproducibility protocol: Appendix K does not state exact train/evaluation split or prompting template",
+    "prompt_protocol": "instruction-style multiple-choice prompt; target is the correct option letter; greedy generation and first valid A-D extraction",
+    "prompt_protocol_status": "team implementation choice; paper does not publish exact prompt wording",
+    "reported_table_parameter_counts": {"lora": "6.82M", "e2lora": "3.26M"},
+    "reference_average": {"lora": 82.18, "e2lora": 82.27}
+  },
+  "caveats": [
+    "Appendix K says the suite tests instruction-style reasoning without long-context or code-specific adaptation.",
+    "Paper does not disclose per-task epoch counts, prompts, dataset revisions, split protocol, decode cap, or task-specific training details.",
+    "PIQA and Social IQa revisions are not commit-pinned in the repository. The runner requires --allow-unpinned-datasets before accessing them.",
+    "The implementation reports measured parameter counts; Table 14 counts are references, not hard-coded output."
+  ]
+}

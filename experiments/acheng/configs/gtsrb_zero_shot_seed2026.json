@@ -1,0 +1,98 @@
+{
+  "experiment_id": "table3/gtsrb/zero-shot/seed-2026",
+  "model": {
+    "repo": "openai/clip-vit-base-patch16",
+    "revision": "57c216476eefef5ab752ec549e440a49ae4ae5f3",
+    "converted_safetensors_revision": "5ef227a78de3f75873f373246dac80def63b0003",
+    "cache_dir": "/home/msds/weicheng001/e2lora-reproduction/outputs/image-classification/cache/huggingface",
+    "precision": "fp32",
+    "attn_implementation": "eager"
+  },
+  "dataset": {
+    "name": "GTSRB",
+    "repo": "tanganke/gtsrb",
+    "revision": "ea889fff70dda7b09e94a4b207dded438deca549",
+    "train_split": "train",
+    "test_split": "test",
+    "cache_dir": "/home/msds/weicheng001/e2lora-reproduction/experiments/acheng/outputs/cache/huggingface/datasets",
+    "expected_class_count": 43,
+    "expected_class_names": [
+      "red and white circle 20 kph speed limit",
+      "red and white circle 30 kph speed limit",
+      "red and white circle 50 kph speed limit",
+      "red and white circle 60 kph speed limit",
+      "red and white circle 70 kph speed limit",
+      "red and white circle 80 kph speed limit",
+      "end / de-restriction of 80 kph speed limit",
+      "red and white circle 100 kph speed limit",
+      "red and white circle 120 kph speed limit",
+      "red and white circle red car and black car no passing",
+      "red and white circle red truck and black car no passing",
+      "red and white triangle road intersection warning",
+      "white and yellow diamond priority road",
+      "red and white upside down triangle yield right-of-way",
+      "stop",
+      "empty red and white circle",
+      "red and white circle no truck entry",
+      "red circle with white horizonal stripe no entry",
+      "red and white triangle with exclamation mark warning",
+      "red and white triangle with black left curve approaching warning",
+      "red and white triangle with black right curve approaching warning",
+      "red and white triangle with black double curve approaching warning",
+      "red and white triangle rough / bumpy road warning",
+      "red and white triangle car skidding / slipping warning",
+      "red and white triangle with merging / narrow lanes warning",
+      "red and white triangle with person digging / construction / road work warning",
+      "red and white triangle with traffic light approaching warning",
+      "red and white triangle with person walking warning",
+      "red and white triangle with child and person walking warning",
+      "red and white triangle with bicyle warning",
+      "red and white triangle with snowflake / ice warning",
+      "red and white triangle with deer warning",
+      "white circle with gray strike bar no speed limit",
+      "blue circle with white right turn arrow mandatory",
+      "blue circle with white left turn arrow mandatory",
+      "blue circle with white forward arrow mandatory",
+      "blue circle with white forward or right turn arrow mandatory",
+      "blue circle with white forward or left turn arrow mandatory",
+      "blue circle with white keep right arrow mandatory",
+      "blue circle with white keep left arrow mandatory",
+      "blue circle with white arrows indicating a traffic circle",
+      "white circle with gray strike bar indicating no passing for cars has ended",
+      "white circle with gray strike bar indicating no passing for trucks has ended"
+    ]
+  },
+  "method": {
+    "name": "Zero-shot",
+    "prompt_template": "a photo of a {class}"
+  },
+  "evaluation": {
+    "seed": 2026,
+    "metric": "top-1 accuracy",
+    "batch_size": 64,
+    "precision": "fp32",
+    "test_policy": "score the complete pinned mirror test split once; no model or prompt tuning on test data"
+  },
+  "provenance": {
+    "paper_settings": [
+      "CLIP ViT-B/16",
+      "top-1 classification accuracy",
+      "class prompt: a photo of a {class}"
+    ],
+    "team_choices": [
+      "Pinned tanganke/gtsrb mirror commit ea889fff70dda7b09e94a4b207dded438deca549",
+      "Use the mirror train/test split; equivalence to the paper's original split is unverified",
+      "FP32 inference and batch size 64"
+    ],
+    "source_note": "The ordered class names are taken verbatim from the pinned ClassLabel feature; runtime verifies all 43 classes and both split counts."
+  },
+  "execution": {
+    "partition": "MGPU-TC2",
+    "qos": "normal",
+    "gpus": 1,
+    "cpus": 4,
+    "memory": "24G",
+    "time_limit": "02:00:00",
+    "run_root": "experiments/acheng/outputs/GTSRB/zero-shot/2026/"
+  }
+}

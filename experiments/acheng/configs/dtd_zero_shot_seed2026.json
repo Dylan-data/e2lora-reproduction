@@ -1,0 +1,102 @@
+{
+  "experiment_id": "table3/dtd/zero-shot/seed-2026",
+  "model": {
+    "repo": "openai/clip-vit-base-patch16",
+    "revision": "57c216476eefef5ab752ec549e440a49ae4ae5f3",
+    "converted_safetensors_revision": "5ef227a78de3f75873f373246dac80def63b0003",
+    "cache_dir": "/home/msds/weicheng001/e2lora-reproduction/outputs/image-classification/cache/huggingface",
+    "precision": "fp32",
+    "attn_implementation": "eager"
+  },
+  "dataset": {
+    "name": "DTD",
+    "repo": "tanganke/dtd",
+    "revision": "d2afa97d9f335b1a6b3b09c637aef667f98f966e",
+    "train_split": "train",
+    "test_split": "test",
+    "cache_dir": "/home/msds/weicheng001/e2lora-reproduction/experiments/acheng/outputs/cache/huggingface/datasets",
+    "expected_class_count": 47,
+    "expected_class_names": [
+      "banded",
+      "blotchy",
+      "braided",
+      "bubbly",
+      "bumpy",
+      "chequered",
+      "cobwebbed",
+      "cracked",
+      "crosshatched",
+      "crystalline",
+      "dotted",
+      "fibrous",
+      "flecked",
+      "freckled",
+      "frilly",
+      "gauzy",
+      "grid",
+      "grooved",
+      "honeycombed",
+      "interlaced",
+      "knitted",
+      "lacelike",
+      "lined",
+      "marbled",
+      "matted",
+      "meshed",
+      "paisley",
+      "perforated",
+      "pitted",
+      "pleated",
+      "polka-dotted",
+      "porous",
+      "potholed",
+      "scaly",
+      "smeared",
+      "spiralled",
+      "sprinkled",
+      "stained",
+      "stratified",
+      "striped",
+      "studded",
+      "swirly",
+      "veined",
+      "waffled",
+      "woven",
+      "wrinkled",
+      "zigzagged"
+    ]
+  },
+  "method": {
+    "name": "Zero-shot",
+    "prompt_template": "a photo of a {class}"
+  },
+  "evaluation": {
+    "seed": 2026,
+    "metric": "top-1 accuracy",
+    "batch_size": 64,
+    "precision": "fp32",
+    "test_policy": "score the complete pinned mirror test split once; no model or prompt tuning on test data"
+  },
+  "provenance": {
+    "paper_settings": [
+      "CLIP ViT-B/16",
+      "top-1 classification accuracy",
+      "class prompt: a photo of a {class}"
+    ],
+    "team_choices": [
+      "Pinned tanganke/dtd mirror commit d2afa97d9f335b1a6b3b09c637aef667f98f966e",
+      "Use the mirror's train/test split; equivalence to any official DTD split is unverified",
+      "FP32 inference and batch size 64"
+    ],
+    "source_note": "The dataset card YAML lists 47 classes while its prose says 46; the run must verify the exact ordered ClassLabel names and class coverage."
+  },
+  "execution": {
+    "partition": "MGPU-TC2",
+    "qos": "normal",
+    "gpus": 1,
+    "cpus": 4,
+    "memory": "24G",
+    "time_limit": "02:00:00",
+    "run_root": "experiments/acheng/outputs/DTD/zero-shot/2026/"
+  }
+}

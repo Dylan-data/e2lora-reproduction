@@ -1,0 +1,93 @@
+{
+  "model": {
+    "repo": "meta-llama/Llama-3.1-8B",
+    "revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b",
+    "kind": "generation",
+    "torch_dtype": "bfloat16"
+  },
+  "task": "math",
+  "method": "lora",
+  "dataset": {
+    "repo": "meta-math/MetaMathQA",
+    "revision": "aa4f34d3d2d3231299b5b03d9b3e5a20da45aa18",
+    "split": "train",
+    "train_count": 100000,
+    "validation_count": 2000,
+    "sampling_seed": 42,
+    "validation_seed": 43,
+    "shared_manifest": "outputs/text-generation/math/manifests/metamathqa-train_seed42.json"
+  },
+  "adapter": {
+    "target_projections": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "rank": 8,
+    "alpha": 16.0,
+    "dropout": 0.0,
+    "alpha_status": "team choice carried from experiments/dylan/generation_parameter_check.py (alpha=16); NLG Appendix C.4/Table 9 do not explicitly state alpha",
+    "rank_status": "team choice inferred from the existing 32-layer x rank-8 parameter-check budget (per projection); recheck actual parameter count on loaded model"
+  },
+  "training": {
+    "optimizer": "AdamW",
+    "learning_rate": 5e-05,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "weight_decay": 0.0005,
+    "global_batch_size": 64,
+    "per_device_batch_size": null,
+    "gradient_accumulation_steps": null,
+    "precision": "bf16",
+    "scheduler": "cosine",
+    "warmup_ratio": 0.03,
+    "min_lr_ratio": null,
+    "table_9_lr_decay": 0.1,
+    "table_9_lr_decay_interpretation": "unresolved; do not assume this is min_lr_ratio",
+    "max_seq_length": null,
+    "epochs": null,
+    "max_steps": null,
+    "save_steps": null,
+    "eval_steps": null,
+    "gradient_clip_norm": null,
+    "drop_last": false,
+    "loss_on": "response_tokens_only",
+    "prompt_template": "{query}\n",
+    "answer_template": "{response}{eos_token}",
+    "loss_on_status": "team implementation choice; loss only on response tokens, prompt labels masked to -100",
+    "prompt_template_status": "team implementation choice: preserve source query and append newline; response plus EOS is target",
+    "gradient_clip_norm_status": "not specified in the NLG setup; clipping disabled by default rather than introducing an unreported threshold"
+  },
+  "gradient_diagnostics": {
+    "sample_count": null,
+    "smoke_sample_count": 2,
+    "seed": 42,
+    "rank_policy": "paper"
+  },
+  "evaluation": {
+    "dataset": "OpenAI GSM8K (grade-school-math repository)",
+    "source_url": "https://raw.githubusercontent.com/openai/grade-school-math/master/grade_school_math/data/test.jsonl",
+    "revision": null,
+    "revision_status": "moving master URL from repository dataset list; record downloaded file SHA256 and pin source commit before final result reporting",
+    "split": "test",
+    "prompt_template": "Question: {question}\\nAnswer:",
+    "max_new_tokens": null,
+    "do_sample": false,
+    "num_return_sequences": 1,
+    "metric": "exact_numeric_accuracy",
+    "answer_extraction": "last_number_after_hashes_or_final_number_fallback",
+    "prompt_template_status": "team implementation choice; paper prompt wording not specified in NLG settings"
+  },
+  "reproducibility": {
+    "independent_run_seeds": [
+      42,
+      43,
+      44
+    ],
+    "seed_status": "team choice; paper specifies three independent seeds but not these values",
+    "smoke_only": true
+  }
+}

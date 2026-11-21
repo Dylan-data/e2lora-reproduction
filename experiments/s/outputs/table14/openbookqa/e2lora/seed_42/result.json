@@ -1,0 +1,49 @@
+{
+  "suite": "table14",
+  "task": "openbookqa",
+  "method": "e2lora",
+  "model": "meta-llama/Llama-3.1-8B",
+  "revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b",
+  "seed": 42,
+  "epochs_completed": 1,
+  "global_steps": 70,
+  "best_validation_loss": 0.31724593116321614,
+  "training_history": [
+    {
+      "epoch": 1,
+      "global_step": 70,
+      "train_loss": 1.3550517695350754,
+      "validation_loss": 0.31724593116321614,
+      "epoch_seconds": 849.5007982610259
+    }
+  ],
+  "parameter_counts": {
+    "trainable_total_params": 6807552,
+    "trainable_adapter_params": 6807552,
+    "frozen_adapter_buffer_elements": 0,
+    "full_adapter_factor_elements": 6807552,
+    "total_trainable_params": 6807552
+  },
+  "hardware": {
+    "torch_version": "2.11.0+cu128",
+    "device": "cuda",
+    "cuda_available": true,
+    "gpu_count": 1,
+    "gpu_names": [
+      "NVIDIA A40"
+    ],
+    "peak_cuda_memory_bytes": 16412581376
+  },
+  "wall_clock_seconds": 850.4984294599853,
+  "diagnostic_subset": false,
+  "note": "This result is a local reproduction run; compare with paper Table only after full data and protocol match.",
+  "final_evaluation": {
+    "metric": "accuracy",
+    "correct": 385,
+    "total": 500,
+    "accuracy": 0.77,
+    "parse_failures": 0,
+    "evaluation_dataset": "openbookqa/validation",
+    "split_protocol": "public validation held out for final evaluation; checkpoint selection used a disjoint deterministic hold-out from the train split (team protocol; paper does not state exact split)"
+  }
+}

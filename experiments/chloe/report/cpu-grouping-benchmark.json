@@ -1,0 +1,388 @@
+{
+  "run_type": "cpu_grouping_benchmark",
+  "eligible_for_formal_tables": false,
+  "source": "synthetic_block_matrices_seed101",
+  "cpu": "Intel(R) Xeon(R) Gold 6240 CPU @ 2.60GHz",
+  "python": "3.11.18",
+  "platform": "Linux-5.14.0-503.14.1.el9_5.x86_64-x86_64-with-glibc2.34",
+  "implementation": "Python scalar loops; one thread; no GPU operations",
+  "timing_scope": "validation + prefix/diagonal sums (DP) or thresholds (Greedy) + search + backtracking",
+  "excluded": "gradient collection, similarity, rank allocation, loading, adapters, training",
+  "results": {
+    "synthetic-n12": {
+      "matrix_sha256": "efe0fa0104effe48d25b6b764a2bde89552e50e89719ea30504d571e555bb5f5",
+      "layers": 12,
+      "greedy": {
+        "method": "greedy",
+        "options": {},
+        "warmup": 20,
+        "repeats": 200,
+        "milliseconds": {
+          "min": 0.03812392242252827,
+          "median": 0.03854953683912754,
+          "mean": 0.03886238671839237,
+          "max": 0.057451892644166946,
+          "p95": 0.041661085560917854
+        },
+        "last_search": {
+          "method": "greedy",
+          "layers": 12,
+          "thresholds": [
+            0.22666402131188318,
+            0.22557230219121352,
+            0.19785661309367988,
+            0.21224058893832093,
+            0.17010361421856315,
+            0.20277471045578366,
+            0.19610758067483056,
+            0.20748775736724337,
+            0.22598812450664674,
+            0.16942612721196218,
+            0.21441579284728204,
+            0.22545347467987675
+          ],
+          "intervals": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              8,
+              12
+            ]
+          ],
+          "group_count": 3,
+          "grouping_seconds": 4.2478786781430244e-05
+        }
+      },
+      "dp": {
+        "method": "dp",
+        "options": {
+          "penalty_lambda": 1.0,
+          "mean_policy": "include_diagonal",
+          "singleton_cost": null
+        },
+        "warmup": 20,
+        "repeats": 200,
+        "milliseconds": {
+          "min": 0.07789302617311478,
+          "median": 0.07893843576312065,
+          "mean": 0.07914247107692063,
+          "max": 0.08512800559401512,
+          "p95": 0.0821810681372881
+        },
+        "last_search": {
+          "method": "dp",
+          "layers": 12,
+          "objective": 3.9968028886505635e-15,
+          "penalty_lambda": 1.0,
+          "mean_policy": "include_diagonal",
+          "singleton_cost": null,
+          "tie_break": "minimum objective, fewer groups, smaller predecessor recursively",
+          "intervals": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              9,
+              10
+            ],
+            [
+              10,
+              11
+            ],
+            [
+              11,
+              12
+            ]
+          ],
+          "group_count": 12,
+          "grouping_seconds": 7.942505180835724e-05
+        }
+      }
+    },
+    "synthetic-n32": {
+      "matrix_sha256": "2d1c89d602925b854c271f5e6d7a6dce01cd47b290de2acd75313691da72ca4a",
+      "layers": 32,
+      "greedy": {
+        "method": "greedy",
+        "options": {},
+        "warmup": 20,
+        "repeats": 200,
+        "milliseconds": {
+          "min": 0.20219292491674423,
+          "median": 0.2044969005510211,
+          "mean": 0.21391087560914457,
+          "max": 1.8169758841395378,
+          "p95": 0.2089261543005705
+        },
+        "last_search": {
+          "method": "greedy",
+          "layers": 32,
+          "thresholds": [
+            0.10445797210413933,
+            0.06170186920127331,
+            0.13788902983504453,
+            0.06870781314040646,
+            0.10916793394394059,
+            0.06246187895163377,
+            0.06702095491212087,
+            0.10126970288815293,
+            0.06387283203441825,
+            0.10030719523561113,
+            0.09599200322058163,
+            0.07757567486050544,
+            0.0752666094432442,
+            0.10726601485305894,
+            0.08857114891338506,
+            0.07799894713517631,
+            0.05659223197169818,
+            0.09149678682048461,
+            0.10206142637314596,
+            0.10978507647228403,
+            0.11479211617161467,
+            0.053488148583789856,
+            0.08679459874802369,
+            0.06311804256852842,
+            0.0774099908787737,
+            0.076187934668566,
+            0.10222527560720347,
+            0.0982508227304007,
+            0.06313342469751998,
+            0.06685317355879157,
+            0.09654206949919678,
+            0.08529496078458815
+          ],
+          "intervals": [
+            [
+              0,
+              6
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              8,
+              12
+            ],
+            [
+              12,
+              16
+            ],
+            [
+              16,
+              20
+            ],
+            [
+              20,
+              29
+            ],
+            [
+              29,
+              32
+            ]
+          ],
+          "group_count": 7,
+          "grouping_seconds": 0.00020455801859498024
+        }
+      },
+      "dp": {
+        "method": "dp",
+        "options": {
+          "penalty_lambda": 1.0,
+          "mean_policy": "include_diagonal",
+          "singleton_cost": null
+        },
+        "warmup": 20,
+        "repeats": 200,
+        "milliseconds": {
+          "min": 0.46048383228480816,
+          "median": 0.46376558020710945,
+          "mean": 0.4654402378946543,
+          "max": 0.6144691724330187,
+          "p95": 0.46914489939808846
+        },
+        "last_search": {
+          "method": "dp",
+          "layers": 32,
+          "objective": -1.3766765505351941e-14,
+          "penalty_lambda": 1.0,
+          "mean_policy": "include_diagonal",
+          "singleton_cost": null,
+          "tie_break": "minimum objective, fewer groups, smaller predecessor recursively",
+          "intervals": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              9,
+              10
+            ],
+            [
+              10,
+              11
+            ],
+            [
+              11,
+              12
+            ],
+            [
+              12,
+              13
+            ],
+            [
+              13,
+              14
+            ],
+            [
+              14,
+              15
+            ],
+            [
+              15,
+              16
+            ],
+            [
+              16,
+              17
+            ],
+            [
+              17,
+              18
+            ],
+            [
+              18,
+              19
+            ],
+            [
+              19,
+              20
+            ],
+            [
+              20,
+              21
+            ],
+            [
+              21,
+              22
+            ],
+            [
+              22,
+              23
+            ],
+            [
+              23,
+              24
+            ],
+            [
+              24,
+              25
+            ],
+            [
+              25,
+              26
+            ],
+            [
+              26,
+              27
+            ],
+            [
+              27,
+              28
+            ],
+            [
+              28,
+              29
+            ],
+            [
+              29,
+              30
+            ],
+            [
+              30,
+              31
+            ],
+            [
+              31,
+              32
+            ]
+          ],
+          "group_count": 32,
+          "grouping_seconds": 0.0004635781515389681
+        }
+      }
+    }
+  },
+  "task_performance": null
+}

@@ -27,13 +27,17 @@ def collect_gradients(model, targets, batches, loss_for_batch):
                 loss, size = loss_for_batch(model, batch)
                 if size <= 0 or not math.isfinite(size) or not torch.isfinite(loss):
                     raise ValueError("Each batch needs a finite mean loss and positive weight.")
-                gradients = torch.autograd.grad(loss, weights)
+                gradients = torch.autograd.grad(loss, weights, create_graph=False, retain_graph=False)
                 for name, grad in zip(targets, gradients):
                     cpu = grad.detach().to(device="cpu", dtype=torch.float32)
                     if name not in totals:
                         totals[name] = torch.zeros_like(cpu)
                     totals[name].add_(cpu, alpha=size)
+                    del grad, cpu
                 count += size
+                # Do not carry the last GPU gradient or graph object into the
+                # next forward while its replacement is being evaluated.
+                del gradients, loss
     finally:
         for weight, flag in zip(weights, flags):
             weight.requires_grad_(flag)
@@ -61,6 +65,7 @@ def gradient_similarity(gradients, *, epsilon=1e-12):
             raise ValueError("Each gradient must be nonempty and finite.")
         var, mean = torch.var_mean(flat, correction=0)
         moments.append((flat.numel(), mean.item(), var.item()))
+        del flat, var, mean
 
     entropies = [_entropy(var, epsilon) for _, _, var in moments]
     matrix = [[1.0 for _ in moments] for _ in moments]

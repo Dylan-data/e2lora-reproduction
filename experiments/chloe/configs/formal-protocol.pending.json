@@ -1,0 +1,221 @@
+{
+  "schema_version": 2,
+  "status": "pending_member4_and_member5_confirmation",
+  "confirmation": {
+    "member4": null,
+    "member5": null,
+    "document": null,
+    "confirmed_at": null
+  },
+  "model": {
+    "repo": "meta-llama/Llama-3.1-8B",
+    "revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b",
+    "path": "/home/msds/yahui003/e2lora-storage/models/Llama-3.1-8B"
+  },
+  "training": {
+    "optimizer": "AdamW",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "weight_decay": 0.0005,
+    "learning_rate": 5e-05,
+    "precision": "bf16",
+    "scheduler": "cosine",
+    "warmup_ratio": 0.03,
+    "global_batch_size": 64,
+    "seeds": [
+      42
+    ],
+    "max_grad_norm": null,
+    "gradient_checkpointing": null,
+    "checkpoint_every": null,
+    "log_every": null
+  },
+  "adapter": {
+    "alpha": null,
+    "dropout": null,
+    "adapter_dtype": null,
+    "scaling": null,
+    "initialization": null,
+    "loss": null,
+    "packing": null,
+    "truncation": null
+  },
+  "sampling": {
+    "batch_size": null,
+    "micro_batch_size": null,
+    "order": null,
+    "seed_policy": null,
+    "fixed_seed": null,
+    "loss_weighting": null
+  },
+  "mechanisms": {
+    "rank_policy": "paper",
+    "table4_base_rank": null,
+    "main_sampling_steps": null,
+    "figure5_rank_fixed_sampling_steps": null,
+    "figure5_steps_fixed_rank": null,
+    "metric_conventions": {
+      "cosine": null,
+      "l1": null,
+      "l2": null,
+      "kl": null
+    },
+    "metric_conventions_evidence": null,
+    "adapter_policies": {
+      "lora": null,
+      "sharing_only": null,
+      "rank_allocation_only": null,
+      "cosine_with_rank_allocation": null,
+      "l1_with_rank_allocation": null,
+      "l2_with_rank_allocation": null,
+      "kl_with_rank_allocation": null,
+      "e2lora": null
+    },
+    "paper_parameter_resolution_confirmed": false,
+    "paper_parameter_resolution_evidence": null,
+    "table5_max_relative_budget_gap": null
+  },
+  "tasks": {
+    "math": {
+      "data": {
+        "path": null,
+        "sha256": null,
+        "revision": null,
+        "format": null,
+        "preprocessing_document": null
+      },
+      "manifest": {
+        "path": null,
+        "sha256": null,
+        "count": 100000
+      },
+      "training": {
+        "epochs": 1,
+        "max_steps": null,
+        "max_length": 2048,
+        "max_prompt_length": null,
+        "micro_batch_size": null,
+        "gradient_accumulation": null
+      },
+      "prompt": {
+        "train_template": null,
+        "evaluation_template": null,
+        "few_shot_examples": null,
+        "eos_policy": null
+      },
+      "generation": {
+        "do_sample": null,
+        "temperature": null,
+        "top_p": null,
+        "top_k": null,
+        "num_beams": null,
+        "max_new_tokens": 512,
+        "stop_sequences": null,
+        "eos_token_ids": null,
+        "seed": null,
+        "samples_per_task": null
+      },
+      "evaluation": {
+        "dataset": "openai/gsm8k",
+        "revision": "740312add88f781978c0658806c59bc2815b9866",
+        "split": "test",
+        "count": 1319,
+        "metric": "accuracy",
+        "task_ids_path": null,
+        "task_ids_sha256": null,
+        "scoring_rule_document": null,
+        "timeout_seconds": null,
+        "isolation": null,
+        "environment_lock_path": null,
+        "environment_lock_sha256": null
+      },
+      "evaluator": {
+        "path": null,
+        "sha256": null,
+        "argv": null,
+        "known_good_bad_fixture_report": null,
+        "interface": "config_checkpoint_output_v1"
+      },
+      "smoke_validation": {
+        "passed": true,
+        "report_path": "experiments/chloe/report/e2lora-smoke-54466.json",
+        "report_sha256": "946987eaaaa9931fa0a1eb83df9071d5970666bcce63fae2ab257212df713956"
+      },
+      "formal_preflight": {
+        "passed": null,
+        "report_path": null,
+        "report_sha256": null
+      }
+    },
+    "code": {
+      "data": {
+        "path": null,
+        "sha256": null,
+        "revision": null,
+        "format": null,
+        "preprocessing_document": null
+      },
+      "manifest": {
+        "path": null,
+        "sha256": null,
+        "count": null
+      },
+      "training": {
+        "epochs": null,
+        "max_steps": null,
+        "max_length": null,
+        "max_prompt_length": null,
+        "micro_batch_size": null,
+        "gradient_accumulation": null
+      },
+      "prompt": {
+        "train_template": null,
+        "evaluation_template": null,
+        "few_shot_examples": null,
+        "eos_policy": null
+      },
+      "generation": {
+        "do_sample": null,
+        "temperature": null,
+        "top_p": null,
+        "top_k": null,
+        "num_beams": null,
+        "max_new_tokens": null,
+        "stop_sequences": null,
+        "eos_token_ids": null,
+        "seed": null,
+        "samples_per_task": null
+      },
+      "evaluation": {
+        "dataset": "HumanEval",
+        "revision": null,
+        "split": "test",
+        "count": null,
+        "metric": "pass@1",
+        "task_ids_path": null,
+        "task_ids_sha256": null,
+        "scoring_rule_document": null,
+        "timeout_seconds": null,
+        "isolation": null,
+        "environment_lock_path": null,
+        "environment_lock_sha256": null
+      },
+      "evaluator": {
+        "path": null,
+        "sha256": null,
+        "argv": null,
+        "known_good_bad_fixture_report": null,
+        "interface": "config_checkpoint_output_v1"
+      },
+      "smoke_validation": {
+        "passed": null,
+        "report_path": null,
+        "report_sha256": null
+      }
+    }
+  },
+  "scope_file": "experiments/chloe/configs/experiment-scope.json",
+  "member4_confirmed_settings_file": "experiments/chloe/configs/member4-table2-confirmed.json"
+}

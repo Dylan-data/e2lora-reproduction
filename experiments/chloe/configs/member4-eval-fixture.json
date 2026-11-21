@@ -1,0 +1,10 @@
+{
+  "row": {
+    "question": "Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?",
+    "answer": "Janet sells 16 - 3 - 4 = <<16-3-4=9>>9 duck eggs a day.\nShe makes 9 * 2 = $<<9*2=18>>18 every day at the farmer’s market.\n#### 18",
+    "prompt": "Question: Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?\nAnswer:",
+    "target": "Janet sells 16 - 3 - 4 = <<16-3-4=9>>9 duck eggs a day.\nShe makes 9 * 2 = $<<9*2=18>>18 every day at the farmer’s market.\n#### 18"
+  },
+  "sha256": "0d32ea3767cad9f57d063b29723fdef382ccf71615536f3a269779a9f8fc106f",
+  "prediction": " Janet's ducks lay 16 eggs per day.\nShe eats three eggs for breakfast every morning, so she has 16 - 3 = 13 eggs left.\nShe bakes muffins for her friends every day with four eggs, so she uses 4 eggs.\nShe has 13 - 4 = 9 eggs left.\nShe sells the remainder at the farmers' market daily for $2 per fresh duck egg.\nSo, she makes 9 * $2 = $18 every day at the farmers' market.\n#### 18\nThe answer is: 18"
+}

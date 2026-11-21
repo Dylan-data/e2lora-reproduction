@@ -1,0 +1,107 @@
+{
+  "model": {
+    "repo": "meta-llama/Llama-3.1-8B",
+    "path": "/home/msds/yahui003/e2lora-storage/models/Llama-3.1-8B",
+    "revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b"
+  },
+  "data": {
+    "source": "/home/msds/yahui003/e2lora-storage/datasets/metamathqa/MetaMathQA-395K.json",
+    "revision": "aa4f34d3d2d3231299b5b03d9b3e5a20da45aa18",
+    "manifest": "outputs/chloe/data/math-100k-seed42.json",
+    "manifest_count": 100000,
+    "train_limit": null,
+    "prompt_template": "{query}\n",
+    "loss": "response_only_token_weighted",
+    "truncation": "preserve_response_and_EOS; trim_prompt_left_only; fail_if_answer_cannot_fit",
+    "packing": false,
+    "sampling_seed": 42,
+    "validation_seed": 43,
+    "member4_normalized_train_sha256": "d0d8fc23d349b3b7287a7c5a5b41eee1240be5460276fe1e3bf5c91c101df700"
+  },
+  "training": {
+    "precision": "bf16",
+    "optimizer": "AdamW",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "weight_decay": 0.0005,
+    "learning_rate": 5e-05,
+    "scheduler": "cosine",
+    "epochs": 1,
+    "max_steps": null,
+    "max_length": 2048,
+    "micro_batch_size": 1,
+    "gradient_accumulation": 64,
+    "global_batch_size": 64,
+    "gradient_checkpointing": true,
+    "max_grad_norm": null,
+    "checkpoint_every": 50,
+    "log_every": 10,
+    "warmup_ratio": 0.03
+  },
+  "evaluation": {
+    "repo": "openai/gsm8k",
+    "revision": "740312add88f781978c0658806c59bc2815b9866",
+    "configuration": "main",
+    "split": "test",
+    "local_parquet": "/home/msds/yahui003/e2lora-storage/hf-home/hub/datasets--openai--gsm8k/snapshots/740312add88f781978c0658806c59bc2815b9866/main/test-00000-of-00001.parquet",
+    "metric": "accuracy",
+    "limit": null,
+    "max_new_tokens": 512,
+    "do_sample": false,
+    "num_beams": 1,
+    "few_shot_examples": 0,
+    "prompt": "Question: {question}\nAnswer:",
+    "member4_manifest": "experiments/chloe/configs/member4-gsm8k-manifest.json"
+  },
+  "adapter": {
+    "alpha": 16,
+    "dropout": 0,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "adapter_dtype": "float32"
+  },
+  "team_rank_check": {
+    "gradient_sample_count": 2,
+    "gradient_sample_count_status": "explicit bounded smoke choice, not the full-run count",
+    "total_rank_per_projection": 256,
+    "trainable_rank_per_projection": 139,
+    "frozen_b_init_scale": 0.01,
+    "settings_source": "references/text-generation-setup.json:partial_rank_sharing.final_settings",
+    "methodology": "team reproduction choice, not author released code",
+    "full_run_gradient_sample_count": null,
+    "formal_release": "existing formal-protocol.pending.json and Figure5 unresolved fields remain gating"
+  },
+  "schema_version": 1,
+  "partial_rank_budgets": {
+    "8": {
+      "total": 256,
+      "active": 139,
+      "expected_parameters": 3700736
+    }
+  },
+  "gradient_sample_count": 64,
+  "gradient_sample_count_status": "explicit team reproduction choice: 64 examples from actual training pool using run seed; microbatch=1; not an author-claimed setting",
+  "output_root": "outputs/chloe/ablations-math-v1",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "protocol_notes": {
+    "training_prompt": "query.strip()+newline; response.strip()+EOS, response tokens only",
+    "training_data": "verify normalized ordered 100K hash against member4 actual run_config",
+    "evaluation": "verify all 1319 content/order/prompt hashes against member4 actual eval manifest",
+    "optimizer": "AdamW bf16 base FP32 adapters; no clipping; effective batch64, tail batch32",
+    "scheduler": "member4 floor warmup int(total*.03), first factor(step+1)/warmup, cosine minimum0; table9 LR decay0.1 unresolved and not reinterpreted",
+    "shuffle": "deterministic Python Random(run_seed+epoch), explicit Chloe choice; member4 DataLoader order not claimed identical",
+    "partial_rank": "team reproduction choice; only E2 base-rank8 budget is released; other ranks are not inferred",
+    "scorer": "Chloe existing exact Fraction final-number scorer; source module member4 scorer absent in main, so matching numerical behavior is fixture-checked against uploaded generations before release",
+    "epochs": "one epoch, aligned with uploaded member4 actual math runs; no test-score-based epoch tuning"
+  }
+}

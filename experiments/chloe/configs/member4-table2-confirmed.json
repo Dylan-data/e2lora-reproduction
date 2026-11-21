@@ -1,0 +1,14 @@
+{
+  "status": "confirmed_by_member4_via_user",
+  "recorded_on": "2026-11-18",
+  "source": "User relayed member 4's latest Table 2 settings",
+  "suite": "table2",
+  "task": "math",
+  "seed": 42,
+  "epochs": 1,
+  "max_seq_length": 2048,
+  "max_new_tokens": 512,
+  "sequence_length_note": "Member 4 reports 1024 errors; 2048 selected.",
+  "other_member4_tables": "Settings remain unconfirmed; no extrapolation to Tables 14/15.",
+  "member5_full_protocol_confirmed": false
+}

@@ -1,0 +1,19 @@
+{
+  "version": "math-only-2026-11-18",
+  "approved_by": "group_leader_via_user",
+  "approval_source": "User instruction on 2026-11-18 Asia/Singapore",
+  "active_training_tasks": ["math"],
+  "retained_cpu_studies": ["table10_dp"],
+  "excluded_tasks": {
+    "code": {
+      "status": "excluded_by_group_approval",
+      "datasets": ["Code-Feedback", "HumanEval"],
+      "reason": "HumanEval isolated code execution environment is unavailable; group approved exclusion from this reproduction.",
+      "scheduled_gpu_runs": 0,
+      "retain_framework": true
+    }
+  },
+  "planned_independent_runs": 3,
+  "known_member4_table2_seeds": [42],
+  "remaining_repeat_seeds": null
+}

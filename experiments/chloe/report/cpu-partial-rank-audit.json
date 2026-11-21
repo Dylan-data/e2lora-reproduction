@@ -1,0 +1,179 @@
+{
+  "run_type": "cpu_meta_parameter_audit",
+  "eligible_for_formal_tables": false,
+  "base_weights_loaded": false,
+  "gpu_operations": false,
+  "source_plan": "outputs/chloe/smoke/math-e2lora-r8-seed42/prepared-plan.json",
+  "measurement": "unique installed Parameters and buffers on actual local model architecture",
+  "candidates_are_not_confirmed_for_chloe_formal_runs": true,
+  "results": {
+    "lora-r4": {
+      "parameters": {
+        "adapter_elements_including_frozen_buffers": 3407872,
+        "trainable_adapter_parameters": 3407872,
+        "total_trainable_parameters": 3407872,
+        "frozen_adapter_elements": 0,
+        "unique_trainable_tensors": 256
+      },
+      "allocated_ranks": {
+        "q_proj": 128,
+        "k_proj": 128,
+        "v_proj": 128,
+        "o_proj": 128
+      },
+      "active_ranks": {
+        "q_proj": 128,
+        "k_proj": 128,
+        "v_proj": 128,
+        "o_proj": 128
+      }
+    },
+    "lora-r8": {
+      "parameters": {
+        "adapter_elements_including_frozen_buffers": 6815744,
+        "trainable_adapter_parameters": 6815744,
+        "total_trainable_parameters": 6815744,
+        "frozen_adapter_elements": 0,
+        "unique_trainable_tensors": 256
+      },
+      "allocated_ranks": {
+        "q_proj": 256,
+        "k_proj": 256,
+        "v_proj": 256,
+        "o_proj": 256
+      },
+      "active_ranks": {
+        "q_proj": 256,
+        "k_proj": 256,
+        "v_proj": 256,
+        "o_proj": 256
+      }
+    },
+    "lora-r16": {
+      "parameters": {
+        "adapter_elements_including_frozen_buffers": 13631488,
+        "trainable_adapter_parameters": 13631488,
+        "total_trainable_parameters": 13631488,
+        "frozen_adapter_elements": 0,
+        "unique_trainable_tensors": 256
+      },
+      "allocated_ranks": {
+        "q_proj": 512,
+        "k_proj": 512,
+        "v_proj": 512,
+        "o_proj": 512
+      },
+      "active_ranks": {
+        "q_proj": 512,
+        "k_proj": 512,
+        "v_proj": 512,
+        "o_proj": 512
+      }
+    },
+    "lora-r32": {
+      "parameters": {
+        "adapter_elements_including_frozen_buffers": 27262976,
+        "trainable_adapter_parameters": 27262976,
+        "total_trainable_parameters": 27262976,
+        "frozen_adapter_elements": 0,
+        "unique_trainable_tensors": 256
+      },
+      "allocated_ranks": {
+        "q_proj": 1024,
+        "k_proj": 1024,
+        "v_proj": 1024,
+        "o_proj": 1024
+      },
+      "active_ranks": {
+        "q_proj": 1024,
+        "k_proj": 1024,
+        "v_proj": 1024,
+        "o_proj": 1024
+      }
+    },
+    "lora-r64": {
+      "parameters": {
+        "adapter_elements_including_frozen_buffers": 54525952,
+        "trainable_adapter_parameters": 54525952,
+        "total_trainable_parameters": 54525952,
+        "frozen_adapter_elements": 0,
+        "unique_trainable_tensors": 256
+      },
+      "allocated_ranks": {
+        "q_proj": 2048,
+        "k_proj": 2048,
+        "v_proj": 2048,
+        "o_proj": 2048
+      },
+      "active_ranks": {
+        "q_proj": 2048,
+        "k_proj": 2048,
+        "v_proj": 2048,
+        "o_proj": 2048
+      }
+    },
+    "smoke_actual_groups_all_trainable": {
+      "parameters": {
+        "adapter_elements_including_frozen_buffers": 6810624,
+        "trainable_adapter_parameters": 6810624,
+        "total_trainable_parameters": 6810624,
+        "frozen_adapter_elements": 0,
+        "unique_trainable_tensors": 48
+      },
+      "allocated_ranks": {
+        "q_proj": 256,
+        "k_proj": 256,
+        "v_proj": 255,
+        "o_proj": 256
+      },
+      "active_ranks": {
+        "q_proj": 256,
+        "k_proj": 256,
+        "v_proj": 255,
+        "o_proj": 256
+      }
+    },
+    "candidate_active139_group_AB_not_paper_confirmed": {
+      "parameters": {
+        "adapter_elements_including_frozen_buffers": 6810624,
+        "trainable_adapter_parameters": 3700736,
+        "total_trainable_parameters": 3700736,
+        "frozen_adapter_elements": 3109888,
+        "unique_trainable_tensors": 48
+      },
+      "allocated_ranks": {
+        "q_proj": 256,
+        "k_proj": 256,
+        "v_proj": 255,
+        "o_proj": 256
+      },
+      "active_ranks": {
+        "q_proj": 139,
+        "k_proj": 139,
+        "v_proj": 139,
+        "o_proj": 139
+      }
+    },
+    "candidate_active139_global_frozen_A_not_paper_confirmed": {
+      "parameters": {
+        "adapter_elements_including_frozen_buffers": 3513344,
+        "trainable_adapter_parameters": 1423360,
+        "total_trainable_parameters": 1423360,
+        "frozen_adapter_elements": 2089984,
+        "unique_trainable_tensors": 24
+      },
+      "allocated_ranks": {
+        "q_proj": 256,
+        "k_proj": 256,
+        "v_proj": 255,
+        "o_proj": 256
+      },
+      "active_ranks": {
+        "q_proj": 139,
+        "k_proj": 139,
+        "v_proj": 139,
+        "o_proj": 139
+      }
+    }
+  }
+}

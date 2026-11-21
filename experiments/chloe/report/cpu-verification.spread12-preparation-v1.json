@@ -1,0 +1,141 @@
+{
+  "run_type": "cpu_verification_and_bounded_probe_preparation",
+  "date": "2026-11-18",
+  "reviewed_gpu_job_id": "55648",
+  "four_target_review_path": "experiments/chloe/report/gpu-preflight-reviewed-55648.json",
+  "four_target_review_sha256": "9f6b9eff5246b0c2a0a6ba286176fca4ae3649ea640f1f39515bf053676762fa",
+  "tests_passed": 96,
+  "tests_failed": 0,
+  "pytest_elapsed_seconds": 5.82,
+  "new_tests": 6,
+  "command": "CUDA_VISIBLE_DEVICES='' HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 PYTHONPATH=src /home/msds/yahui003/.conda/envs/e2lora/bin/python -m pytest experiments/chloe/tests -q",
+  "new_test_scope": "Tiny CPU model, real CPU autograd, stubbed CUDA transfer and allocator metrics; no GPU capacity or trend claim",
+  "verified_cpu_conditions": [
+    "24 real tiny-model forward/autograd calls across 12 targets",
+    "prefix cache matches actual toy-model shapes and means die after family release",
+    "injected CPU mean reference retention stops before next family",
+    "incorrect cache size stops at target boundary",
+    "phase budget overrun stops at target boundary",
+    "existing JSON and existing JSONL are individually preserved"
+  ],
+  "prepared_plan": {
+    "run_type": "multi_target_memory_preflight",
+    "eligible_for_formal_tables": false,
+    "status": "PREPARED_NOT_EXECUTED",
+    "case": "spread12",
+    "sequence_length": 2048,
+    "seed": 42,
+    "families": {
+      "q_proj": [
+        "model.layers.0.self_attn.q_proj",
+        "model.layers.15.self_attn.q_proj",
+        "model.layers.31.self_attn.q_proj"
+      ],
+      "k_proj": [
+        "model.layers.0.self_attn.k_proj",
+        "model.layers.15.self_attn.k_proj",
+        "model.layers.31.self_attn.k_proj"
+      ],
+      "v_proj": [
+        "model.layers.0.self_attn.v_proj",
+        "model.layers.15.self_attn.v_proj",
+        "model.layers.31.self_attn.v_proj"
+      ],
+      "o_proj": [
+        "model.layers.0.self_attn.o_proj",
+        "model.layers.15.self_attn.o_proj",
+        "model.layers.31.self_attn.o_proj"
+      ]
+    },
+    "geometry": {
+      "targets": 12,
+      "logical_steps": 2,
+      "logical_batch_size": 1,
+      "micro_batch_size": 1,
+      "examples": 2,
+      "micro_batches_per_target": 2,
+      "forward_calls": 24,
+      "autograd_grad_calls": 24,
+      "optimizer_updates": 0
+    },
+    "optimizer_updates": 0,
+    "model_mode": "eval",
+    "checkpointing": "off",
+    "input": "1-2 distinct synthetic repeated-token sequences; no MetaMathQA/Prompt claim",
+    "cache_policy": "FP32 CPU means retained for one family; release before next family",
+    "raw_gradients_saved": false,
+    "adapter_or_rank_policy_changed": false,
+    "full_128_target_sampling_authorized": false,
+    "gpu_jobs_submitted": 0,
+    "max_phase_seconds_checked_between_targets": 600
+  },
+  "expected_family_prefix_cpu_cache_bytes_from_local_weight_headers": {
+    "q_proj": [
+      67108864,
+      134217728,
+      201326592
+    ],
+    "k_proj": [
+      16777216,
+      33554432,
+      50331648
+    ],
+    "v_proj": [
+      16777216,
+      33554432,
+      50331648
+    ],
+    "o_proj": [
+      67108864,
+      134217728,
+      201326592
+    ]
+  },
+  "expected_cpu_gradient_live_tensor_count_after_family_release": 0,
+  "resource_envelope": {
+    "partition": "MGPU-TC2",
+    "account": "stud",
+    "qos": "normal",
+    "gpu_count": 1,
+    "gres": "gpu:1",
+    "runtime_required_gpu": "A40",
+    "cpus": 8,
+    "host_memory_slurm": "96G",
+    "slurm_hard_walltime": "00:30:00",
+    "maximum_allocation_gpu_hours": 0.5,
+    "sampling_phase_boundary_budget_seconds": 600
+  },
+  "next_result_path": "outputs/chloe/preflight/multi-target2048/spread12-v1.json",
+  "next_progress_path": "outputs/chloe/preflight/multi-target2048/spread12-v1.targets.jsonl",
+  "next_log_paths": [
+    "outputs/chloe/slurm/multi-target2048-<JOB_ID>.out",
+    "outputs/chloe/slurm/multi-target2048-<JOB_ID>.err"
+  ],
+  "cpu_plan_preview_passed": true,
+  "slurm_script_bash_syntax_passed": true,
+  "protected_existing_files_verified_unchanged": 25,
+  "core_sampler_hashes_match_job_55648": true,
+  "source_sha256": {
+    "experiments/chloe/multi_target_preflight.py": "dc91b01e6b6b48e7685bde4a3cdfb8b9e63ee22877e0c6a3ab772c1c77e514ac",
+    "experiments/chloe/slurm/multi-target2048-preflight.sbatch": "599d8a5afecb126fa08a14a6fab1623e48910981f8b6975ac2e371448cd5d047",
+    "experiments/chloe/tests/test_multi_target_preflight.py": "fb3ba5963ae8edf59b22e0bc08cfa52320faeecf5e3040fe691b96188c879e1f",
+    "experiments/chloe/tests/test_sampling_lifecycle.py": "8414284284729220ab83374ed1d08d39856e571c95decd355fd4ae03c78eb78d",
+    "src/e2lora/adapters/adaptive.py": "7ab90e82fab7d961eabbb50f46acd8502170404b8ee298add887b51a70f9282f",
+    "src/e2lora/adapters/preparation.py": "9b24bd3020ec7a086379b89a07b0252d04dc7f536bf1b588be9b79a8b3b47965"
+  },
+  "gpu_execution_this_review": false,
+  "gpu_jobs_submitted": 0,
+  "next_probe_executed": false,
+  "next_result_or_progress_created": false,
+  "full128_sampling_run": false,
+  "formal_ablation_started": false,
+  "github_pushed": false,
+  "algorithm_hra_or_freezing_rules_changed": false,
+  "limitations": [
+    "Four targets do not validate same-family multi-layer accumulation or full128",
+    "Original per-family reserved and direct mean weak-reference release were not measured",
+    "CPU object-lifetime tests do not validate GPU memory behavior",
+    "12-target GPU probe remains prepared and requires result review after execution",
+    "No full-sampling time prediction from the 7.339-second four-target measurement"
+  ]
+}

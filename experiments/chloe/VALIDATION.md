@@ -1,16 +1,17 @@
-# Code delivery validation — 2026-11-21
+# Validation record
 
-- Integration base: GitHub main 722f013e71d5e59d214cac1c4c2fcb0c069e0771. Source-only snapshot, isolated from the SSH working branch.
-- CPU regression: 128 passed, 5 skipped. The five explicitly skipped historical audits require school-local model headers / previous smoke artifacts; enable with --cluster-assets on that checkout. They are not claimed as passed.
-- New suite tests: 17 passed, including all eight method branches, real parameter updates/sharing/frozen buffers, nested sampling, null rejection, protocol-separated summaries, credential/weight-free source export, and bit-identical interrupted/resumed LoRA/E2 toy training.
-- Runtime: Windows, Python3.12, CPU PyTorch2.15.0+cpu, transformers4.57.6. This is a CPU correctness check, not a new 8B GPU smoke result.
-- JSON compile: 19 unique math configurations for explicit seed42, zero GPU submissions; all reference null paths listed.
-- Existing formal results: summarizer read 2 eligible baseline runs and reproduced 69.07% / 68.08%; no new ablation scores created.
-- Original formal_math.py/train.py/evaluate.py/common.py/team_rank_check.py text preserved relative to the remote snapshot.
-- Local preparation performed no GPU job, SLURM submission or Git operation. The user subsequently authorized SSH write-back and GitHub upload.
-- Shell scripts were reviewed, but bash/SLURM execution was not validated on this Windows host (MSYS initialization denied). School runtime verification remains separate.
-- New Figure5 settings/rank extensions are explicit reviewable reproduction choices. Code/HumanEval remains excluded under the existing Math-only scope.
+I validated the suite on an isolated copy of main before integrating it into my school SSH checkout. The initial integration base was `722f013e71d5e59d214cac1c4c2fcb0c069e0771`; the later merged main was `ae243032b96b175d1a9f83fe3d37e3d515449c39`.
 
-School SSH environment validation before upload: 128 passed, 5 explicitly skipped, 10.35s; CUDA_VISIBLE_DEVICES empty. No new GPU job submitted.
+## Recorded checks
 
-Post-merge school validation against main ae243032b96b175d1a9f83fe3d37e3d515449c39: 128 passed, 5 skipped in 11.19s. Other members tree entries unchanged. Local sparse view omits only four pre-existing upstream checkpoint blobs; Git history retains them.
+- CPU regression:128 passed,5 skipped. The skipped historical audits require school-local model headers or previous smoke artifacts and can be enabled with `--cluster-assets`.
+- The 17 new suite tests cover all eight methods, real adapter updates, sharing and fixed-buffer stability, nested sampling, unresolved-null rejection, separate protocol summaries, source-only export, and bit-identical interrupted/resumed LoRA/E2LoRA toy training.
+- The local CPU environment used Python 3.12, PyTorch 2.15.0+cpu and transformers 4.57.6. It did not constitute an 8B GPU smoke run.
+- The school environment passed 128 tests with 5 skips before upload in 10.35s and after merging main in 11.19s, with CUDA_VISIBLE_DEVICES empty.
+- Compilation produced 19 unique seed 42 configurations and submitted no jobs. Every unresolved reference field was listed.
+- The summarizer read the two completed baseline results and reproduced 69.07%/68.08%. It did not generate scores for unrun ablations.
+- I retained the original formal_math.py/train.py/evaluate.py/common.py/team_rank_check.py source used by the existing runs.
+
+I did not launch a new GPU experiment for the source delivery. New Figure 5 fixed settings and rank extensions are documented reproduction choices; Code/HumanEval remains excluded. The Windows host could not initialize MSYS for a shell syntax check, so I did not claim a local bash/SLURM execution pass.
+
+I keep later documentation edits separate from executable changes. Translation and wording do not alter training code, configuration values, data identities or recorded experimental results.

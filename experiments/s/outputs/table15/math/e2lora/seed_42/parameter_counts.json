@@ -1,0 +1,7 @@
+{
+  "trainable_total_params": 7689216,
+  "trainable_adapter_params": 7689216,
+  "frozen_adapter_buffer_elements": 0,
+  "full_adapter_factor_elements": 7689216,
+  "total_trainable_params": 7689216
+}

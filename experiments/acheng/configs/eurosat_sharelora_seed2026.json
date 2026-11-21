@@ -1,0 +1,95 @@
+{
+  "experiment_id": "table3/eurosat/sharelora-r8/seed-2026",
+  "status": "formal",
+  "model": {
+    "repo": "openai/clip-vit-base-patch16",
+    "revision": "57c216476eefef5ab752ec549e440a49ae4ae5f3",
+    "converted_safetensors_revision": "5ef227a78de3f75873f373246dac80def63b0003",
+    "cache_dir": "/home/msds/weicheng001/e2lora-reproduction/outputs/image-classification/cache/huggingface",
+    "precision": "fp32",
+    "attn_implementation": "eager"
+  },
+  "dataset": {
+    "name": "EuroSAT",
+    "repo": "tanganke/eurosat",
+    "revision": "43750fc422c7fbd4289e2df3f7473617a5937acc",
+    "train_split": "train",
+    "test_split": "test",
+    "cache_dir": "/home/msds/weicheng001/e2lora-reproduction/outputs/image-classification/cache/huggingface/datasets",
+    "expected_class_count": 10,
+    "expected_class_names": [
+      "annual crop land",
+      "forest",
+      "brushland or shrubland",
+      "highway or road",
+      "industrial buildings or commercial buildings",
+      "pasture land",
+      "permanent crop land",
+      "residential buildings or homes or apartments",
+      "river",
+      "lake or sea"
+    ],
+    "validation_fraction": 0.1,
+    "validation_source": "stratified holdout from train only",
+    "test_policy": "evaluate the complete pinned test split once after selecting the best validation checkpoint",
+    "augmentation": "none; deterministic CLIP preprocessing"
+  },
+  "method": {
+    "name": "ShareLoRA",
+    "rank": 8,
+    "alpha": 16,
+    "target_layers": "q_proj, k_proj, v_proj, out_proj, fc1, fc2 in each of 12 CLIP vision transformer blocks",
+    "visual_projection": "excluded pending target-scope audit",
+    "bias": false,
+    "sharing": "One shared A object per target projection family (q_proj, k_proj, v_proj, out_proj, fc1, fc2); independent B per target layer. This is the validated team interpretation of image ShareLoRA sharing."
+  },
+  "training": {
+    "seed": 2026,
+    "max_epochs": 30,
+    "batch_size": 64,
+    "gradient_accumulation_steps": 1,
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "weight_decay": 0,
+    "warmup_ratio": 0.3,
+    "scheduler": "linear warmup then constant LR (team interpretation of Table 9 LR decay=0)",
+    "selection_metric": "validation accuracy",
+    "checkpoint_interval_steps": 50,
+    "seed_roles": {
+      "training": 2026,
+      "evaluation": 2026,
+      "gradient_sampling": null
+    }
+  },
+  "execution": {
+    "partition": "MGPU-TC2",
+    "qos": "normal",
+    "gpus": 1,
+    "cpus": 4,
+    "memory": "24G",
+    "time_limit": "05:45:00",
+    "run_root": "experiments/acheng/outputs/EuroSAT/ShareLoRA-r8/2026/"
+  },
+  "provenance": {
+    "paper_settings": [
+      "FP32",
+      "Adam",
+      "learning rate 1e-4",
+      "betas (0.9, 0.999)",
+      "effective batch 64",
+      "weight decay 0",
+      "warmup 0.3"
+    ],
+    "team_choices": [
+      "30 epoch maximum with best validation checkpoint",
+      "linear warmup then constant LR because Table 9 LR decay is 0",
+      "deterministic preprocessing without random augmentation",
+      "validation set is a fixed stratified 10% holdout from the pinned train split",
+      "ShareLoRA: projection-family shared A objects and per-layer B objects; strict E2LoRA claim not made"
+    ]
+  }
+}

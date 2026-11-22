@@ -16,7 +16,7 @@ METHODS_TABLE2 = ["fft_attn_only", "dora_r4", "dora_r8", "adalora_r4", "adalora_
                   "lora_plus", "lora_fa", "vera", "lora", "e2lora", "sharelora", "e2sharelora"]
 COMMONSENSE_TASKS = ["arc_challenge", "arc_easy", "boolq", "openbookqa", "piqa", "siqa"]
 LARGE_MODELS = ["llama2_13b", "qwen3_8b", "gpt_oss_20b"]
-SEEDS = [42, 43, 44]
+SEEDS = [0, 18, 42]
 
 
 def main():

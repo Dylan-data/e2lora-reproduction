@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "task": "code",
+  "method": "e2lora",
+  "model_key": "llama31_8b",
+  "data": {
+    "train_dataset": "m-a-p/Code-Feedback",
+    "train_revision": "f411b16a97c910ac9acf8b0d0948e340aa77cc34",
+    "train_count": 100000,
+    "validation_count": 2000,
+    "required_source_rows": 102000,
+    "human_eval_dataset": "openai/openai_humaneval",
+    "human_eval_revision": null,
+    "human_eval_revision_note": "The shared repository does not pin the HumanEval dataset revision. The runner requires an explicit --allow-unpinned-humaneval acknowledgement."
+  },
+  "seeds": [42],
+  "data_seed": 42,
+  "validation_seed": 43,
+  "training": {
+    "epochs": 1,
+    "max_seq_length": 2048,
+    "max_new_tokens": 512,
+    "per_device_batch_size": 1,
+    "gradient_accumulation_steps": 64,
+    "learning_rate": 0.00005,
+    "weight_decay": 0.0005,
+    "warmup_ratio": 0.03,
+    "alpha": 16,
+    "gradient_checkpointing": true
+  },
+  "rank_sweep": {"values": [4, 8, 16, 32, 64], "fixed_sampling_steps": 64},
+  "sampling_sweep": {"values": [8, 16, 32, 64, 128, 256, 512], "fixed_rank": 8},
+  "output_root": "outputs/chloe/humaneval-ablations",
+  "notes": [
+    "Figure 5 sensitivity extension: all runs use the same Llama 3.1 8B Base checkpoint.",
+    "The rank sweep varies E2LoRA rank and fixes gradient sampling at 64 steps.",
+    "The sampling sweep fixes E2LoRA rank 8 and varies gradient sampling steps.",
+    "A single seed (42) is the initial team reproduction choice; the paper does not specify all these implementation details.",
+    "Do not pad or duplicate source records to reach 102000 rows."
+  ]
+}

@@ -104,3 +104,8 @@ The controller retries only a timeout or exit code 75 when saved state has advan
 Both runs completed 100 K examples, one epoch and 1,563 updates under the original `formal_math.py` protocol. I keep their protocol hashes separate from new suite runs. I have not filled in unrun Table 4, E2LoRA r16 or Figure 5 scores, and I do not report smoke scores as full-test results.
 
 I commit source, configuration and small audit records only. Models, raw data, credentials, logs and checkpoints remain outside Git. [Validation](VALIDATION.md), [source review](UPLOAD_REVIEW.md), and the historical audit notes provide the supporting records.
+
+
+## HumanEval Figure 5 extension
+
+I have added a separate HumanEval sensitivity suite for Figure 5. This extends the earlier math-only scope described above. All rank and gradient-sampling points use the same Llama 3.1 8B Base model, train on Code-Feedback, and evaluate HumanEval pass@1. See HUMANEVAL_ABLATIONS.md for the configuration, data requirements, SLURM command, checkpoint recovery, and sandbox scoring steps.

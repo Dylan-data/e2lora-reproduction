@@ -1,0 +1,186 @@
+{
+  "schema": "e2lora.experiment-matrix.v1",
+  "purpose": "Declarative experiment coverage and report generation; does not submit training jobs.",
+  "profiles": {
+    "reported": {
+      "seeds": [
+        42
+      ],
+      "aggregation": "single-run score; task means where applicable"
+    },
+    "three_seed_extension": {
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "aggregation": "mean and sample standard deviation (ddof=1)",
+      "status": "planned; do not infer missing scores"
+    }
+  },
+  "integration_by_method": {
+    "FFT": "non-sharing",
+    "LoRA": "non-sharing",
+    "DoRA": "non-sharing",
+    "AdaLoRA": "non-sharing",
+    "LoRA+": "non-sharing",
+    "LoRA-FA": "non-sharing",
+    "VeRA": "non-sharing",
+    "ShareLoRA": "parameter-sharing",
+    "E2LoRA": "parameter-sharing",
+    "E2ShareLoRA": "parameter-sharing"
+  },
+  "suites": [
+    {
+      "id": "glue",
+      "model": "RoBERTa-base",
+      "tasks": [
+        "MNLI",
+        "SST-2",
+        "CoLA",
+        "QNLI",
+        "QQP"
+      ],
+      "methods": [
+        "FFT",
+        "LoRA",
+        "DoRA",
+        "AdaLoRA",
+        "LoRA+",
+        "LoRA-FA",
+        "VeRA",
+        "ShareLoRA",
+        "E2LoRA",
+        "E2ShareLoRA"
+      ],
+      "rank4_variants": [
+        "DoRA",
+        "AdaLoRA"
+      ],
+      "config": "references/text-understanding-setup.json"
+    },
+    {
+      "id": "vision",
+      "model": "CLIP ViT-B/16",
+      "tasks": [
+        "Cars",
+        "DTD",
+        "EuroSAT",
+        "GTSRB",
+        "RESISC45",
+        "SUN397",
+        "SVHN"
+      ],
+      "methods": [
+        "Zero-shot",
+        "FFT",
+        "LoRA",
+        "DoRA",
+        "AdaLoRA",
+        "LoRA+",
+        "LoRA-FA",
+        "VeRA",
+        "ShareLoRA",
+        "E2LoRA",
+        "E2ShareLoRA"
+      ],
+      "rank4_variants": [
+        "DoRA",
+        "AdaLoRA"
+      ],
+      "config": "references/image-classification-setup.json"
+    },
+    {
+      "id": "generation",
+      "model": "Llama 3.1 8B Base",
+      "tasks": [
+        "GSM8K",
+        "HumanEval"
+      ],
+      "methods": [
+        "FFT",
+        "LoRA",
+        "DoRA",
+        "AdaLoRA",
+        "LoRA+",
+        "LoRA-FA",
+        "VeRA",
+        "ShareLoRA",
+        "E2LoRA",
+        "E2ShareLoRA"
+      ],
+      "rank4_variants": [
+        "DoRA",
+        "AdaLoRA"
+      ],
+      "config": "references/text-generation-setup.json"
+    },
+    {
+      "id": "commonsense",
+      "model": "Llama",
+      "tasks": [
+        "ARC-C",
+        "ARC-E",
+        "BoolQ",
+        "OBQA",
+        "PIQA",
+        "SIQA"
+      ],
+      "methods": [
+        "LoRA",
+        "E2LoRA"
+      ],
+      "rank4_variants": [],
+      "config": "experiments/s/configs/table14_commonsense.json"
+    }
+  ],
+  "ablations": {
+    "config": "references/ablation-setup.json",
+    "mechanism": [
+      "disable LSS",
+      "disable HRA"
+    ],
+    "similarity": [
+      "RMI",
+      "cosine",
+      "L1",
+      "L2",
+      "KL"
+    ],
+    "ranks": [
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "gradient_sampling_steps": [
+      8,
+      16,
+      32,
+      64,
+      128,
+      256,
+      512
+    ],
+    "fixed_settings": "Use recorded run-specific settings; reconstructed values are identified in the report."
+  },
+  "provenance_fields": [
+    "model_revision",
+    "dataset_revision",
+    "sample_ids",
+    "target_projections",
+    "seed",
+    "sampling_seed",
+    "rank_budget",
+    "trainable_rank_budget",
+    "integration",
+    "learning_rates",
+    "schedule",
+    "run_id",
+    "resume_source",
+    "scoring_version",
+    "unique_trainable_parameters"
+  ],
+  "completion_policy": "A matrix definition is not evidence of execution. Join measured results by run_id before reporting mean/std."
+}

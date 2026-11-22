@@ -12,6 +12,33 @@ __pycache__/
 /src/e2lora/model/weights/
 
 /src/e2lora/dataset/data/
+
+/handoff/e2lora-cola-seed42.tar.gz
+/handoff/e2lora-cola-seed42.tar
+/handoff/e2lora-sst2-seed42.tar
+
+node_modules/
+.~*
+~$*
+.chart-data-*/
+/handoff/*.tar
+/handoff/*.tar.gz
+/report/archive/
+/report/aaai/build/
+/report/presentation/build/*.png
+/report/presentation/build/*.pptx
+/report/presentation/build/*.ndjson
+/report/presentation/build/deck.json
+/report/presentation/build/validation.json
+/report/architecture/*candidate.docx
+/report/architecture/patched.docx
+node_modules
 /logs/
 /outputs/chloe/
 /experiments/chloe/**/*.bak
+*.pt
+/outputs/
+
+/report/
+/E²LoRA Reproduction Report English.docx
+/E²LoRA Reproduction Report English.pdf

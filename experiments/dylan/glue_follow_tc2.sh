@@ -1,8 +1,8 @@
 #!/bin/bash
-# Submit the four remaining priority runs as tc2 slots open.
+# Submit pending GLUE runs as TC2 slots open.
 set -euo pipefail
 cd "$(dirname "$0")/../.."
-out="$PWD/outputs/text-understanding/glue-full-seed42"
+out="${GLUE_FULL_OUT:-$PWD/outputs/dylan/glue-full-seed42}"
 mkdir -p "$out"
 exec 9>"$out/follow.lock"
 flock -n 9 || exit 0
@@ -16,7 +16,7 @@ for id in 54129 54134; do
 done
 while true; do
     remaining=0
-    for run in qqp:lora qqp:e2lora mnli:lora mnli:e2lora; do
+    while IFS= read -r run; do
         task=${run%%:*}
         method=${run#*:}
         if ! compgen -G "$out/results/dylan/glue-$task-$method-original-*/result.json" >/dev/null &&
@@ -29,7 +29,7 @@ while true; do
                     TIMEOUT*) ;;
                     COMPLETED*|FAILED*|CANCELLED*|OUT_OF_MEMORY*|NODE_FAIL*)
                         printf '%s %s %s requires inspection\n' "$run" "$last" "$state" >&2
-                        exit 1 ;;
+                        continue ;;
                     *) continue ;;
                 esac
             fi
@@ -46,7 +46,7 @@ while true; do
                 exit 1
             fi
         fi
-    done
+    done < experiments/dylan/glue_follow_runs.txt
     (( remaining > 0 )) || exit 0
     sleep 60
 done

@@ -24,7 +24,15 @@
       "AdaLoRA": 0.0005,
       "LoRA-FA": 0.0005,
       "VeRA": 0.005
-    }
+    },
+    "epochs": null,
+    "max_optimizer_steps": null,
+    "max_sequence_length": null,
+    "per_device_batch_size": null,
+    "gradient_accumulation_steps": null,
+    "min_learning_rate": null,
+    "table_9_lr_decay_handling": null,
+    "last_batch_policy": null
   },
   "tasks": {
     "math": {
@@ -33,12 +41,21 @@
       "evaluation_dataset": "GSM8K",
       "evaluation_split": "test",
       "metric": "accuracy",
-      "training_sample_ids": null
+      "training_sample_ids": null,
+      "training_prompt_template": null,
+      "loss_token_policy": null,
+      "evaluation": {
+        "prompt_template": null,
+        "max_new_tokens": null,
+        "decoding": null,
+        "scoring_entrypoint": null
+      },
+      "training_sample_ids_file": null
     },
     "code": {
       "train_dataset": "Code-Feedback",
       "paper_train_examples": 100000,
-      "training_source": null,
+      "training_source": "m-a-p/Code-Feedback",
       "evaluation_dataset": "HumanEval",
       "metric": "pass@1",
       "public_dataset": {
@@ -46,7 +63,17 @@
         "revision": "f411b16a97c910ac9acf8b0d0948e340aa77cc34",
         "split": "train",
         "approximate_rows": 66400
-      }
+      },
+      "training_prompt_template": null,
+      "loss_token_policy": null,
+      "evaluation": {
+        "prompt_template": "original HumanEval prompt",
+        "max_new_tokens": null,
+        "decoding": null,
+        "scoring_entrypoint": null,
+        "samples_per_problem": 1
+      },
+      "evaluation_split": "test"
     },
     "commonsense": {
       "datasets": [
@@ -189,5 +216,10 @@
         "e2sharelora": 1423360
       }
     }
-  }
+  },
+  "seeds": [
+    42,
+    43,
+    44
+  ]
 }

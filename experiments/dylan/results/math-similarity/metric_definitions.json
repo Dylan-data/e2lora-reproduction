@@ -1,0 +1,8 @@
+{
+  "RMI": "Reuse gradient_similarity on averaged raw gradients",
+  "cosine": "dot(gi, gj) / (norm(gi) * norm(gj)); raw similarity",
+  "L1": "sum(abs(gi - gj)); raw distance",
+  "L2": "Euclidean norm(gi - gj); raw distance",
+  "KL": "directed KL between 128-bin gradient histograms on common per-projection range; epsilon 1e-12; normalized to probabilities",
+  "plotting_transform": "No matrix normalization applied to exported raw values; L1/L2/KL are distances, lower values mean more similar"
+}

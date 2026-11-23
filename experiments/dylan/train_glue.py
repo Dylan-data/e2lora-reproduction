@@ -6,6 +6,8 @@ from pathlib import Path
 import random
 from time import perf_counter
 
+import fcntl
+import pyarrow as arrow
 import pyarrow.parquet as parquet
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
@@ -39,6 +41,8 @@ def metrics(predictions, labels):
     denominator = math.sqrt((tp + fp) * (tp + fn) * (tn + fp) * (tn + fn))
     return {
         "examples": labels.numel(), "accuracy": float(correct.float().mean()),
+        "predicted_label_counts": torch.bincount(predictions, minlength=2).tolist(),
+        "true_label_counts": torch.bincount(labels, minlength=2).tolist(),
         "matthews": (tp * tn - fp * fn) / denominator if denominator else 0.0,
         "f1": 2 * tp / max(1, 2 * tp + fp + fn),
     }
@@ -77,10 +81,18 @@ def main():
     parser.add_argument("--rank", type=int, default=TRAINING["base_rank"])
     parser.add_argument("--device", default="cpu")
     parser.add_argument("--pilot", action="store_true")
+    parser.add_argument("--validation-run", action="store_true", help="Train three epochs on up to 2,048 examples with the formal batch and sequence settings.")
+    parser.add_argument("--validation-learning-rate", type=float)
     parser.add_argument("--output-root", type=Path, default=ROOT / "outputs")
     parser.add_argument("--e2-variant", choices=("original", "freeze-a", "query-only"), default="original")
     parser.add_argument("--checkpoint", type=Path)
     args = parser.parse_args()
+    if args.validation_run and (args.pilot or args.checkpoint):
+        parser.error("--validation-run requires a fresh run and cannot be combined with --pilot")
+    if args.validation_learning_rate is not None and (
+        not args.validation_run or not math.isfinite(args.validation_learning_rate) or args.validation_learning_rate <= 0
+    ):
+        parser.error("--validation-learning-rate requires --validation-run and a positive finite value")
     if args.e2_variant != "original" and args.method != "e2lora":
         parser.error("--e2-variant requires --method e2lora")
     if args.method.endswith("-r4"):
@@ -92,6 +104,11 @@ def main():
     fields, labels = TASKS[args.task]
     settings = SETUP["tasks"][args.task]
     batch_size, epochs, lr = (settings[key] for key in ("batch_size", "epochs", "learning_rate"))
+    lr = settings.get("method_learning_rates", {}).get(args.method, lr)
+    if args.validation_run:
+        epochs = 3
+        if args.validation_learning_rate is not None:
+            lr = args.validation_learning_rate
     if args.pilot:
         epochs, batch_size = 1, 8
     length = 128 if args.pilot else TRAINING["max_length"]
@@ -107,23 +124,46 @@ def main():
         files = sorted(data_path.glob(f"{split}-*.parquet"))
         if not files:
             raise FileNotFoundError(f"No local Parquet files for {split} in {data_path}")
-        return parquet.read_table(files, columns=[*fields, "label"])
+        cache = ROOT / ".cache/glue-tokenized" / MODEL_REV / DATA_REV / args.task / str(length)
+        cache.mkdir(parents=True, exist_ok=True)
+        target = cache / f"{split}.parquet"
+        with (cache / f"{split}.lock").open("a") as lock:
+            fcntl.flock(lock, fcntl.LOCK_EX)
+            if not target.exists():
+                source = parquet.read_table(files, columns=[*fields, "label"])
+                temporary = target.with_suffix(".tmp")
+                schema = arrow.schema([
+                    *[(name, arrow.list_(arrow.int32())) for name in tokenizer.model_input_names],
+                    ("labels", arrow.int64()),
+                ])
+                with parquet.ParquetWriter(temporary, schema) as writer:
+                    for chunk in source.to_batches(max_chunksize=1024):
+                        rows = chunk.to_pydict()
+                        encoded = tokenizer(
+                            *[[value or "" for value in rows[field]] for field in fields],
+                            truncation=True, max_length=length,
+                        )
+                        writer.write_table(arrow.Table.from_pydict(
+                            {**encoded, "labels": rows["label"]}, schema=schema,
+                        ))
+                temporary.replace(target)
+        return parquet.read_table(target)
 
     train = read("train")
     train_ids = list(range(len(train)))
+    if args.validation_run:
+        train_ids = rng.sample(train_ids, min(2048, len(train_ids)))
     if args.pilot:
         train_ids = rng.sample(train_ids, min(32, len(train_ids)))
 
     def batches(table, indices):
         for start in range(0, len(indices), batch_size):
             rows = table.take(indices[start : start + batch_size]).to_pydict()
-            inputs = tokenizer(
-                *[[value or "" for value in rows[field]] for field in fields],
-                padding=True, truncation=True, max_length=length, return_tensors="pt",
-            )
+            labels = rows.pop("labels")
+            inputs = tokenizer.pad(rows, padding=True, return_tensors="pt")
             yield {
                 **{name: value.to(device) for name, value in inputs.items()},
-                "labels": torch.tensor(rows["label"], device=device),
+                "labels": torch.tensor(labels, device=device),
             }
 
     families = {
@@ -217,6 +257,27 @@ def main():
         train_ids = checkpoint["train_ids"]
         elapsed_before = checkpoint["training_seconds"]
         step = first_epoch * math.ceil(len(train_ids) / batch_size)
+    def evaluate():
+        scores = {}
+        model.eval()
+        splits = ["validation_matched", "validation_mismatched"] if args.task == "mnli" else ["validation"]
+        with torch.inference_mode():
+            for split in splits:
+                validation = read(split)
+                indices = list(range(len(validation)))
+                if args.pilot:
+                    indices = random.Random(args.seed).sample(indices, min(64, len(indices)))
+                if args.pilot:
+                    validation_sample_ids[split] = indices
+                predictions, targets = [], []
+                for batch in batches(validation, indices):
+                    predictions.append(model(**batch).logits.argmax(dim=-1).cpu())
+                    targets.append(batch["labels"].cpu())
+                scores[split] = metrics(predictions, targets)
+        return scores
+
+    validation_sample_ids = {}
+    epoch_validation = []
     for epoch in range(first_epoch, epochs):
         epoch_start = perf_counter()
         model.train()
@@ -255,27 +316,14 @@ def main():
                 "training_seconds": elapsed_before + perf_counter() - start,
             }, temporary)
             temporary.replace(args.checkpoint)
+        if args.validation_learning_rate is not None:
+            epoch_validation.append(evaluate())
+            print(f"epoch {epoch + 1} validation: {json.dumps(epoch_validation[-1])}", flush=True)
     if device.type == "cuda":
         torch.cuda.synchronize(device)
     train_seconds = elapsed_before + perf_counter() - start
 
-    scores = {}
-    validation_sample_ids = {}
-    model.eval()
-    splits = ["validation_matched", "validation_mismatched"] if args.task == "mnli" else ["validation"]
-    with torch.inference_mode():
-        for split in splits:
-            validation = read(split)
-            indices = list(range(len(validation)))
-            if args.pilot:
-                indices = random.Random(args.seed).sample(indices, min(64, len(indices)))
-            if args.pilot:
-                validation_sample_ids[split] = indices
-            predictions, targets = [], []
-            for batch in batches(validation, indices):
-                predictions.append(model(**batch).logits.argmax(dim=-1).cpu())
-                targets.append(batch["labels"].cpu())
-            scores[split] = metrics(predictions, targets)
+    scores = epoch_validation[-1] if epoch_validation else evaluate()
     active_adapter_parameters = adapter_parameters
     if adaptive_rank:
         config = model.peft_config["default"]
@@ -286,7 +334,8 @@ def main():
         width = model.config.hidden_size
         active_adapter_parameters = active_ranks * (2 * width + 1)
     result = {
-        "task": args.task, "method": args.method, "seed": args.seed, "pilot": args.pilot,
+        "task": args.task, "method": args.method, "seed": args.seed, "pilot": args.pilot or args.validation_run,
+        "validation_run": args.validation_run,
         "model_revision": MODEL_REV, "dataset_revision": DATA_REV, "rank": args.rank,
         "rank_policy": SETUP["rank_policy"] if diagnostics else None, "alpha": TRAINING["lora_alpha"],
         "epochs": epochs, "batch_size": batch_size, "learning_rate": lr, "max_length": length,
@@ -297,6 +346,7 @@ def main():
         "plan": plan, "diagnostics": diagnostics, "adapter_parameters": adapter_parameters,
         "active_adapter_parameters": active_adapter_parameters,
         "adalora_active_ranks": active_ranks if adaptive_rank else None,
+        "optimizer_peak_learning_rates": sorted(groups),
         "loraplus_b_lr_multiplier": 16 if args.method == "loraplus" else None,
         "vera_rank": model.peft_config["default"].r if args.method == "vera" else None,
         "seed": args.seed,
@@ -304,6 +354,7 @@ def main():
         "preparation_seconds": preparation, "training_seconds": train_seconds,
         "peak_cuda_memory_bytes": torch.cuda.max_memory_allocated(device) if device.type == "cuda" else None,
         "epoch_final_losses": history, "validation": scores,
+        **({"epoch_validation": epoch_validation} if epoch_validation else {}),
     }
     print(save_result("text-understanding", f"glue-{args.task}-{args.method}-{args.e2_variant}", result, output_root=args.output_root))
 

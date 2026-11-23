@@ -1,0 +1,749 @@
+suite,model,task,method,rank_variant,integration,profile,seed,configuration,execution_status
+glue,RoBERTa-base,MNLI,FFT,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,FFT,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,FFT,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,FFT,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,LoRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,LoRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,LoRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,LoRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,DoRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,DoRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,DoRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,DoRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,AdaLoRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,AdaLoRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,AdaLoRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,AdaLoRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,LoRA+,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,LoRA+,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,LoRA+,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,LoRA+,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,LoRA-FA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,LoRA-FA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,LoRA-FA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,LoRA-FA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,VeRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,VeRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,VeRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,VeRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,ShareLoRA,default,parameter-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,E2LoRA,default,parameter-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,E2LoRA,default,parameter-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,E2LoRA,default,parameter-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,E2LoRA,default,parameter-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,E2ShareLoRA,default,parameter-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,E2ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,E2ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,E2ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,DoRA,4,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,DoRA,4,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,DoRA,4,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,DoRA,4,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,AdaLoRA,4,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,AdaLoRA,4,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,AdaLoRA,4,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,MNLI,AdaLoRA,4,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,FFT,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,FFT,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,FFT,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,FFT,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,LoRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,LoRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,LoRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,LoRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,DoRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,DoRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,DoRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,DoRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,AdaLoRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,AdaLoRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,AdaLoRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,AdaLoRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,LoRA+,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,LoRA+,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,LoRA+,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,LoRA+,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,LoRA-FA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,LoRA-FA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,LoRA-FA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,LoRA-FA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,VeRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,VeRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,VeRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,VeRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,ShareLoRA,default,parameter-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,E2LoRA,default,parameter-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,E2LoRA,default,parameter-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,E2LoRA,default,parameter-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,E2LoRA,default,parameter-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,E2ShareLoRA,default,parameter-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,E2ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,E2ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,E2ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,DoRA,4,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,DoRA,4,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,DoRA,4,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,DoRA,4,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,AdaLoRA,4,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,AdaLoRA,4,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,AdaLoRA,4,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,SST-2,AdaLoRA,4,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,FFT,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,FFT,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,FFT,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,FFT,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,LoRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,LoRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,LoRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,LoRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,DoRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,DoRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,DoRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,DoRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,AdaLoRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,AdaLoRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,AdaLoRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,AdaLoRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,LoRA+,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,LoRA+,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,LoRA+,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,LoRA+,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,LoRA-FA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,LoRA-FA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,LoRA-FA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,LoRA-FA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,VeRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,VeRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,VeRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,VeRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,ShareLoRA,default,parameter-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,E2LoRA,default,parameter-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,E2LoRA,default,parameter-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,E2LoRA,default,parameter-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,E2LoRA,default,parameter-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,E2ShareLoRA,default,parameter-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,E2ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,E2ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,E2ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,DoRA,4,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,DoRA,4,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,DoRA,4,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,DoRA,4,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,AdaLoRA,4,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,AdaLoRA,4,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,AdaLoRA,4,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,CoLA,AdaLoRA,4,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,FFT,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,FFT,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,FFT,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,FFT,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,LoRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,LoRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,LoRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,LoRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,DoRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,DoRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,DoRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,DoRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,AdaLoRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,AdaLoRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,AdaLoRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,AdaLoRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,LoRA+,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,LoRA+,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,LoRA+,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,LoRA+,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,LoRA-FA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,LoRA-FA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,LoRA-FA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,LoRA-FA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,VeRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,VeRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,VeRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,VeRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,ShareLoRA,default,parameter-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,E2LoRA,default,parameter-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,E2LoRA,default,parameter-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,E2LoRA,default,parameter-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,E2LoRA,default,parameter-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,E2ShareLoRA,default,parameter-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,E2ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,E2ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,E2ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,DoRA,4,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,DoRA,4,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,DoRA,4,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,DoRA,4,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,AdaLoRA,4,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,AdaLoRA,4,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,AdaLoRA,4,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QNLI,AdaLoRA,4,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,FFT,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,FFT,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,FFT,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,FFT,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,LoRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,LoRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,LoRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,LoRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,DoRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,DoRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,DoRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,DoRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,AdaLoRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,AdaLoRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,AdaLoRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,AdaLoRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,LoRA+,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,LoRA+,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,LoRA+,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,LoRA+,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,LoRA-FA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,LoRA-FA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,LoRA-FA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,LoRA-FA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,VeRA,default,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,VeRA,default,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,VeRA,default,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,VeRA,default,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,ShareLoRA,default,parameter-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,E2LoRA,default,parameter-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,E2LoRA,default,parameter-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,E2LoRA,default,parameter-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,E2LoRA,default,parameter-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,E2ShareLoRA,default,parameter-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,E2ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,E2ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,E2ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,DoRA,4,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,DoRA,4,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,DoRA,4,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,DoRA,4,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,AdaLoRA,4,non-sharing,reported,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,AdaLoRA,4,non-sharing,three_seed_extension,42,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,AdaLoRA,4,non-sharing,three_seed_extension,43,references/text-understanding-setup.json,not inferred from manifest
+glue,RoBERTa-base,QQP,AdaLoRA,4,non-sharing,three_seed_extension,44,references/text-understanding-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,Zero-shot,default,none,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,Zero-shot,default,none,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,Zero-shot,default,none,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,Zero-shot,default,none,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,FFT,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,FFT,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,FFT,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,FFT,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,LoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,LoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,LoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,LoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,DoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,DoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,DoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,DoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,AdaLoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,AdaLoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,AdaLoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,AdaLoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,LoRA+,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,LoRA+,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,LoRA+,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,LoRA+,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,LoRA-FA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,LoRA-FA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,LoRA-FA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,LoRA-FA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,VeRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,VeRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,VeRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,VeRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,ShareLoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,E2LoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,E2LoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,E2LoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,E2LoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,E2ShareLoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,E2ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,E2ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,E2ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,DoRA,4,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,DoRA,4,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,DoRA,4,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,DoRA,4,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,AdaLoRA,4,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,AdaLoRA,4,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,AdaLoRA,4,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,Cars,AdaLoRA,4,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,Zero-shot,default,none,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,Zero-shot,default,none,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,Zero-shot,default,none,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,Zero-shot,default,none,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,FFT,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,FFT,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,FFT,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,FFT,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,LoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,LoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,LoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,LoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,DoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,DoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,DoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,DoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,AdaLoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,AdaLoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,AdaLoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,AdaLoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,LoRA+,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,LoRA+,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,LoRA+,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,LoRA+,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,LoRA-FA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,LoRA-FA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,LoRA-FA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,LoRA-FA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,VeRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,VeRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,VeRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,VeRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,ShareLoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,E2LoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,E2LoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,E2LoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,E2LoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,E2ShareLoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,E2ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,E2ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,E2ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,DoRA,4,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,DoRA,4,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,DoRA,4,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,DoRA,4,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,AdaLoRA,4,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,AdaLoRA,4,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,AdaLoRA,4,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,DTD,AdaLoRA,4,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,Zero-shot,default,none,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,Zero-shot,default,none,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,Zero-shot,default,none,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,Zero-shot,default,none,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,FFT,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,FFT,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,FFT,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,FFT,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,LoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,LoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,LoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,LoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,DoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,DoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,DoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,DoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,AdaLoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,AdaLoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,AdaLoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,AdaLoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,LoRA+,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,LoRA+,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,LoRA+,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,LoRA+,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,LoRA-FA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,LoRA-FA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,LoRA-FA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,LoRA-FA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,VeRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,VeRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,VeRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,VeRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,ShareLoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,E2LoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,E2LoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,E2LoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,E2LoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,E2ShareLoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,E2ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,E2ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,E2ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,DoRA,4,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,DoRA,4,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,DoRA,4,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,DoRA,4,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,AdaLoRA,4,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,AdaLoRA,4,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,AdaLoRA,4,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,EuroSAT,AdaLoRA,4,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,Zero-shot,default,none,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,Zero-shot,default,none,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,Zero-shot,default,none,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,Zero-shot,default,none,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,FFT,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,FFT,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,FFT,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,FFT,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,LoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,LoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,LoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,LoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,DoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,DoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,DoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,DoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,AdaLoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,AdaLoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,AdaLoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,AdaLoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,LoRA+,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,LoRA+,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,LoRA+,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,LoRA+,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,LoRA-FA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,LoRA-FA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,LoRA-FA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,LoRA-FA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,VeRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,VeRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,VeRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,VeRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,ShareLoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,E2LoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,E2LoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,E2LoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,E2LoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,E2ShareLoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,E2ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,E2ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,E2ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,DoRA,4,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,DoRA,4,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,DoRA,4,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,DoRA,4,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,AdaLoRA,4,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,AdaLoRA,4,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,AdaLoRA,4,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,GTSRB,AdaLoRA,4,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,Zero-shot,default,none,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,Zero-shot,default,none,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,Zero-shot,default,none,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,Zero-shot,default,none,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,FFT,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,FFT,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,FFT,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,FFT,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,LoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,LoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,LoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,LoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,DoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,DoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,DoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,DoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,AdaLoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,AdaLoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,AdaLoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,AdaLoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,LoRA+,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,LoRA+,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,LoRA+,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,LoRA+,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,LoRA-FA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,LoRA-FA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,LoRA-FA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,LoRA-FA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,VeRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,VeRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,VeRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,VeRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,ShareLoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,E2LoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,E2LoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,E2LoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,E2LoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,E2ShareLoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,E2ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,E2ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,E2ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,DoRA,4,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,DoRA,4,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,DoRA,4,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,DoRA,4,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,AdaLoRA,4,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,AdaLoRA,4,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,AdaLoRA,4,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,RESISC45,AdaLoRA,4,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,Zero-shot,default,none,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,Zero-shot,default,none,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,Zero-shot,default,none,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,Zero-shot,default,none,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,FFT,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,FFT,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,FFT,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,FFT,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,LoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,LoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,LoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,LoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,DoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,DoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,DoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,DoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,AdaLoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,AdaLoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,AdaLoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,AdaLoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,LoRA+,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,LoRA+,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,LoRA+,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,LoRA+,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,LoRA-FA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,LoRA-FA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,LoRA-FA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,LoRA-FA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,VeRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,VeRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,VeRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,VeRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,ShareLoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,E2LoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,E2LoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,E2LoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,E2LoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,E2ShareLoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,E2ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,E2ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,E2ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,DoRA,4,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,DoRA,4,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,DoRA,4,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,DoRA,4,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,AdaLoRA,4,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,AdaLoRA,4,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,AdaLoRA,4,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SUN397,AdaLoRA,4,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,Zero-shot,default,none,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,Zero-shot,default,none,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,Zero-shot,default,none,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,Zero-shot,default,none,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,FFT,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,FFT,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,FFT,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,FFT,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,LoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,LoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,LoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,LoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,DoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,DoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,DoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,DoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,AdaLoRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,AdaLoRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,AdaLoRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,AdaLoRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,LoRA+,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,LoRA+,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,LoRA+,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,LoRA+,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,LoRA-FA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,LoRA-FA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,LoRA-FA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,LoRA-FA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,VeRA,default,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,VeRA,default,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,VeRA,default,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,VeRA,default,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,ShareLoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,E2LoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,E2LoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,E2LoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,E2LoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,E2ShareLoRA,default,parameter-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,E2ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,E2ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,E2ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,DoRA,4,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,DoRA,4,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,DoRA,4,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,DoRA,4,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,AdaLoRA,4,non-sharing,reported,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,AdaLoRA,4,non-sharing,three_seed_extension,42,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,AdaLoRA,4,non-sharing,three_seed_extension,43,references/image-classification-setup.json,not inferred from manifest
+vision,CLIP ViT-B/16,SVHN,AdaLoRA,4,non-sharing,three_seed_extension,44,references/image-classification-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,FFT,default,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,FFT,default,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,FFT,default,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,FFT,default,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,LoRA,default,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,LoRA,default,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,LoRA,default,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,LoRA,default,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,DoRA,default,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,DoRA,default,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,DoRA,default,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,DoRA,default,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,AdaLoRA,default,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,AdaLoRA,default,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,AdaLoRA,default,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,AdaLoRA,default,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,LoRA+,default,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,LoRA+,default,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,LoRA+,default,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,LoRA+,default,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,LoRA-FA,default,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,LoRA-FA,default,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,LoRA-FA,default,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,LoRA-FA,default,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,VeRA,default,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,VeRA,default,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,VeRA,default,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,VeRA,default,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,ShareLoRA,default,parameter-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,E2LoRA,default,parameter-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,E2LoRA,default,parameter-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,E2LoRA,default,parameter-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,E2LoRA,default,parameter-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,E2ShareLoRA,default,parameter-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,E2ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,E2ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,E2ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,DoRA,4,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,DoRA,4,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,DoRA,4,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,DoRA,4,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,AdaLoRA,4,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,AdaLoRA,4,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,AdaLoRA,4,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,GSM8K,AdaLoRA,4,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,FFT,default,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,FFT,default,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,FFT,default,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,FFT,default,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,LoRA,default,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,LoRA,default,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,LoRA,default,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,LoRA,default,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,DoRA,default,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,DoRA,default,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,DoRA,default,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,DoRA,default,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,AdaLoRA,default,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,AdaLoRA,default,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,AdaLoRA,default,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,AdaLoRA,default,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,LoRA+,default,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,LoRA+,default,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,LoRA+,default,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,LoRA+,default,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,LoRA-FA,default,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,LoRA-FA,default,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,LoRA-FA,default,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,LoRA-FA,default,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,VeRA,default,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,VeRA,default,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,VeRA,default,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,VeRA,default,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,ShareLoRA,default,parameter-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,E2LoRA,default,parameter-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,E2LoRA,default,parameter-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,E2LoRA,default,parameter-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,E2LoRA,default,parameter-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,E2ShareLoRA,default,parameter-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,E2ShareLoRA,default,parameter-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,E2ShareLoRA,default,parameter-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,E2ShareLoRA,default,parameter-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,DoRA,4,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,DoRA,4,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,DoRA,4,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,DoRA,4,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,AdaLoRA,4,non-sharing,reported,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,AdaLoRA,4,non-sharing,three_seed_extension,42,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,AdaLoRA,4,non-sharing,three_seed_extension,43,references/text-generation-setup.json,not inferred from manifest
+generation,Llama 3.1 8B Base,HumanEval,AdaLoRA,4,non-sharing,three_seed_extension,44,references/text-generation-setup.json,not inferred from manifest
+commonsense,Llama,ARC-C,LoRA,default,non-sharing,reported,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,ARC-C,LoRA,default,non-sharing,three_seed_extension,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,ARC-C,LoRA,default,non-sharing,three_seed_extension,43,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,ARC-C,LoRA,default,non-sharing,three_seed_extension,44,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,ARC-C,E2LoRA,default,parameter-sharing,reported,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,ARC-C,E2LoRA,default,parameter-sharing,three_seed_extension,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,ARC-C,E2LoRA,default,parameter-sharing,three_seed_extension,43,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,ARC-C,E2LoRA,default,parameter-sharing,three_seed_extension,44,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,ARC-E,LoRA,default,non-sharing,reported,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,ARC-E,LoRA,default,non-sharing,three_seed_extension,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,ARC-E,LoRA,default,non-sharing,three_seed_extension,43,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,ARC-E,LoRA,default,non-sharing,three_seed_extension,44,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,ARC-E,E2LoRA,default,parameter-sharing,reported,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,ARC-E,E2LoRA,default,parameter-sharing,three_seed_extension,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,ARC-E,E2LoRA,default,parameter-sharing,three_seed_extension,43,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,ARC-E,E2LoRA,default,parameter-sharing,three_seed_extension,44,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,BoolQ,LoRA,default,non-sharing,reported,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,BoolQ,LoRA,default,non-sharing,three_seed_extension,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,BoolQ,LoRA,default,non-sharing,three_seed_extension,43,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,BoolQ,LoRA,default,non-sharing,three_seed_extension,44,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,BoolQ,E2LoRA,default,parameter-sharing,reported,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,BoolQ,E2LoRA,default,parameter-sharing,three_seed_extension,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,BoolQ,E2LoRA,default,parameter-sharing,three_seed_extension,43,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,BoolQ,E2LoRA,default,parameter-sharing,three_seed_extension,44,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,OBQA,LoRA,default,non-sharing,reported,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,OBQA,LoRA,default,non-sharing,three_seed_extension,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,OBQA,LoRA,default,non-sharing,three_seed_extension,43,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,OBQA,LoRA,default,non-sharing,three_seed_extension,44,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,OBQA,E2LoRA,default,parameter-sharing,reported,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,OBQA,E2LoRA,default,parameter-sharing,three_seed_extension,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,OBQA,E2LoRA,default,parameter-sharing,three_seed_extension,43,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,OBQA,E2LoRA,default,parameter-sharing,three_seed_extension,44,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,PIQA,LoRA,default,non-sharing,reported,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,PIQA,LoRA,default,non-sharing,three_seed_extension,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,PIQA,LoRA,default,non-sharing,three_seed_extension,43,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,PIQA,LoRA,default,non-sharing,three_seed_extension,44,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,PIQA,E2LoRA,default,parameter-sharing,reported,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,PIQA,E2LoRA,default,parameter-sharing,three_seed_extension,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,PIQA,E2LoRA,default,parameter-sharing,three_seed_extension,43,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,PIQA,E2LoRA,default,parameter-sharing,three_seed_extension,44,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,SIQA,LoRA,default,non-sharing,reported,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,SIQA,LoRA,default,non-sharing,three_seed_extension,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,SIQA,LoRA,default,non-sharing,three_seed_extension,43,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,SIQA,LoRA,default,non-sharing,three_seed_extension,44,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,SIQA,E2LoRA,default,parameter-sharing,reported,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,SIQA,E2LoRA,default,parameter-sharing,three_seed_extension,42,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,SIQA,E2LoRA,default,parameter-sharing,three_seed_extension,43,experiments/s/configs/table14_commonsense.json,not inferred from manifest
+commonsense,Llama,SIQA,E2LoRA,default,parameter-sharing,three_seed_extension,44,experiments/s/configs/table14_commonsense.json,not inferred from manifest

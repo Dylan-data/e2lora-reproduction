@@ -13,4 +13,11 @@ Dylan 负责共用模型和数据入口、运行配置、实验口径及交接�
 
 [Dylan 的联调记录](experiments/dylan/) 收录小模型分组、秩、参数核对和热图，以及 A40 的 GLUE 小规模联调数字。图像和生成路线尚无真实样本联调数字。每次运行的原始结果、临时日志和中断记录按任务存放在 `outputs/<任务名>/`，共用算法检查放在 `outputs/algorithm-checks/`，Git 默认忽略。scripts/download_models.py 用于下载指定版本的公开模型。受限模型按清单使用自己的账号获取。
 
-[Word 实验填写表](E%C2%B2LoRA%20%E8%AE%BA%E6%96%87%E5%A4%8D%E7%8E%B0%E6%8A%A5%E5%91%8A.docx) 包含四个角色的填写页和论文参考数值。
+[Word 实验填写表](E%C2%B2LoRA%20%E8%AE%BA%E6%96%87%E5%A4%8D%E7%8E%B0%E6%8A%A5%E5%91%8A.docx) 是团队唯一维护的报告。各成员的正式结果统一更新到此文件。
+
+## 本地实验与报告入口
+
+- [文本理解实验说明](experiments/text-understanding/README.md)：五个 GLUE 任务、12 种方法、短跑验证、正式训练和续跑入口。
+- [梯度诊断与明细](experiments/dylan/results/)：初始化、相似度和训练期间代理熵的数据及图。
+
+最新报告与展示文件保留在本地，本次同步不包含这些文件。

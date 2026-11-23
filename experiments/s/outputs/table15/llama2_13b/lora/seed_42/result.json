@@ -1,0 +1,49 @@
+{
+  "suite": "table15",
+  "task": "math",
+  "method": "lora",
+  "model": "meta-llama/Llama-2-13b-hf",
+  "revision": "5c31dfb671ce7cfe2d7bb7c04375e44c55e815b1",
+  "seed": 42,
+  "epochs_completed": 1,
+  "global_steps": 1563,
+  "best_validation_loss": 0.23872807193893053,
+  "training_history": [
+    {
+      "epoch": 1,
+      "global_step": 1563,
+      "train_loss": 0.2656157837954118,
+      "validation_loss": 0.23872807193893053,
+      "epoch_seconds_this_segment": 15785.984046916943
+    }
+  ],
+  "parameter_counts": {
+    "trainable_total_params": 13107200,
+    "trainable_adapter_params": 13107200,
+    "frozen_adapter_buffer_elements": 0,
+    "full_adapter_factor_elements": 13107200,
+    "total_trainable_params": 13107200
+  },
+  "hardware": {
+    "torch_version": "2.11.0+cu128",
+    "device": "cuda",
+    "cuda_available": true,
+    "gpu_count": 1,
+    "gpu_names": [
+      "NVIDIA A40"
+    ],
+    "peak_cuda_memory_bytes": 26236201472
+  },
+  "wall_clock_seconds": 0.5423033540137112,
+  "diagnostic_subset": false,
+  "note": "This result is a local reproduction run; compare with paper Table only after full data and protocol match.",
+  "final_evaluation": {
+    "metric": "accuracy",
+    "correct": 570,
+    "total": 1319,
+    "accuracy": 0.43214556482183475,
+    "parse_failures": 0,
+    "evaluation_dataset": "GSM8K test",
+    "protocol_note": "Exact numeric extraction; prompt is a documented team choice."
+  }
+}
